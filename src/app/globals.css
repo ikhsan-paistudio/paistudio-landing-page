@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-jakarta), sans-serif;
+
+  --color-ink: #080807;
+  --color-paper: #ffffff;
+  --color-cream: #e8e8e3;
+  --color-text: #1a1813;
+  --color-muted: #6b645c;
+  --color-brand: #00b450;
+  --color-deep: #0c310a;
+  --color-mint: #74d39e;
+  --color-pill: #d5e798;
+}
+
+html {
+  scroll-snap-type: y proximity;
+}
+
+body {
+  background: var(--color-paper);
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #08150e;
+}
+
+/* ---------- reveal / text-in stagger ---------- */
+@keyframes paiCardIn {
+  0% {
+    opacity: 0;
+    transform: translateY(34px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes paiTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pai-work-copy.pai-armed > * {
+  opacity: 0;
+}
+.pai-work-copy.pai-play > * {
+  animation: paiTextIn 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.pai-work-copy.pai-play > *:nth-child(1) {
+  animation-delay: 0.04s;
+}
+.pai-work-copy.pai-play > *:nth-child(2) {
+  animation-delay: 0.13s;
+}
+.pai-work-copy.pai-play > *:nth-child(3) {
+  animation-delay: 0.22s;
+}
+.pai-work-copy.pai-play > *:nth-child(4) {
+  animation-delay: 0.31s;
+}
+
+/* ---------- marquees ---------- */
+@keyframes paiVMarquee {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+@keyframes paiHMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.pai-vmarquee {
+  animation: paiVMarquee 40s linear infinite;
+}
+.pai-hmarquee {
+  animation: paiHMarquee 26s linear infinite;
+}
+
+/* ---------- cursor-follow hover bubble ---------- */
+.pai-hover-card {
+  position: relative;
+  overflow: hidden;
+}
+.pai-hover-bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 115px;
+  height: 115px;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* ---------- FAQ accordion ---------- */
+.pai-faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pai-faq-panel.pai-faq-open {
+  grid-template-rows: 1fr;
+}
+.pai-faq-panel-inner {
+  overflow: hidden;
+}
+.pai-faq-answer {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.pai-faq-panel.pai-faq-open .pai-faq-answer {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pai-vmarquee,
+  .pai-hmarquee {
+    animation: none !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .pai-work-copy > * {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .pai-faq-panel,
+  .pai-faq-answer {
+    transition: none !important;
+  }
+}

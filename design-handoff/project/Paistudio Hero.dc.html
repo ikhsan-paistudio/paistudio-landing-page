@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#0a3826">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0a3826"/>
+    <ellipse cx="600" cy="300" rx="520" ry="300" fill="#00c85a" opacity="0.32"/>
+    <text x="600" y="470" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" font-size="200" letter-spacing="-6" fill="#f0f0f1">paistudio<tspan fill="#74d39e">.</tspan></text>
+  </svg>
+</template>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <title>Paistudio — AI-Empowered Product Team for Founders</title>
+  <meta name="description" content="Paistudio helps founders design, build, and launch AI-powered SaaS, marketplaces, and internal tools faster using Bubble, AI, and modern no-code technology.">
+  <link rel="canonical" href="https://paistudio.co/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Paistudio — AI-Empowered Product Team for Founders">
+  <meta property="og:description" content="Design, development, AI, and automation in one team. Launch your SaaS, marketplace, or internal tool in weeks, not months.">
+  <meta property="og:image" content="uploads/paistudio-logo-light.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-snap-type:y proximity}
+    body{background:#e8e8e3}
+    ::selection{background:#FFFFFF;color:#FFFFFF}
+    @keyframes paiFloat1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,26px) scale(1.12)}100%{transform:translate(0,0) scale(1)}}
+    @keyframes paiFloat2{0%{transform:translate(0,0) scale(1.08)}50%{transform:translate(-34px,30px) scale(0.97)}100%{transform:translate(0,0) scale(1.08)}}
+    @keyframes paiFloat3{0%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-24px) scale(1.16)}100%{transform:translate(0,0) scale(1)}}
+    @keyframes paiGrain{0%{transform:translate(0,0)}25%{transform:translate(-6%,4%)}50%{transform:translate(3%,-5%)}75%{transform:translate(-4%,-3%)}100%{transform:translate(0,0)}}
+    @keyframes paiCue{0%,100%{transform:translateY(0);opacity:0.55}50%{transform:translateY(7px);opacity:1}}
+    @keyframes paiCardFloat{0%{transform:translateY(0) scale(1.04)}50%{transform:translateY(-13px) scale(1.06)}100%{transform:translateY(0) scale(1.04)}}
+    @keyframes paiCardIn{0%{opacity:0;transform:translateY(34px) scale(0.97)}100%{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes paiTextIn{0%{opacity:0;transform:translateY(28px)}100%{opacity:1;transform:translateY(0)}}
+    .pai-work-copy.pai-armed>*{opacity:0}
+    .pai-work-copy.pai-play>*{animation:paiTextIn 0.72s cubic-bezier(0.22,1,0.36,1) both}
+    .pai-work-copy.pai-play>*:nth-child(1){animation-delay:0.04s}
+    .pai-work-copy.pai-play>*:nth-child(2){animation-delay:0.13s}
+    .pai-work-copy.pai-play>*:nth-child(3){animation-delay:0.22s}
+    .pai-work-copy.pai-play>*:nth-child(4){animation-delay:0.31s}
+    @keyframes paiVMarquee{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+    @keyframes paiHMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @keyframes paiBeamDrift1{0%{transform:translateX(0) rotate(0deg);opacity:0.55}50%{transform:translateX(18vw) rotate(4deg);opacity:1}100%{transform:translateX(0) rotate(0deg);opacity:0.55}}
+    @keyframes paiBeamDrift2{0%{transform:translateX(0) rotate(0deg);opacity:0.4}50%{transform:translateX(-14vw) rotate(-3deg);opacity:0.85}100%{transform:translateX(0) rotate(0deg);opacity:0.4}}
+    @keyframes paiWave1{0%{transform:translate(-30%,-10%) scale(1.2) rotate(-8deg)}33%{transform:translate(22%,14%) scale(1.5) rotate(7deg)}66%{transform:translate(34%,-14%) scale(1.3) rotate(12deg)}100%{transform:translate(-30%,-10%) scale(1.2) rotate(-8deg)}}
+    @keyframes paiWave2{0%{transform:translate(28%,10%) scale(1.35) rotate(6deg)}33%{transform:translate(-28%,-16%) scale(1.6) rotate(-10deg)}66%{transform:translate(-10%,20%) scale(1.35) rotate(5deg)}100%{transform:translate(28%,10%) scale(1.35) rotate(6deg)}}
+    @keyframes paiWave3{0%{transform:translate(-16%,22%) scale(1.4) rotate(10deg)}50%{transform:translate(20%,-22%) scale(1.7) rotate(-12deg)}100%{transform:translate(-16%,22%) scale(1.4) rotate(10deg)}}
+    @media (prefers-reduced-motion:reduce){.pai-float{animation:none!important}.pai-vmarquee{animation:none!important}.pai-hmarquee{animation:none!important}[data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
+    @media (prefers-reduced-motion:reduce){[style*="paiBeamDrift1"],[style*="paiBeamDrift2"],[style*="paiWave1"],[style*="paiWave2"],[style*="paiWave3"]{animation:none!important}}
+    @media (prefers-reduced-motion:reduce){.pai-work-copy>*{opacity:1!important;animation:none!important}}
+
+
+    /* ---------- responsive: tablet (<=900px) ---------- */
+    @media (max-width:900px){
+      .pai-container{padding-left:28px!important;padding-right:28px!important}
+      .pai-nav-links{display:none!important}
+      .pai-nav{padding-left:24px!important;padding-right:24px!important}
+      .pai-hero-h1{font-size:clamp(40px,9vw,72px)!important}
+      .pai-hero-row{flex-direction:column!important;align-items:flex-start!important}
+      .pai-hero-row p{max-width:100%!important}
+      .pai-stats-row{flex-wrap:wrap!important}
+      .pai-stats-row>div{flex:1 1 45%!important;padding:0 16px 16px!important;border-left:none!important}
+      .pai-work-grid{grid-template-columns:1fr!important;gap:28px!important}
+      .pai-work-gallery{height:44vh!important}
+      .pai-cta-grid{grid-template-columns:repeat(2,1fr)!important}
+      .pai-footer-grid{grid-template-columns:1fr 1fr!important;gap:32px!important}
+      .pai-pricing-row1{grid-template-columns:1fr!important}
+      .pai-pricing-row2{grid-template-columns:1fr!important}
+      .pai-final-h2{font-size:50px!important}
+    }
+    /* ---------- responsive: mobile (<=560px) ---------- */
+    @media (max-width:560px){
+      .pai-container{padding-left:20px!important;padding-right:20px!important}
+      .pai-nav{height:68px!important;padding-left:16px!important;padding-right:16px!important}
+      .pai-cta-text{padding:5px 12px 5px 5px!important}
+      .pai-cta-text span{display:none}
+      .pai-hero-h1{font-size:clamp(32px,10vw,48px)!important}
+      .pai-hero-row{padding-top:0!important}
+      .pai-stats-row>div{flex:1 1 100%!important;border-left:none!important;padding:0 0 16px!important}
+      .pai-cta-grid{grid-template-columns:1fr!important}
+      .pai-footer-grid{grid-template-columns:1fr!important;gap:36px!important}
+      .pai-final-h2{font-size:36px!important}
+      .pai-testimonial-slide{flex-basis:88vw!important;padding:0 12px!important}
+      .pai-testimonial-quote{font-size:21px!important}
+      .pai-work-h2{font-size:32px!important}
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</helmet>
+
+<div style="position: relative; width: 100%; color: #1a1813; font-family: 'Plus Jakarta Sans', sans-serif; background-color: #080807">
+
+  <!-- film grain overlay: fixed, above all content, below interactive nav/rail (z-index 40+) -->
+  
+  <!-- subtle vignette -->
+  
+
+  <!-- film grain overlay: fixed, above all content, below interactive nav/rail (z-index 40+) -->
+  <div style="position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; display: none">
+    <div ref="{{ setGrainEl }}" style="position:absolute;top:-100%;left:-100%;width:300%;height:300%;background-size:120px 120px;background-repeat:repeat;opacity:0.06;will-change:transform;transform:translate3d(0,0,0);image-rendering:pixelated"></div>
+  </div>
+  <!-- subtle vignette -->
+  
+
+  <!-- fixed background: vertical black -> green -> soft green -> white; holds through hero, fades to white by section 2 -->
+  <div ref="{{ setHeroBg }}" style="position: fixed; top: 0; left: 0; right: 0; height: 150vh; z-index: 0; pointer-events: none; overflow: hidden">
+    <!-- flowing green light: three soft radial blobs drift along interweaving paths behind the hero, reading as an aurora-like flow -->
+    <div style="position: absolute; top: 4%; left: -20%; width: 130%; height: 75%; background: radial-gradient(58% 48% at 50% 50%, rgba(90,235,155,0.30) 0%, rgba(90,235,155,0.12) 42%, transparent 68%); filter: blur(34px); mix-blend-mode: screen; animation: paiWave1 11s ease-in-out infinite; will-change: transform; display: none"></div>
+    <div style="position: absolute; top: 14%; left: -22%; width: 140%; height: 70%; background: radial-gradient(52% 46% at 45% 55%, rgba(120,255,185,0.26) 0%, rgba(120,255,185,0.10) 45%, transparent 70%); filter: blur(42px); mix-blend-mode: screen; animation: paiWave2 15s ease-in-out infinite; will-change: transform; display: none"></div>
+    <div style="position: absolute; top: -6%; left: -10%; width: 120%; height: 80%; background: radial-gradient(48% 42% at 55% 45%, rgba(70,215,140,0.22) 0%, rgba(70,215,140,0.09) 48%, transparent 72%); filter: blur(50px); mix-blend-mode: screen; animation: paiWave3 19s ease-in-out infinite; will-change: transform; display: none"></div>
+    <div ref="{{ setGLHost }}" style="position: absolute; top: 0; left: 0; right: 0; height: 100vh; z-index: 0; pointer-events: none"></div>
+  </div>
+
+  <!-- fixed nav -->
+  <nav ref="{{ setNavBar }}" class="pai-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; height: 80px; margin: 0 auto; padding: 0 40px; width: 100%; transition: transform 0.35s cubic-bezier(0.22,1,0.36,1)">
+    <div style="position:relative;width:137px;height:24px">
+      <img ref="{{ setLogoOnLight }}" src="uploads/paistudio-logo-dark.svg" alt="paistudio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity 0.45s ease">
+      <img ref="{{ setLogoOnDark }}" src="uploads/paistudio-logo-light.svg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:1;transition:opacity 0.45s ease">
+    </div>
+    <div ref="{{ setNavLinks }}" class="pai-nav-links" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 4px; padding: 5px; border-radius: 32px; background: rgba(255,255,255,0.08); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border: 1px solid rgba(255,255,255,0.16); box-shadow: 0 6px 24px rgba(255,255,255,0.14), inset 0 1px 0 rgba(255,255,255,0.18); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; letter-spacing: 0.02em; color: rgba(255,255,255,0.82)">
+      <span onclick="{{ gotoWork }}" style="cursor:pointer;padding:8px 18px;border-radius:32px;transition:background 0.25s ease" style-hover="background: rgba(255,255,255,0.14)">Our Work</span><span onMouseEnter="{{ openBuild }}" onMouseLeave="{{ closeBuild }}" style="position:relative;cursor:pointer;padding:8px 18px;border-radius:32px;transition:background 0.25s ease;display:inline-flex;align-items:center;gap:6px" style-hover="background: rgba(255,255,255,0.14)">
+        <span>Build</span>
+        <svg width="9" height="9" viewBox="0 0 10 10" fill="none" style="opacity:0.6"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div ref="{{ setBuildMenu }}" style="position:absolute;top:100%;left:50%;transform:translate(-50%,8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.22s ease, transform 0.22s ease;padding-top:14px;cursor:default">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 22px 26px; width: 420px; border-radius: 32px; backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 18px 48px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.12); text-align: left; padding-left: 16px; padding-right: 16px; background-color: #121210F2">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.66); margin-bottom: 8px; padding-left: 10px; padding-right: 10px">What We Build</div>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">SaaS &amp; Web Apps</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Marketplace</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">AI Products</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Automations</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Internal Tools</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">MVP</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.66); margin-bottom: 8px; padding-left: 10px; padding-right: 10px">How We Build It</div>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Bubble</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">n8n</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Softr</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Airtable</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Lovable</span>
+            <span style="font-size:14px;padding:7px 10px;border-radius:32px;color: rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Claude AI</span>
+          </div>
+        </div>
+        </div>
+      </span>
+      <span onclick="{{ gotoPricing }}" style="cursor:pointer;padding:8px 18px;border-radius:32px;transition:background 0.25s ease" style-hover="background: rgba(255,255,255,0.14)">Pricing</span>
+      
+      <span onMouseEnter="{{ openResources }}" onMouseLeave="{{ closeResources }}" style="position:relative;cursor:pointer;padding:8px 18px;border-radius:32px;transition:background 0.25s ease;display:inline-flex;align-items:center;gap:6px" style-hover="background: rgba(255,255,255,0.14)">
+        <span>Resources</span>
+        <svg width="9" height="9" viewBox="0 0 10 10" fill="none" style="opacity:0.6"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div ref="{{ setResourcesMenu }}" style="position:absolute;top:100%;left:50%;transform:translate(-50%,8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.22s ease, transform 0.22s ease;padding-top:14px;cursor:default">
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 14px; width: 230px; border-radius: 32px; backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 18px 48px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.12); text-align: left; background-color: #121210F2">
+            <span style="font-size:14px;padding:9px 12px;border-radius:32px;color: rgba(255,255,255,0.82);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Bubble Templates</span>
+            <span style="font-size:14px;padding:9px 12px;border-radius:32px;color: rgba(255,255,255,0.82);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Bubble Plugins</span>
+            <span style="font-size:14px;padding:9px 12px;border-radius:32px;color: rgba(255,255,255,0.82);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">Blog</span>
+            <span style="font-size:14px;padding:9px 12px;border-radius:32px;color: rgba(255,255,255,0.82);transition:background 0.2s ease,color 0.2s ease" style-hover="background: rgba(255,255,255,0.1);color:#FFFFFF">FAQs</span>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div style="box-sizing: border-box; display: flex; flex-direction: row; gap: 32px; justify-content: flex-end; align-items: center"><span onMouseEnter="{{ openChat }}" onMouseLeave="{{ closeChat }}" style="position:relative;display:inline-flex"><button ref="{{ setCtaBtn }}" class="pai-cta-text" style="display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.16); padding: 5px 16px 5px 5px; cursor: pointer; background: rgba(255,255,255,0.08); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 6px 24px rgba(255,255,255,0.14), inset 0 1px 0 rgba(255,255,255,0.18); transition: background 0.25s ease; border-radius: 32px; padding-top: 8px; padding-bottom: 8px; padding-left: 8px" style-hover="background: rgba(255,255,255,0.16)">
+      <img src="uploads/appai.jpeg" alt="" style="width: 32px; height: 32px; border-radius: 32px; object-fit: cover; display: block">
+      <span ref="{{ setCtaText }}" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;letter-spacing:0.02em;color:#FFFFFF">Let's Talk</span>
+      
+    </button>
+      <div ref="{{ setChatMenu }}" style="position:absolute;top:100%;right:0;transform:translateY(8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.22s ease, transform 0.22s ease;padding-top:12px;cursor:default;z-index:60">
+        <div style="display: flex; flex-direction: column; gap: 2px; padding: 8px; width: 212px; border-radius: 32px; backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 18px 48px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.12); text-align: left; background-color: #121210F2; padding-top: 14px; padding-right: 14px; padding-bottom: 14px; padding-left: 14px">
+          <a href="#" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:32px;text-decoration:none;color: rgba(255,255,255,0.9);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;transition:background 0.2s ease" style-hover="background: rgba(255,255,255,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366" style="flex:0 0 auto"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.4 2.6 1.6.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"></path></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="#" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:32px;text-decoration:none;color: rgba(255,255,255,0.9);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;transition:background 0.2s ease" style-hover="background: rgba(255,255,255,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5" stroke="#e6a15c" stroke-width="1.6"></rect><path d="M3.5 6.5 12 12.5 20.5 6.5" stroke="#e6a15c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span>Email</span>
+          </a>
+          <a href="#" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:32px;text-decoration:none;color: rgba(255,255,255,0.9);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;transition:background 0.2s ease" style-hover="background: rgba(255,255,255,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5" stroke="#74d39e" stroke-width="1.6"></rect><path d="M3.5 9.5h17M8 3v3M16 3v3" stroke="#74d39e" stroke-width="1.6" stroke-linecap="round"></path></svg>
+            <span>Schedule a call</span>
+          </a>
+        </div>
+      </div>
+    </span></div>
+    
+  </nav>
+
+  <!-- fixed progress rail (projects) -->
+  <div style="{{ railWrapStyle }}">
+    <sc-for list="{{ rail }}" as="r" hint-placeholder-count="6">
+      <div onClick="{{ r.onSelect }}" style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <span style="{{ r.dotStyle }}"></span>
+      </div>
+    </sc-for>
+  </div>
+
+  <!-- HERO -->
+  <section style="position: relative; z-index: 1; min-height: 100vh; scroll-snap-align: start; overflow: visible; display: flex; align-items: center; flex-direction: column; justify-content: flex-end; gap: 48px; padding-top: 148px; box-sizing: border-box">
+
+    <div data-fade="1" data-para="0.08" class="pai-hero-row pai-container" style="position: relative; z-index: 1; margin: 0 auto; padding: 0 40px; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; display: flex; align-items: flex-end; gap: 20px; width: 100%; box-sizing: border-box">
+
+      <h1 class="pai-hero-h1" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 100px; line-height: 1.0; width: 100%; text-wrap: balance; margin: 0; color: #FFFFFF; letter-spacing: -1px">
+        Your AI-Empowered Product Team To Launch&nbsp;<span style="color: #00B450; text-decoration: underline 3px; text-underline-offset: 10px">5× faster.</span>
+      </h1>
+      <p style="font-size: 18px; line-height: 1.4; color: rgba(255,255,255,0.82); display: block; max-width: 400px; margin: 0; font-weight: 400">We help founders launch SaaS, marketplaces, automations, internal tools, and AI products&nbsp;faster using AI and no-code, shipped in weeks, not months.</p>
+    </div>
+
+    <!-- hero social proof -->
+    <div data-fade="1" style="position: static; z-index: 1; display: flex; justify-content: center; pointer-events: none; width: 100%; padding-bottom: 52px">
+      <div class="pai-stats-row pai-container" style="width: 100%; padding: 24px 40px 0; display: flex; align-items: center; border-top: 1px solid rgba(255,255,255,0.18)">
+        <div style="flex:1;padding-right:34px">
+          <div style="height:30px;display:flex;align-items:center;margin-bottom:9px"><img src="uploads/upwork-logo.png" alt="Upwork" style="height:22px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.85"></div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; color: rgba(255,255,255,0.78)">TOP RATED+ ON UPWORK</div>
+        </div>
+        <div style="flex:1;padding:0 34px;border-left:1px solid rgba(255,255,255,0.18)">
+          <div style="height:30px;display:flex;align-items:center;margin-bottom:9px"><img src="uploads/bubble-logo.png" alt="Bubble.io" style="height:22px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.85"></div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; color: rgba(255,255,255,0.78)">VERIFIED BUBBLE.IO AGENCY</div>
+        </div>
+        <div style="flex:1;padding:0 34px;border-left:1px solid rgba(255,255,255,0.18)">
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 18px; color: #FFFFFF; height: 30px; display: flex; align-items: center; margin-bottom: 9px; text-transform: none">2 weeks</div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; color: rgba(255,255,255,0.78)">AVG. FIRST RELEASE</div>
+        </div>
+        <div style="flex:1;padding-left:34px;border-left:1px solid rgba(255,255,255,0.18)">
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 18px; color: #FFFFFF; height: 30px; display: flex; align-items: center; margin-bottom: 9px; text-transform: uppercase">50+</div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; color: rgba(255,255,255,0.78)">PROJECTS COMPLETED</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PINNED HORIZONTAL PROJECTS -->
+  <section id="work" ref="{{ setPin }}" style="position: relative; z-index: 1; height: 600vh; background-color: #FAF7ED00">
+    <!-- vertical snap stops, one per project -->
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+      <div style="{{ p.stopStyle }}"></div>
+    </sc-for>
+
+    <div ref="{{ setPinInner }}" style="position:sticky;top:0;height:100vh;overflow:hidden;will-change:opacity,transform">
+      <div ref="{{ setTrack }}" style="display:flex;height:100%;width:max-content;will-change:transform">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+          <div style="flex: 0 0 100vw; height: 100vh; display: flex; align-items: center">
+            <div class="pai-work-grid pai-container" style="max-width:none;margin:0;padding:0 92px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center">
+              <div class="{{ p.copyClass }}" style="height: 100%; display: flex; flex-direction: column; justify-content: center; animation: paiCardIn 0.9s cubic-bezier(0.22,1,0.36,1) both">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:14px">
+                  <svg width="11" height="11" viewBox="0 0 10 10" fill="none" style="flex:0 0 auto"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="#0c310a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#0c310a">Our Work</span>
+                </div>
+                <h2 class="pai-work-h2" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 70px; line-height: 1.04; letter-spacing: -0.56px; color: #0c310a; margin: 0 0 16px">{{ p.name }}</h2>
+                <p style="font-size: 18px; line-height: 1.4; color: #0c310a; max-width: 500px; margin: 0 0 24px; font-weight: 500">{{ p.desc }}</p>
+                <div style="max-width: 500px; margin-bottom: 24px; padding-top: 20px">
+                  
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                    <sc-for list="{{ p.skills }}" as="s" hint-placeholder-count="5">
+                      <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 400; color: #1a1813; border-radius: 32px; padding: 6px 14px; background-color: #d5e798">{{ s }}</span>
+                    </sc-for>
+                  </div>
+                </div>
+
+              </div>
+              <div class="pai-work-gallery" style="position:relative;height:88vh;overflow:hidden;animation:paiCardIn 0.9s cubic-bezier(0.22,1,0.36,1) both;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 6%,#000 94%,transparent 100%)">
+              <div class="pai-vmarquee" style="position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;animation:paiVMarquee 40s linear infinite" style-hover="animation-play-state:paused">
+                <div style="margin-bottom: 18px; border-radius: 32px; overflow: hidden; border: 1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="1" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 1</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="2" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 2</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="3" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 3</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="4" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 4</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="5" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 5</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="6" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 6</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="1" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 1</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="2" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 2</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="3" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 3</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="4" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 4</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="5" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 5</span>
+                  </div>
+                </div>
+                <div style="margin-bottom:18px;border-radius:32px;overflow:hidden;border:1px solid rgba(26,24,19,0.08)">
+                  <div data-project-image="6" style="aspect-ratio:16/10;background:#d9d7d0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center">
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.1em;color:#6b645c">IMAGE 6</span>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG CTA (scroll-animated grey->dark via the fixed background, like hero->section2) -->
+  <section ref="{{ setCtaSection }}" style="position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; padding: 60vh 0 140px; background: linear-gradient(180deg, #28211A00, #28211A00, #09261ACC, #135232, #23A05D)">
+    
+    <!-- green gradient accents -->
+    <div style="position:absolute;left:-8%;bottom:-10%;width:70%;height:90%;z-index:0;pointer-events:none;background:radial-gradient(50% 50% at 42% 58%, rgba(74,215,140,0.22), transparent 70%);filter:blur(24px)"></div>
+    <div style="position: relative; z-index: 1; margin: 0 auto; padding: 0 40px; width: 100%; display: flex; flex-direction: column; align-items: flex-start; max-width: 1240px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:18px">
+        <svg width="11" height="11" viewBox="0 0 10 10" fill="none" style="flex:0 0 auto"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="rgba(255,255,255,0.6)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color: rgba(255,255,255,0.6)">Why Paistudio</span>
+      </div>
+      <h2 data-reveal="1" data-reveal-id="ctaHeadline" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; color: #FFFFFF; margin: 0; max-width: 760px; text-wrap: balance; font-size: 64px; line-height: 1.04; letter-spacing: -0.56px">We are a focused product team between a freelancer and an agency built for founders with a real idea to ship.</h2>
+      
+      
+
+      <div class="pai-cta-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:100%;margin-top:72px">
+        <div data-reveal="1" data-reveal-id="ctaCard0" style="{{ reveal.ctaCard0 }};display: flex; flex-direction: column; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 32px; padding: 30px 28px">
+          
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.3; color: #FFFFFF; margin: 0 0 12px; text-wrap: balance">Team depth, founder price</h3>
+          <p style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0">Design, development, AI, and automation in one team — no agency markup, no juggling contractors.</p>
+        </div>
+        <div data-reveal="1" data-reveal-id="ctaCard1" style="{{ reveal.ctaCard1 }};display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.1); border-radius: 32px; padding: 30px 28px; background-color: #FFFFFF0A">
+          
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.3; color: #FFFFFF; margin: 0 0 12px; text-wrap: balance">You talk to the builders</h3>
+          <p style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0">No middlemen. The person you brief is the person building — faster decisions, better product.</p>
+        </div>
+        <div data-reveal="1" data-reveal-id="ctaCard2" style="{{ reveal.ctaCard2 }};display: flex; flex-direction: column; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 32px; padding: 30px 28px">
+          
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.3; color: #FFFFFF; margin: 0 0 12px; text-wrap: balance">Ships in weeks, not months</h3>
+          <p style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0">No bloated process or 20-page proposals. We scope, design, and ship. You're live while others are still in discovery.</p>
+        </div>
+      </div>
+
+      <div data-reveal="1" data-reveal-id="ctaTools" style="{{ reveal.ctaTools }};width: 100%; display: flex; flex-direction: column; align-items: center; gap: 32px; margin-top: 80px">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;color: rgba(255,255,255,0.66)">TOOLS WE SPECIALIZE AT</span>
+        <div style="position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%)">
+          <div class="pai-hmarquee" style="display:flex;align-items:center;gap:76px;width:max-content;animation:paiHMarquee 26s linear infinite;padding-right:76px">
+            <img src="uploads/Bubble_idItVc2FWi_0.svg" alt="Bubble" style="height:30px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="./airtable_idsyxgmlap_1-mr6e7moe.png" alt="Airtable" style="height:32px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/Softr_logo_white_updated_2025_0.svg" alt="Softr" style="height:33px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/N8n-io_Logo_0.svg" alt="n8n" style="height:38px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/Lovable_Logo_0.svg" alt="Lovable" style="height:29px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/Claude_Logo_0.svg" alt="Claude AI" style="height:29px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/Bubble_idItVc2FWi_0.svg" alt="Bubble" style="height:30px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="./airtable_idsyxgmlap_1-mr6e7moe.png" alt="Airtable" style="height:32px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/Softr_logo_white_updated_2025_0.svg" alt="Softr" style="height:33px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/N8n-io_Logo_0.svg" alt="n8n" style="height:38px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/Lovable_Logo_0.svg" alt="Lovable" style="height:29px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+            <img src="uploads/Claude_Logo_0.svg" alt="Claude AI" style="height:29px;width:auto;display:block;flex:0 0 auto;opacity:0.82">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <section id="testimonials" style="position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 130px 0 110px; background-color: #080807">
+    <div class="pai-container" style="max-width:1240px;margin:0 auto;padding:0 40px;width:100%">
+      <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:44px">
+        <svg width="11" height="11" viewBox="0 0 10 10" fill="none" style="flex:0 0 auto"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="rgba(255,255,255,0.6)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span style="font-family: 'Plus Jakarta Sans',sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6)">WHAT CLIENT SAY</span>
+      </div>
+      <div data-reveal="1" data-reveal-id="testimonialsWrap" style="{{ reveal.testimonialsWrap }};width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%)">
+        <div style="{{ tTrackStyle }}">
+          <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+            <div style="{{ t.slideStyle }}" onClick="{{ t.onSelect }}" class="pai-testimonial-slide">
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:50px;line-height:0.5;color:#74d39e;margin-bottom:26px">“</span>
+              <p class="pai-testimonial-quote" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:30px;line-height:1.5;letter-spacing:-0.01em;color:#FFFFFF;margin:0 0 34px;text-wrap:pretty">{{ t.quote }}</p>
+              <sc-if value="{{ t.hasImg }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ t.img }}" alt="{{ t.name }}" style="width:60px;height:60px;border-radius:50%;object-fit:cover;display:block;border:1px solid rgba(255,255,255,0.14);margin-bottom:14px">
+              </sc-if>
+              <sc-if value="{{ t.noImg }}" hint-placeholder-val="{{ true }}">
+                <span style="{{ t.avatarStyle }}">{{ t.initials }}</span>
+              </sc-if>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;color:#FFFFFF;margin-top:6px">{{ t.name }}</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.04em;color: rgba(255,255,255,0.68);margin-top:5px">{{ t.role }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <div style="position: relative">
+    <section id="pricing" style="position: relative; z-index: 1; padding: 130px 0 140px; background-color: #080807">
+    <div class="pai-container" style="max-width:1240px;margin:0 auto;padding:0 40px;width:100%">
+
+      <!-- header row -->
+      <div data-reveal="1" data-reveal-id="pricingHeader" style="{{ reveal.pricingHeader }};margin-bottom: 88px; margin-top: 24px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:18px">
+          <svg width="11" height="11" viewBox="0 0 10 10" fill="none" style="flex:0 0 auto"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="rgba(255,255,255,0.6)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color: rgba(255,255,255,0.6)">Pricing</span>
+        </div>
+        <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 88px; line-height: 1.04; letter-spacing: -0.56px; color: #FFFFFF; margin: 0 0 18px; text-wrap: balance; text-align: center">Simple pricing for every stage of your product.</h2>
+        <p style="font-size: 18px; line-height: 1.6; color: #6B645c; margin: 0; text-align: center; font-weight: 400; margin-top: 24px">No hidden fees. Fast execution, and a dedicated product partner — without the agency overhead.</p>
+      </div>
+
+      <!-- Row 1: Biweekly Sprint (featured) -->
+      <div data-reveal="1" data-reveal-id="pricingRow1" class="pai-pricing-row1" style="{{ reveal.pricingRow1 }};position: relative; overflow: hidden; border-radius: 32px; background: linear-gradient(160deg, rgba(255,255,255,0.055) 40%, rgba(255,255,255,0.03) 100%); padding: 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; margin-bottom: 24px; padding-top: 48px; padding-right: 48px; padding-bottom: 48px; padding-left: 48px">
+
+        <!-- left column: title, price, description, benefits -->
+        <div style="display: flex; flex-direction: column; justify-content: center">
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 26px; line-height: 1.1; letter-spacing: -0.01em; color: #FFFFFF; margin: 0 0 16px">Biweekly Sprint</h3>
+          <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 18px">
+            <span style="font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 500; font-size: 28px; line-height: 1.1; letter-spacing: -0.01em; color: #FFFFFF">$1,950</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;letter-spacing:0.06em;color: rgba(255,255,255,0.55)">/sprint</span>
+          </div>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B645c; margin: 0 0 24px; max-width: 480px; font-weight: 400">Your dedicated product team — shipping features, improvements, and AI capabilities every sprint.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">Unlimited requests</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">One priority at a time</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">Dedicated developer</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">UX/UI design</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">AI &amp; API integrations</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">Weekly updates</span>
+          </div>
+        </div>
+
+        <!-- right column: trust cards -->
+        <div style="display: flex; flex-direction: column; gap: 14px; justify-content: center">
+          <div style="border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 22px 24px; display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#FFFFFF">Try it for a week.</span>
+            <p style="font-size: 14px; line-height: 1.55; color: #6B645c; margin: 0">Still not feeling it? 75% back — no awkward conversation, no fine print.</p>
+          </div>
+          <div style="border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 22px 24px; display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:#FFFFFF">Pause or cancel anytime.</span>
+            <p style="font-size: 14px; line-height: 1.55; color: #6B645c; margin: 0">No lock-in contracts — stop or pause whenever your priorities change.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row 2: Rocket Launch MVP | Custom scope -->
+      <div class="pai-pricing-row2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch">
+
+        <!-- Rocket Launch MVP -->
+        <div data-reveal="1" data-reveal-id="pricingRow2Card0" style="{{ reveal.pricingRow2Card0 }};position: relative; overflow: hidden; display: flex; flex-direction: column; border-radius: 24px; background: linear-gradient(160deg, rgba(255,255,255,0.055) 40%, rgba(255,255,255,0.03) 100%); padding: 32px; padding-top: 48px; padding-right: 48px; padding-bottom: 48px; padding-left: 48px">
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: -0.01em; color: #FFFFFF; margin: 0 0 12px">Rocket Launch MVP</h3>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:28px;letter-spacing:-0.01em;color:#FFFFFF;margin-bottom:16px;display:block">$3,950<span style="font-family: 'Plus Jakarta Sans',sans-serif; font-size: 12px; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin-left: 8px">/one-time</span></span>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B645c; margin: 0 0 24px">From zero to launched — strategy, design, development, and launch, live in as little as 2 weeks.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">Product strategy</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">UX/UI design</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">Full development</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">AI &amp; integrations</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color: rgba(255,255,255,0.75);background: rgba(255,255,255,0.05);border-radius:8px;padding:8px 16px">2-week launch</span>
+          </div>
+        </div>
+
+        <!-- Custom -->
+        <div data-reveal="1" data-reveal-id="pricingRow2Card1" style="{{ reveal.pricingRow2Card1 }};border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); padding: 32px; display: flex; flex-direction: column; padding-top: 48px; padding-right: 48px; padding-bottom: 48px; padding-left: 48px">
+          <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; font-size: 26px; letter-spacing: -0.01em; color: #FFFFFF; margin: 0 0 12px">Custom scope &amp; pricing</h3>
+          <p style="font-size: 14px; line-height: 1.6; color: #6B645c; margin: 0 0 28px">Tell us what you're building — fixed-price proposal, honest timeline, no fluff.</p>
+          <button style="align-self: flex-start; margin-top: auto; display:inline-flex;align-items:center;gap:9px;color:#FFFFFF;border:1px solid rgba(255,255,255,0.16);border-radius:32px;padding:13px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;cursor:pointer;background: rgba(255,255,255,0.08);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);box-shadow:0 6px 24px rgba(255,255,255,0.14), inset 0 1px 0 rgba(255,255,255,0.18);transition:background 0.25s ease" style-hover="background: rgba(255,255,255,0.16)">Let's Talk</button>
+        </div>
+
+      </div>
+    </div>
+    </section>
+  </div>
+
+  <!-- FINAL: CTA + FOOTER -->
+  <div style="box-sizing: border-box; z-index: 2; background-color: #080807; border-radius: 0px; position: relative; overflow: hidden; display: block"><div style="position:absolute;top:-6%;left:50%;transform:translateX(-50%);width:95%;height:62%;z-index:0;pointer-events:none;background:radial-gradient(50% 50% at 50% 28%, rgba(74,215,140,0.18), transparent 70%);filter:blur(26px)"></div><section id="contact" data-reveal="1" data-reveal-id="finalSection" style="{{ reveal.finalSection }};position: relative; z-index: 1; border-radius: 56px 56px 0 0; padding: 120px 0 0; overflow: hidden; background: linear-gradient(180deg, #0d2a1c, #0f3322, #135232, #23A05D)">
+    <div class="pai-container" style="max-width:1200px;margin:0 auto;padding:0 40px;width:100%">
+
+      <!-- CTA -->
+      <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding-bottom:88px">
+        <div style="display:flex;align-items:center;gap:6px">
+          <svg width="11" height="11" viewBox="0 0 10 10" fill="none" style="flex:0 0 auto"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="rgba(255,255,255,0.85)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span style="font-family: 'Plus Jakarta Sans',sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85)">Let's Get In Touch</span>
+        </div>
+        <h2 class="pai-final-h2" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 88px; line-height: 1.08; letter-spacing: -0.4px; color: #FFFFFF; margin: 0; text-wrap: balance">Not sure where to start?</h2>
+        <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.88); margin: 0; max-width: 800px">
+
+
+
+
+<div class="p2">
+
+
+
+<p class="p1" style="font-size: 18px; font-weight: 400">Whether you already have detailed requirements or just an idea, let’s talk. We’ll help define the scope, estimate the timeline, and recommend the best way to build your product.</p></div></div>
+        <div style="display:flex;justify-content:center;margin-top:16px">
+          <span onMouseEnter="{{ openFooterChat }}" onMouseLeave="{{ closeFooterChat }}" style="position:relative;display:inline-flex">
+            <button style="display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.3); padding: 8px 20px 8px 8px; cursor: pointer; background: rgba(255,255,255,0.12); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 6px 24px rgba(0,0,0,0.16), inset 0 1px 0 rgba(255,255,255,0.22); transition: background 0.25s ease; border-radius: 32px" style-hover="background:rgba(255,255,255,0.2)">
+              <img src="uploads/appai.jpeg" alt="" style="width: 32px; height: 32px; border-radius: 32px; object-fit: cover; display: block">
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.02em;color:#FFFFFF">Let's Talk</span>
+            </button>
+            <div ref="{{ setFooterChatMenu }}" style="position:absolute;top:100%;left:50%;transform:translate(-50%,8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.22s ease, transform 0.22s ease;padding-top:12px;cursor:default;z-index:60">
+              <div style="display: flex; flex-direction: column; gap: 2px; padding: 14px; width: 212px; border-radius: 32px; backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 18px 48px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.12); text-align: left; background-color: #121210F2">
+                <a href="https://wa.me/6288233443399" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:32px;text-decoration:none;color:rgba(240,240,241,0.9);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;transition:background 0.2s ease" style-hover="background:rgba(255,255,255,0.1)">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366" style="flex:0 0 auto"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.4 2.6 1.6.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"></path></svg>
+                  <span>WhatsApp</span>
+                </a>
+                <a href="mailto:hi@paistudio.co" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:32px;text-decoration:none;color:rgba(240,240,241,0.9);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;transition:background 0.2s ease" style-hover="background:rgba(255,255,255,0.1)">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5" stroke="#e6a15c" stroke-width="1.6"></rect><path d="M3.5 6.5 12 12.5 20.5 6.5" stroke="#e6a15c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  <span>Email</span>
+                </a>
+                <a href="https://cal.com/paistudio/discovery-call" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:32px;text-decoration:none;color:rgba(240,240,241,0.9);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;transition:background 0.2s ease" style-hover="background:rgba(255,255,255,0.1)">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5" stroke="#74d39e" stroke-width="1.6"></rect><path d="M3.5 9.5h17M8 3v3M16 3v3" stroke="#74d39e" stroke-width="1.6" stroke-linecap="round"></path></svg>
+                  <span>Schedule a call</span>
+                </a>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+
+      <!-- divider -->
+      <div style="height:1px;width:100%;background:rgba(255,255,255,0.16)"></div>
+
+      <!-- FOOTER -->
+      <footer class="pai-footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:56px;padding:80px 0">
+
+        <div data-reveal="1" data-reveal-id="footerBrand" style="{{ reveal.footerBrand }};display:flex;flex-direction:column;gap:18px;max-width:320px">
+          <div style="position:relative;width:137px;height:24px">
+            <img src="uploads/paistudio-logo-light.svg" alt="paistudio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+          <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,0.85);margin:0">Helping founders design, build, and launch AI-powered SaaS, marketplaces, and internal tools faster using Bubble, AI, and modern no-code technologies.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:4px">
+            <a href="https://instagram.com/appai" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:32px;border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background:rgba(255,255,255,0.14);color:#FFFFFF">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"></rect><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"></circle><circle cx="17.4" cy="6.6" r="1" fill="currentColor"></circle></svg>
+            </a>
+            <a href="https://linkedin.com/company/paistudio" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:32px;border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background:rgba(255,255,255,0.14);color:#FFFFFF">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"></rect><path d="M8 10.5V17M8 7.5V7.51M12 17V13.2C12 11.5 13 10.5 14.3 10.5C15.6 10.5 16.5 11.4 16.5 13.2V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a href="https://bubble.io" target="_blank" rel="noopener" aria-label="Bubble" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:32px;border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.9);transition:background 0.2s ease,color 0.2s ease" style-hover="background:rgba(255,255,255,0.14);color:#FFFFFF">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"></circle><circle cx="12" cy="9" r="2.6" stroke="currentColor" stroke-width="1.6"></circle></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav data-reveal="1" data-reveal-id="footerCol0" style="{{ reveal.footerCol0 }};display:flex;flex-direction:column;gap:14px">
+          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:14px;color:#FFFFFF;margin:0">What we build</h3>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">SaaS &amp; Web App Development</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Marketplace Development</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">AI Products</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">MVP Development</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Automation Tools</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Internal Tools Development</a>
+        </nav>
+
+        <nav data-reveal="1" data-reveal-id="footerCol1" style="{{ reveal.footerCol1 }};display:flex;flex-direction:column;gap:14px">
+          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:14px;color:#FFFFFF;margin:0">Technologies</h3>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Bubble</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">n8n</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Softr</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Airtable</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Lovable</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Claude AI</a>
+        </nav>
+
+        <nav data-reveal="1" data-reveal-id="footerCol2" style="{{ reveal.footerCol2 }};display:flex;flex-direction:column;gap:14px">
+          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:14px;color:#FFFFFF;margin:0">Company</h3>
+          <a href="#work" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Our Work</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Blog</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">Bubble Marketplace</a>
+          <a href="#" style="font-size:14px;text-decoration:none;color:rgba(255,255,255,0.85);transition:color 0.2s ease" style-hover="color:#FFFFFF">FAQ</a>
+        </nav>
+
+      </footer>
+
+      <!-- divider -->
+      <div style="height:1px;width:100%;background:rgba(255,255,255,0.14)"></div>
+
+      <!-- copyright bar -->
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:28px 0">
+        <span style="font-size:12px;color:rgba(255,255,255,0.78)">© 2026 Paistudio. All rights reserved.</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.78)">Designed and built in Indonesia.</span>
+      </div>
+
+    </div>
+  </section></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:800},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Forest&quot;,&quot;options&quot;:[&quot;Forest&quot;,&quot;Indigo&quot;,&quot;Ember&quot;,&quot;Plum&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;atmosphere&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Balanced&quot;,&quot;options&quot;:[&quot;Moody&quot;,&quot;Balanced&quot;,&quot;Airy&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Lively&quot;,&quot;options&quot;:[&quot;Calm&quot;,&quot;Lively&quot;,&quot;Energetic&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { active: -1, tActive: 1 };
+
+  componentDidMount() {
+    this._raf = null;
+    this._collect();
+    // rAF-gated scroll handling is not reliable in every rendering context here (confirmed: rAF callbacks
+    // can simply never fire on scroll, silently freezing everything _update() drives — parallax, nav theme,
+    // and reveal-on-scroll). Call _update() directly off the scroll/resize listeners (still throttled, just
+    // via a cheap timestamp check instead of rAF) and back it with a setInterval so visibility never depends
+    // on rAF executing at all.
+    this._lastUpdateAt = 0;
+    this._onScroll = () => {
+      const now = Date.now();
+      if (now - this._lastUpdateAt < 32) return;
+      this._lastUpdateAt = now;
+      this._update();
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true, capture: true });
+    this._onWinResize = () => { this._collect(); this._update(); this._measureTestimonials(); };
+    window.addEventListener('resize', this._onWinResize);
+    this._update();
+    this._pollTimer = setInterval(() => this._update(), 400);
+    this._applyThemeDom();
+    this._initGL();
+    this._initReveal();
+    this._initGrain();
+    requestAnimationFrame(() => this._measureTestimonials());
+  }
+  // Center the active testimonial using layout-space measurements (offsetLeft/offsetWidth), which ignore the
+  // track's CSS transform entirely — getBoundingClientRect would read a mid-transition (animating) position
+  // and produce a bogus one-off correction; offsetLeft doesn't, so this converges correctly in a single pass.
+  _measureTestimonials = () => {
+    const slides = document.querySelectorAll('.pai-testimonial-slide');
+    const wrap = document.querySelector('[data-reveal-id="testimonialsWrap"]');
+    const active = slides[this.state.tActive];
+    if (!active || !wrap) return;
+    const wrapW = wrap.clientWidth;
+    const slideCenterInTrack = active.offsetLeft + active.offsetWidth / 2;
+    const offset = Math.round(wrapW / 2 - slideCenterInTrack);
+    if (offset !== this._tOffsetTotal) {
+      this._tOffsetTotal = offset;
+      this.forceUpdate();
+    }
+  };
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll, { capture: true });
+    window.removeEventListener('resize', this._onWinResize);
+    if (this._pollTimer) clearInterval(this._pollTimer);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    this._disposeGL();
+    if (this._revealObserver) this._revealObserver.disconnect();
+    if (this._grainRaf) cancelAnimationFrame(this._grainRaf);
+  }
+
+  // ---------- film grain: shift the noise layer's transform every 2-3 frames (GPU-only, no layout/paint cost) ----------
+  _initGrain = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this._grainFrame = 0;
+    const tick = () => {
+      this._grainFrame++;
+      if (this._grainFrame % 3 === 0 && this._grainEl) {
+        const rx = (Math.random() * 160 - 80).toFixed(1);
+        const ry = (Math.random() * 160 - 80).toFixed(1);
+        this._grainEl.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+      }
+      this._grainRaf = requestAnimationFrame(tick);
+    };
+    this._grainRaf = requestAnimationFrame(tick);
+  };
+
+  // ---------- micro-interaction: replay a fade/scale-in every time a section re-enters view ----------
+  // state-driven (not imperative DOM writes) so it survives unrelated re-renders (e.g. the pinned-projects
+  // `active` index changing continuously while scrolling)
+  _revealDelays = { ctaCard1: 90, ctaCard2: 180, pricingRow2Card0: 0, pricingRow2Card1: 110, footerCol0: 80, footerCol1: 160, footerCol2: 240 };
+  // rect-based instead of IntersectionObserver: the observer never fired a single callback in testing
+  // (confirmed with a bare-minimum repro observer too) despite elements being squarely on-screen, so every
+  // reveal stayed permanently hidden. Piggybacking on the scroll-driven _update() loop (already proven to
+  // fire reliably on scroll/resize/post-layout) sidesteps whatever is broken about IntersectionObserver here.
+  _initReveal = () => {
+    this._reduceReveal = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this._reduceReveal) return;
+    this._revealEls = [...document.querySelectorAll('[data-reveal-id]')];
+  };
+  _updateReveal = () => {
+    if (this._reduceReveal || !this._revealEls) return;
+    const vh = window.innerHeight || 1;
+    let changed = false;
+    const revealed = { ...(this.state.revealed || {}) };
+    for (const el of this._revealEls) {
+      const id = el.dataset.revealId;
+      if (!id) continue;
+      const r = el.getBoundingClientRect();
+      const visible = r.bottom > 0 && r.top < vh * 0.92; // mirrors the old rootMargin '0 0 -8% 0' bottom shrink
+      if (revealed[id] !== visible) { revealed[id] = visible; changed = true; }
+    }
+    if (changed) this.setState({ revealed });
+  };
+  _revealStyle = (id) => {
+    if (this._reduceReveal) return 'opacity:1;transform:none';
+    const shown = !!(this.state.revealed && this.state.revealed[id]);
+    const delay = this._revealDelays[id] || 0;
+    const t = `0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms`;
+    return `opacity:${shown ? 1 : 0};transform:${shown ? 'translateY(0) scale(1)' : 'translateY(26px) scale(0.98)'};transition:opacity ${t}, transform ${t}`;
+  };
+  // fade + slight slide-up reveal for elements like the final section
+  _fadeStyle = (id, ms) => {
+    if (this._reduceReveal) return 'opacity:1;transform:none';
+    const shown = !!(this.state.revealed && this.state.revealed[id]);
+    const t = `${ms || 900}ms cubic-bezier(0.22,1,0.36,1)`;
+    return `opacity:${shown ? 1 : 0};transform:${shown ? 'translateY(0)' : 'translateY(36px)'};transition:opacity ${t}, transform ${t}`;
+  };
+
+  _collect = () => {
+    this._paras = [...document.querySelectorAll('[data-para]')].map(el => ({ el, s: parseFloat(el.dataset.para) }));
+    this._fades = [...document.querySelectorAll('[data-fade]')];
+    this._himgs = [...document.querySelectorAll('[data-hpara]')];
+  };
+  _update = () => {
+    this._raf = null;
+    const vh = window.innerHeight || 1;
+    const vw = window.innerWidth || 1;
+    // robust scroll offset: works whether the page scrolls on window or an inner container
+    let top = window.scrollY || window.pageYOffset || 0;
+    const se = document.scrollingElement;
+    if (se && se.scrollTop > top) top = se.scrollTop;
+
+    const mm = this._motionMul();
+
+    // hero vertical parallax
+    if (this._paras) {
+      for (const { el, s } of this._paras) {
+        const r = el.getBoundingClientRect();
+        const d = r.top + r.height / 2 - vh / 2;
+        el.style.transform = `translate3d(0, ${(-d * s * mm).toFixed(1)}px, 0)`;
+      }
+    }
+
+    // hero content fade
+    if (this._fades) {
+      const o = Math.max(0, 1 - top / (vh * 0.62));
+      for (const el of this._fades) el.style.opacity = o.toFixed(2);
+    }
+
+    // hero gradient morph + 3D logo follows the hero text up and fades out
+    let darkBehindNav = false;
+    if (this._heroBg) {
+      const p = Math.max(0, Math.min(1, top / vh));
+      // background settles to the light #faf7ed faster than the logo fades, so the fixed
+      // backdrop is fully cream well before the opaque Our Work section slides up over it
+      // (prevents a grey/green seam line during the transition)
+      const pBg = Math.max(0, Math.min(1, top / (vh * 0.62)));
+      let bg = this._heroBgGradient(pBg);
+      let glOpacity = Math.max(0, 1 - p * 1.6);
+      let glTransform = `translate3d(0, ${(-top * 0.55).toFixed(1)}px, 0)`;
+      this._logoMode = 'hero';
+      // exit transition: fade projects out, then darken + bring the 3D logo in on the right
+      if (this._ctaSection) {
+        const r = this._ctaSection.getBoundingClientRect();
+        const rt = r.top / vh;
+        if (this._pinInner) {
+          const out = Math.max(0, Math.min(1, (rt - 0.45) / 0.45));
+          this._pinInner.style.opacity = out.toFixed(3);
+          this._pinInner.style.transform = `translateY(${((1 - out) * -64).toFixed(1)}px)`;
+        }
+        const q = Math.max(0, Math.min(1, (0.5 - rt) / 0.42));
+        if (q > 0) {
+          bg = this._ctaBgGradient(q);
+          this._logoMode = 'cta';
+          glOpacity = q;                       // logo fades in together with the dark background
+          glTransform = 'translate3d(0,0,0)';  // pin to the viewport, on the right
+        }
+        if (q > 0.5) darkBehindNav = true;     // nav goes light once the CTA dark bg is behind it
+
+        // fade the logo out before it reaches the testimonials section, so it doesn't float over later content
+        if (!this._testimonialsSection) this._testimonialsSection = document.getElementById('testimonials');
+        if (this._testimonialsSection) {
+          const fr = this._testimonialsSection.getBoundingClientRect();
+          const frt = fr.top / vh;
+          const fadeOut = Math.max(0, Math.min(1, (1.1 - frt) / 0.6));
+          glOpacity *= (1 - fadeOut);
+        }
+      }
+      this._heroBg.style.background = bg;
+      if (this._glHost) {
+        this._glHost.style.opacity = glOpacity.toFixed(3);
+        this._glHost.style.transform = glTransform;
+      }
+    }
+
+    // pinned horizontal projects
+    let active = -1;
+    const n = this._n;
+    let overLightWork = false;
+    if (this._pin && this._track && n > 1) {
+      const travel = (n - 1) * vh;
+      const pinTop = this._pin.getBoundingClientRect().top;
+      // nav sits over the light (cream) Our Work section while it's pinned on screen
+      overLightWork = pinTop <= vh * 0.55 && pinTop > -(travel + 2);
+      const progress = Math.max(0, Math.min(1, -pinTop / travel));
+      this._track.style.transform = `translate3d(${(-progress * (n - 1) * vw).toFixed(1)}px, 0, 0)`;
+      if (overLightWork) active = Math.round(progress * (n - 1));
+      if (this._himgs) {
+        for (const el of this._himgs) {
+          const r = el.getBoundingClientRect();
+          const d = r.left + r.width / 2 - vw / 2;
+          el.style.transform = `translate3d(${(-d * 0.05 * mm).toFixed(1)}px, 0, 0) scale(1.06)`;
+        }
+      }
+    }
+    if (active !== this.state.active) this.setState({ active });
+    // nav theme: light (white) treatment over the dark hero/CTA/testimonials/pricing/footer,
+    // dark treatment over the light Our Work section while it's pinned on screen.
+    this._applyNavTheme(!overLightWork);
+    this._updateReveal();
+  };
+  _goto = (i) => {
+    window.scrollTo({ top: (i + 1) * window.innerHeight, behavior: 'smooth' });
+  };
+  _applyNavTheme = (light) => {
+    if (this._navLight === light) return;
+    this._navLight = light;
+    if (this._logoOnDark) this._logoOnDark.style.opacity = light ? '1' : '0';
+    if (this._logoOnLight) this._logoOnLight.style.opacity = light ? '0' : '1';
+    // dark glass pill with white text on both nav links and the CTA button — stays consistent
+    // (matching the dark-section look) even while scrolled over the light Our Work section.
+    if (this._navLinks) {
+      const n = this._navLinks.style;
+      n.color = 'rgba(255,255,255,0.74)';
+      n.background = 'rgba(18,18,16,0.55)';
+      n.border = '1px solid rgba(255,255,255,0.12)';
+      n.boxShadow = '0 6px 24px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.1)';
+    }
+    if (this._ctaBtn) {
+      const c = this._ctaBtn.style;
+      c.background = 'rgba(18,18,16,0.55)';
+      c.border = '1px solid rgba(255,255,255,0.12)';
+      c.boxShadow = '0 6px 24px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.1)';
+    }
+    if (this._ctaText) this._ctaText.style.color = '#FFFFFF';
+  };
+
+  _lerpHex = (a, b, t) => `rgb(${Math.round(a[0] + (b[0] - a[0]) * t)},${Math.round(a[1] + (b[1] - a[1]) * t)},${Math.round(a[2] + (b[2] - a[2]) * t)})`;
+
+  // ---------- expressive tweak systems ----------
+  _themes = {
+    Forest: { g1: [9, 38, 26], g2: [18, 82, 50], g3: [34, 160, 92], g4: [150, 210, 165], accent: '#374a3e', border: '#374a3e80', emissive: 0x040d09, glow: 0xbfe0d2, rim: 0x33a86a },
+    Indigo: { g1: [14, 20, 60], g2: [30, 42, 128], g3: [78, 100, 230], g4: [170, 185, 245], accent: '#2f3568', border: '#2f356880', emissive: 0x070f2c, glow: 0x5570ff, rim: 0x5570ff },
+    Ember:  { g1: [40, 18, 10], g2: [120, 56, 28], g3: [230, 120, 60], g4: [245, 190, 150], accent: '#6f3a26', border: '#6f3a2680', emissive: 0x2a0d04, glow: 0xff7a3c, rim: 0xff7a3c },
+    Plum:   { g1: [40, 16, 42], g2: [110, 44, 100], g3: [210, 90, 185], g4: [238, 180, 228], accent: '#5a2f55', border: '#5a2f5580', emissive: 0x230631, glow: 0xd64fc4, rim: 0xd64fc4 },
+  };
+  _th = () => this._themes[this.props.theme] || this._themes.Forest;
+  _atm = () => {
+    const a = this.props.atmosphere || 'Balanced';
+    if (a === 'Moody') return { top: [2, 4, 6], radA: 0.27, boost: 0.82 };
+    if (a === 'Airy') return { top: [13, 20, 17], radA: 0.46, boost: 1.22 };
+    return { top: [4, 7, 11], radA: 0.35, boost: 1.0 };
+  };
+  _motionMul = () => {
+    const m = this.props.motion || 'Lively';
+    if (m === 'Calm') return 0.5;
+    if (m === 'Energetic') return 1.7;
+    return 1.0;
+  };
+  _heroBgGradient = (p) => {
+    const th = this._th(), atm = this._atm();
+    const white = [250, 247, 237]; // settle to #faf7ed so the hero blends seamlessly into the Our Work section
+    const b = atm.boost;
+    // p: 0 at hero top, 1 by section-2 slide 1 -> whole gradient lerps to white; lower stops whiten first so white rises from below.
+    // `settle` forces every stop to fully reach #faf7ed by p=1 (regardless of the boost multiplier), so the settled
+    // backdrop is uniformly cream and hands off to the Our Work section with no visible seam.
+    const settle = Math.max(0, Math.min(1, (p - 0.7) / 0.3));
+    const S = (s, boost) => this._lerpHex(s, white, Math.max(settle, Math.min(1, p * boost)));
+    const nearBlack = th.g1.map(c => Math.round(c * 0.45));
+    return `linear-gradient(180deg, ${S(atm.top, 1.0 * b)} 0%, ${S(nearBlack, 1.1 * b)} 24%, ${S(th.g1, 1.3 * b)} 40%, ${S(th.g2, 1.45 * b)} 53%, ${S(th.g3, 1.7 * b)} 68%, ${S(th.g4, 2.0 * b)} 85%, ${S(white, 2.5 * b)} 100%)`;
+  };
+  // cream (settled Our Work bg) -> dark, eased; q:0 matches the light #faf7ed Our Work section (no seam), q:1 is the CTA dark
+  _ctaBgGradient = (q) => {
+    const base = [250, 247, 237]; // match Our Work's #faf7ed so the transition into the CTA section has no seam
+    const e = q * q * (3 - 2 * q);
+    const top = this._lerpHex(base, [11, 21, 16], e);
+    const mid = this._lerpHex(base, [9, 30, 21], e);
+    const bot = this._lerpHex(base, [7, 17, 13], e);
+    return `linear-gradient(180deg, ${top} 0%, ${mid} 46%, ${bot} 100%)`;
+  };
+  _applyTheme3D = () => {
+    const gl = this._gl; if (!gl) return;
+    const th = this._th();
+    // green glass: keep a subtle green emissive + green fresnel glow, regardless of theme
+    if (gl.mat) gl.mat.emissive.setHex(0x041a10);
+    if (gl.fresnelMat) gl.fresnelMat.uniforms.glowColor.value.setHex(0x2fae6e);
+    if (gl.rimLight) { gl.rimLight.color.setHex(th.rim); gl.rimLight.intensity = 0.18; }
+  };
+  _applyThemeDom = () => {
+    // buttons use a fixed glassmorphism surface; theme no longer paints solid fills
+  };
+  componentDidUpdate() {
+    this._applyTheme3D();
+    this._applyThemeDom();
+    if (this._update) this._update();
+    requestAnimationFrame(() => this._measureTestimonials());
+  }
+
+  // ---------- 3D logo icon ----------
+  _buildShape = () => {
+    const d = "M20.6195 0H9.3624C8.91585 0 9.0049 0.383067 9.0049 0.855604V7.10328C9.0049 7.62861 9.40734 8.05447 9.90378 8.05447H19.077C21.1789 8.05447 22.8828 9.85753 22.8828 12.0817C22.8828 14.3059 20.7278 16.1089 18.626 16.1089H9.90378C9.40734 16.1089 9.0049 16.5348 9.0049 17.0601V23.3319C9.0049 23.9674 8.51808 24.4825 7.91755 24.4825H1.44981C0.6491 24.4825 0 25.1694 0 26.0167V30.6837C0 31.531 0.6491 32.2179 1.44981 32.2179H7.90578C8.5217 32.2179 9.02101 31.6895 9.02101 31.0378V25.6667C9.02101 25.0483 9.49267 24.547 10.0771 24.547H20.6204C27.0261 24.547 32.2179 19.0519 32.2179 12.2735C32.2179 5.49503 27.0251 0 20.6195 0Z";
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('width', '0'); svg.setAttribute('height', '0');
+    svg.style.cssText = 'position:absolute;left:-9999px;top:-9999px';
+    const path = document.createElementNS(NS, 'path');
+    path.setAttribute('d', d);
+    svg.appendChild(path); document.body.appendChild(svg);
+    const len = path.getTotalLength();
+    const N = 320;
+    const pts = [];
+    for (let i = 0; i <= N; i++) { const p = path.getPointAtLength(len * i / N); pts.push(new THREE.Vector2(p.x, -p.y)); }
+    document.body.removeChild(svg);
+    return new THREE.Shape(pts);
+  };
+  _makeBumpTexture = () => {
+    // brushed-glass clearcoat normal map: soft low-frequency undulation (organic waviness) layered with
+    // fine directional brush strokes and a light grain pass -> reads as a premium etched/brushed surface
+    // instead of flat white noise.
+    const S = 256;
+    const c = document.createElement('canvas'); c.width = S; c.height = S;
+    const x = c.getContext('2d');
+    x.fillStyle = '#808080'; x.fillRect(0, 0, S, S);
+
+    // 1) soft blobby undulation: scatter blurred radial patches of light/dark for gentle large-scale waviness
+    x.filter = 'blur(14px)';
+    for (let i = 0; i < 46; i++) {
+      const r = 14 + Math.random() * 26;
+      const v = Math.round((Math.random() - 0.5) * 70);
+      const shade = 128 + v;
+      x.fillStyle = `rgba(${shade},${shade},${shade},0.55)`;
+      x.beginPath();
+      x.arc(Math.random() * S, Math.random() * S, r, 0, Math.PI * 2);
+      x.fill();
+    }
+    x.filter = 'none';
+
+    // 2) fine directional brush strokes: short thin translucent lines nudging the normal in a grain direction
+    x.globalAlpha = 0.16;
+    for (let i = 0; i < 900; i++) {
+      const y = Math.random() * S;
+      const len = 6 + Math.random() * 16;
+      const xx = Math.random() * S;
+      const shade = Math.random() < 0.5 ? 235 : 20;
+      x.strokeStyle = `rgb(${shade},${shade},${shade})`;
+      x.lineWidth = 0.6;
+      x.beginPath(); x.moveTo(xx, y); x.lineTo(xx + len, y + (Math.random() - 0.5) * 2); x.stroke();
+    }
+    x.globalAlpha = 1;
+
+    // 3) light fine grain on top for micro sparkle
+    const img = x.getImageData(0, 0, S, S);
+    for (let i = 0; i < img.data.length; i += 4) {
+      const n = (Math.random() - 0.5) * 26;
+      img.data[i] = img.data[i] + n; img.data[i + 1] = img.data[i + 1] + n; img.data[i + 2] = img.data[i + 2] + n;
+    }
+    x.putImageData(img, 0, 0);
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.wrapS = THREE.RepeatWrapping; tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(5, 5);
+    return tex;
+  };
+  _makeEnvTexture = () => {
+    const c = document.createElement('canvas'); c.width = 512; c.height = 256;
+    const x = c.getContext('2d');
+    // near-black vertical base, matched to the page background (#080807) so the reflection environment
+    // itself reads as "more of the same dark" rather than introducing lighter tones
+    let bg = x.createLinearGradient(0, 0, 0, 256);
+    bg.addColorStop(0, '#000000'); bg.addColorStop(0.5, '#050605'); bg.addColorStop(1, '#080807');
+    x.fillStyle = bg; x.fillRect(0, 0, 512, 256);
+    // faint dark-green-tinted highlight band -> barely-there specular streak, no bright white
+    let g = x.createLinearGradient(0, 46, 0, 88);
+    g.addColorStop(0, 'rgba(40,60,52,0)'); g.addColorStop(0.5, 'rgba(55,80,68,0.16)'); g.addColorStop(1, 'rgba(40,60,52,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 512, 256);
+    // subtle dark green glow lower band, dimmed so it stays dark rather than lit
+    let gg = x.createRadialGradient(256, 235, 0, 256, 235, 250);
+    gg.addColorStop(0, 'rgba(14,70,42,0.16)'); gg.addColorStop(1, 'rgba(14,70,42,0)');
+    x.fillStyle = gg; x.fillRect(0, 0, 512, 256);
+    // tiny very dim glint, no longer near-white
+    let rg = x.createRadialGradient(392, 60, 0, 392, 60, 60);
+    rg.addColorStop(0, 'rgba(70,95,85,0.18)'); rg.addColorStop(1, 'rgba(70,95,85,0)');
+    x.fillStyle = rg; x.fillRect(0, 0, 512, 256);
+    const tex = new THREE.CanvasTexture(c);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    return tex;
+  };
+  _initGL = () => {
+    if (this._glStarted || typeof THREE === 'undefined') {
+      if (typeof THREE === 'undefined') { this._glRetry = (this._glRetry || 0) + 1; if (this._glRetry < 100) this._glTimer = setTimeout(this._initGL, 60); }
+      return;
+    }
+    const host = this._glHost;
+    if (!host || host.clientWidth === 0) { this._glRetry = (this._glRetry || 0) + 1; if (this._glRetry < 100) this._glTimer = setTimeout(this._initGL, 60); return; }
+    let renderer;
+    try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance', preserveDrawingBuffer: true }); }
+    catch (e) { return; }
+    this._glStarted = true;
+    const W = host.clientWidth, H = host.clientHeight;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(W, H);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.05;
+    renderer.domElement.style.display = 'block';
+    host.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, W / H, 0.1, 200);
+    camera.position.set(0, 0, 34);
+
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    const envTex = this._makeEnvTexture();
+    const envMap = pmrem.fromEquirectangular(envTex).texture;
+    scene.environment = envMap;
+    envTex.dispose(); pmrem.dispose();
+
+    const shape = this._buildShape();
+    const geo = new THREE.ExtrudeGeometry(shape, { depth: 8, bevelEnabled: true, bevelThickness: 1.4, bevelSize: 1.0, bevelSegments: 4, curveSegments: 1, steps: 1 });
+    geo.center(); geo.computeVertexNormals();
+
+    // clean smooth green glass surface (no bump/normal texture) — kept transparent so it recedes into the background
+    const mat = new THREE.MeshPhysicalMaterial({ color: 0x0a3d26, metalness: 0.0, roughness: 0.42, ior: 1.5, clearcoat: 0.35, clearcoatRoughness: 0.35, reflectivity: 0.1, emissive: 0x041a10, emissiveIntensity: 0.35, envMapIntensity: 0.1, transparent: true, opacity: 0.05, depthWrite: false });
+    const mesh = new THREE.Mesh(geo, mat);
+
+    const fresnelMat = new THREE.ShaderMaterial({
+      uniforms: { glowColor: { value: new THREE.Color(0x2fae6e) }, intensity: { value: 0.16 } },
+      vertexShader: 'varying float vF; void main(){ vec3 vn=normalize(normalMatrix*normal); vec4 mv=modelViewMatrix*vec4(position,1.0); vec3 vd=normalize(-mv.xyz); vF=pow(1.0-abs(dot(vn,vd)),2.7); gl_Position=projectionMatrix*mv; }',
+      fragmentShader: 'uniform vec3 glowColor; uniform float intensity; varying float vF; void main(){ gl_FragColor=vec4(glowColor, vF*intensity); }',
+      transparent: true, blending: THREE.AdditiveBlending, side: THREE.FrontSide, depthWrite: false
+    });
+    const fresnelMesh = new THREE.Mesh(geo, fresnelMat);
+    fresnelMesh.renderOrder = 2;
+
+    const group = new THREE.Group();
+    group.add(mesh); group.add(fresnelMesh);
+    group.position.x = 1.5;
+    scene.add(group);
+
+    scene.add(new THREE.AmbientLight(0x0e1218, 0.05));
+    const key = new THREE.DirectionalLight(0xffffff, 0.26); key.position.set(2, 14, 10); scene.add(key);
+    const greenRim = new THREE.DirectionalLight(0xff7a30, 0.18); greenRim.position.set(-6, 4, -10); scene.add(greenRim);
+    const fill = new THREE.DirectionalLight(0x33425a, 0.12); fill.position.set(-9, -6, 5); scene.add(fill);
+    const cursorLight = new THREE.PointLight(0xffb070, 0.0, 130, 2); cursorLight.position.set(0, 0, 22); scene.add(cursorLight);
+
+    this._gl = { renderer, scene, camera, group, mat, fresnelMat, cursorLight, rimLight: greenRim, geo, envMap, baseScale: 0.44 };
+    this._applyTheme3D();
+    this._mouse = { x: 0, y: 0, active: false };
+    this._cur = { lx: 0, ly: 8, li: 0, fres: 0.95, tiltX: 0, tiltY: 0, pulse: 0 };
+    this._baseY = 5.0;
+    this._lp = { x: 1.5, y: 5.0 };
+    this._logoMode = 'hero';
+    this._reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._clock = new THREE.Clock();
+
+    this._onGLMove = (e) => {
+      const r = host.getBoundingClientRect(); if (r.width === 0) return;
+      this._mouse.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+      this._mouse.y = ((e.clientY - r.top) / r.height) * 2 - 1;
+      this._mouse.active = true;
+    };
+    this._onGLLeave = () => { this._mouse.active = false; };
+    this._onGLTouch = (e) => {
+      const t0 = e.touches && e.touches[0]; if (!t0) return;
+      const r = host.getBoundingClientRect(); if (r.width === 0) return;
+      this._mouse.x = ((t0.clientX - r.left) / r.width) * 2 - 1;
+      this._mouse.y = ((t0.clientY - r.top) / r.height) * 2 - 1;
+      this._mouse.active = true;
+    };
+    this._onGLTouchEnd = () => { this._mouse.active = false; this._press.active = false; };
+    // "touch" feel: on press the logo settles slightly like it's being pressed, then swells back out
+    // with a little spring bounce on release, and briefly catches more light while held.
+    this._press = { active: false, at: 0 };
+    this._touchSpring = { x: 0, v: 0 };
+    this._onGLDown = () => { this._press.active = true; this._press.at = this._clock ? this._clock.getElapsedTime() : 0; };
+    this._onGLUp = () => { this._press.active = false; };
+    window.addEventListener('mousemove', this._onGLMove, { passive: true });
+    document.addEventListener('mouseleave', this._onGLLeave, { passive: true });
+    window.addEventListener('blur', this._onGLLeave, { passive: true });
+    window.addEventListener('mousedown', this._onGLDown, { passive: true });
+    window.addEventListener('mouseup', this._onGLUp, { passive: true });
+    window.addEventListener('touchstart', this._onGLTouch, { passive: true });
+    window.addEventListener('touchstart', this._onGLDown, { passive: true });
+    window.addEventListener('touchmove', this._onGLTouch, { passive: true });
+    window.addEventListener('touchend', this._onGLTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', this._onGLTouchEnd, { passive: true });
+    window.addEventListener('resize', this._glResize);
+
+    this._glVisible = true;
+    if ('IntersectionObserver' in window) {
+      this._io = new IntersectionObserver((ents) => {
+        this._glVisible = ents[0].isIntersecting;
+        if (this._glVisible && !document.hidden) this._glStart(); else this._glStop();
+      }, { threshold: 0.01 });
+      this._io.observe(host);
+    }
+    this._onVis = () => { if (document.hidden) this._glStop(); else if (this._glVisible) this._glStart(); };
+    document.addEventListener('visibilitychange', this._onVis);
+
+    this._glResize();
+    // paint one frame synchronously so the icon is always visible immediately,
+    // even if this tab is backgrounded at load (rAF is throttled/paused when hidden,
+    // which would otherwise leave the canvas blank until the tab regains focus).
+    try { this._glFrame(); } catch (e) {}
+    this._glStart();
+  };
+  _glStart = () => {
+    if (this._glRaf || !this._gl) return;
+    const loop = () => { this._glRaf = requestAnimationFrame(loop); this._glFrame(); };
+    this._glRaf = requestAnimationFrame(loop);
+  };
+  _glStop = () => { if (this._glRaf) { cancelAnimationFrame(this._glRaf); this._glRaf = null; } };
+  _glFrame = () => {
+    const gl = this._gl; if (!gl) return;
+    const t = this._clock.getElapsedTime();
+    const g = gl.group;
+    // ease logo placement: centered in hero, shifted to the right when the CTA is active
+    if (!this._lp) this._lp = { x: 1.5, y: this._baseY };
+    const cta = this._logoMode === 'cta';
+    const lgx = cta ? 8.6 : 1.5;
+    const tyB = cta ? 0.4 : this._baseY;
+    this._lp.x += (lgx - this._lp.x) * 0.07;
+    this._lp.y += (tyB - this._lp.y) * 0.07;
+    g.position.x = this._lp.x;
+    if (!this._reduce) {
+      const mm = this._motionMul();
+      g.rotation.y = t * 0.3 * mm;
+      g.rotation.z = Math.sin(t * 0.22) * 0.12 * mm;
+      g.rotation.x = -0.04 + Math.sin(t * 0.16) * 0.10 * mm;
+      g.position.y = this._lp.y + Math.sin(t * 0.3) * 0.5 * mm;
+    } else {
+      g.rotation.set(-0.05, 0.5, 0); g.position.y = this._lp.y;
+    }
+    const m = this._mouse, c = this._cur;
+    const prox = m.active ? Math.max(0, 1 - Math.min(1.3, Math.hypot(m.x, m.y)) / 1.2) : 0;
+    const tx = m.active ? m.x * 22 : 0;
+    const ty = m.active ? -m.y * 14 : 8;
+    const ti = prox * 3.0;
+    const tf = 0.85 + prox * 1.0;
+    c.lx += (tx - c.lx) * 0.12; c.ly += (ty - c.ly) * 0.12;
+    c.li += (ti - c.li) * 0.10; c.fres += (tf - c.fres) * 0.10;
+    gl.cursorLight.position.set(c.lx, c.ly, 22);
+    gl.cursorLight.intensity = c.li;
+    // beam-hit reaction: the two CSS light-beams (paiBeamDrift1 13s, paiBeamDrift2 17s) sweep across the hero;
+    // mirror their exact cycle here so the logo visibly catches a flash of light right as each beam crosses it
+    // (each keyframe peaks at 50% of its cycle, so a narrow bell centered on that same fraction stays in sync)
+    const beamPulse1 = this._reduce ? 0 : Math.max(0, 1 - Math.abs(((t % 13) / 13) - 0.5) * 9);
+    const beamPulse2 = this._reduce ? 0 : Math.max(0, 1 - Math.abs(((t % 17) / 17) - 0.5) * 9);
+    const beamGlow = Math.min(1, beamPulse1 * 0.8 + beamPulse2 * 0.55);
+    gl.fresnelMat.uniforms.intensity.value = c.fres + beamGlow * 0.9;
+    gl.rimLight.intensity = 0.55 + beamGlow * 1.4;
+    // cursor-touch reaction: the logo itself tilts toward the pointer and swells slightly the closer it gets
+    const ttx = m.active ? -m.y * 0.4 * prox : 0;
+    const tty = m.active ? m.x * 0.4 * prox : 0;
+    const tPulse = prox * 0.14 + beamGlow * 0.05;
+    c.tiltX += (ttx - c.tiltX) * 0.09;
+    c.tiltY += (tty - c.tiltY) * 0.09;
+    c.pulse += (tPulse - c.pulse) * 0.09;
+    g.rotation.x += c.tiltX;
+    g.rotation.y += c.tiltY;
+    // touch/press spring: pulls toward -1 (pressed in) while held, then springs past 0 into a brief
+    // outward swell on release before settling — a tactile "squish and bounce back" response to touch.
+    const ts = this._touchSpring;
+    const touchTarget = this._press && this._press.active ? -1 : 0;
+    const accel = (touchTarget - ts.x) * 0.5 - ts.v * 0.22;
+    ts.v += accel; ts.x += ts.v;
+    const pressGlow = this._press && this._press.active ? 1 : 0;
+    c.press = (c.press || 0) + (pressGlow - (c.press || 0)) * 0.15;
+    gl.fresnelMat.uniforms.intensity.value += c.press * 0.7;
+    gl.rimLight.intensity += c.press * 1.3;
+    const baseS = gl.baseScaleCurrent || gl.baseScale;
+    g.scale.setScalar(baseS * (1 + c.pulse + ts.x * 0.09));
+    gl.renderer.render(gl.scene, gl.camera);
+  };
+  _glResize = () => {
+    const gl = this._gl, host = this._glHost; if (!gl || !host) return;
+    const W = host.clientWidth, H = host.clientHeight; if (W === 0 || H === 0) return;
+    gl.renderer.setSize(W, H);
+    gl.camera.aspect = W / H; gl.camera.updateProjectionMatrix();
+    gl.baseScaleCurrent = gl.baseScale * Math.min(1.15, Math.max(0.6, W / 1280));
+    gl.group.scale.setScalar(gl.baseScaleCurrent);
+  };
+  _disposeGL = () => {
+    this._glStop();
+    if (this._glTimer) clearTimeout(this._glTimer);
+    if (this._io) this._io.disconnect();
+    if (this._onVis) document.removeEventListener('visibilitychange', this._onVis);
+    if (this._onGLMove) window.removeEventListener('mousemove', this._onGLMove);
+    if (this._onGLLeave) { document.removeEventListener('mouseleave', this._onGLLeave); window.removeEventListener('blur', this._onGLLeave); }
+    if (this._onGLTouch) { window.removeEventListener('touchstart', this._onGLTouch); window.removeEventListener('touchmove', this._onGLTouch); }
+    if (this._onGLDown) { window.removeEventListener('mousedown', this._onGLDown); window.removeEventListener('touchstart', this._onGLDown); }
+    if (this._onGLUp) window.removeEventListener('mouseup', this._onGLUp);
+    if (this._onGLTouchEnd) { window.removeEventListener('touchend', this._onGLTouchEnd); window.removeEventListener('touchcancel', this._onGLTouchEnd); }
+    if (this._onGLTouchEnd) { window.removeEventListener('touchend', this._onGLTouchEnd); window.removeEventListener('touchcancel', this._onGLTouchEnd); }
+    window.removeEventListener('resize', this._glResize);
+    const gl = this._gl; if (!gl) return;
+    gl.geo.dispose(); gl.mat.dispose(); gl.fresnelMat.dispose(); if (gl.envMap) gl.envMap.dispose();
+    gl.renderer.dispose();
+    if (gl.renderer.domElement && gl.renderer.domElement.parentNode) gl.renderer.domElement.parentNode.removeChild(gl.renderer.domElement);
+    this._gl = null;
+  };
+
+  _tgoto = (i) => { this.setState({ tActive: i }); };
+
+  renderVals() {
+    const g = (a, b) => `linear-gradient(150deg, ${a}, ${b})`;
+    const raw = [
+      { name:'SaaS & Web Apps', desc:'Design and build scalable SaaS platforms, customer portals, dashboards, and business applications that are fast, intuitive, and ready to grow with your business.', skills:['User Auth & Roles','Billing & Subscriptions','Dashboards','Admin Panel','Scalable Data Model'], url:'app.yourproduct.com/dashboard', accent:'#2f6ef2', stat:'6 wks', statLabel:'idea → first release', shot:'SAAS_DASHBOARD', thumb:g('#dfe1dc','#c7c9c2') },
+      { name:'Marketplace', desc:'Build complex multi-sided marketplaces with role-based experiences, payments, messaging, bookings, approvals, and workflow automation for buyers, sellers, and service providers.', skills:['Multi-Role Flows','Matching Logic','Payments & Payouts','Reviews & Trust','Search & Filters'], url:'market.yourbrand.com', accent:'#f1531f', stat:'3 roles', statLabel:'buyers · sellers · admin', image:'uploads/pasted-1782365012025-0.png', shot:'MARKETPLACE', thumb:g('#e4e3de','#cccbc4') },
+      { name:'AI Products', desc:'Turn AI into a practical product by integrating LLMs, AI agents, document analysis, image generation, semantic search, and intelligent workflows into your application.', skills:['LLM Integration','RAG / Your Data','Prompt Pipelines','AI Agents','Human-in-the-Loop'], url:'copilot.yourproduct.ai', accent:'#8a5cf6', stat:'80%', statLabel:'support auto-triaged', shot:'AI_PRODUCT', thumb:g('#dddcd6','#c4c3bc') },
+      { name:'Automations', desc:'Connect your business tools and automate repetitive operations—from lead management and CRM updates to notifications, approvals, and AI-powered workflows.', skills:['n8n Workflows','App Integrations','Data Sync','Scheduled Jobs','Alerts & Triggers'], url:'flows.yourops.io', accent:'#ea4b71', stat:'120+ hrs', statLabel:'busywork killed / month', shot:'AUTOMATION_FLOW', thumb:g('#e6e4df','#cecbc4') },
+      { name:'Internal Tools', desc:'Create custom software that streamlines operations, including admin panels, CRM systems, construction management platforms, procurement workflows, reporting dashboards, and back-office tools.', skills:['Ops Dashboards','CRMs & Portals','Approval Flows','Role Permissions','Reporting'], url:'ops.yourteam.tools', accent:'#23a05d', stat:'9 → 1', statLabel:'spreadsheets to one tool', shot:'INTERNAL_TOOL', thumb:g('#deddd6','#c5c4bc') },
+      { name:'MVP', desc:'Launch a production-ready MVP in weeks, not months. We help founders validate ideas quickly while building on a foundation that’s ready to scale into a full product.', skills:['Rapid Scoping','Core Flow Design','Launch-Ready Build','User Testing','Iteration Sprints'], url:'beta.yourmvp.app', accent:'#d9950f', stat:'3 wks', statLabel:'to first paying user', shot:'MVP_LAUNCH', thumb:g('#e1e0db','#c9c8c1') },
+    ];
+    const n = raw.length;
+    this._n = n;
+    const active = this.state.active;
+    const activeClamped = Math.max(0, Math.min(n - 1, active < 0 ? 0 : active));
+
+    const projects = raw.map((p, i) => ({
+      ...p,
+      idx: String(i + 1).padStart(2, '0'),
+      copyClass: 'pai-work-copy pai-armed' + (i === active ? ' pai-play' : ''),
+      accentSoft: (p.accent || '#888888') + '26',
+      hasImage: !!p.image,
+      noImage: !p.image,
+      onBook: () => { window.open('https://cal.com/paistudio', '_blank'); },
+      stopStyle: `position:absolute;left:0;width:1px;height:100vh;top:${i * 100}vh;scroll-snap-align:start;pointer-events:none`,
+    }));
+
+    const rail = raw.map((p, i) => {
+      const on = i === active;
+      return {
+        idx: String(i + 1).padStart(2, '0'),
+        onSelect: () => this._goto(i),
+        labelStyle: `font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:0.04em;transition:opacity 0.3s ease;color:${this._th().accent};opacity:${on ? 1 : 0};transform:translateX(${on ? 0 : 6}px)`,
+        dotStyle: `width:${on ? 22 : 7}px;height:7px;border-radius:99px;transition:all 0.35s cubic-bezier(0.22,1,0.36,1);background:${on ? this._th().accent : 'rgba(26,24,19,0.22)'}`,
+      };
+    });
+
+    const railVisible = active >= 0 && active < n;
+    const railWrapStyle = `position:fixed;top:50%;right:30px;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:14px;align-items:flex-end;transition:opacity 0.4s ease;opacity:${railVisible ? 1 : 0};pointer-events:${railVisible ? 'auto' : 'none'}`;
+
+    const tRaw = [
+      { quote:'They ship fast without the chaos. Predictable scope, clean builds, and zero lock-in when we scaled to a dev team.', name:'Marcus Okafor', role:'CEO, LinkGenius' },
+      { quote:'It has been a great experience working together. Very professional, detail-oriented, and always responsive to feedback. Delivered high-quality work on time and helped improve the project efficiently. Highly recommended!', name:'Sittiporn Charoensrichai', role:'Founder, AI Lawfirm', img:'uploads/sittiporn.png' },
+      { quote:'The most senior no-code team we have worked with. They think in product, not just features.', name:'Priya Raman', role:'Head of Product, SalesHub' },
+    ];
+    const avatarHue = ['#374a3e', '#5b5346', '#6c624c'];
+    const tAct = this.state.tActive;
+    // slide width/gap are responsive (CSS), so the track offset is measured live from the DOM instead of
+    // assuming a fixed 640px/680px step — keeps the centering math correct on tablet/mobile.
+    // rough initial guess (corrected exactly post-paint by _measureTestimonials, which measures layout-space
+    // offsetLeft/offsetWidth so it's immune to whatever this guess gets wrong)
+    const tOffset = this._tOffsetTotal != null ? this._tOffsetTotal : (580 - tAct * 680);
+    const tTrackStyle = 'display:flex;align-items:stretch;gap:40px;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);transform:translateX(' + tOffset + 'px)';
+    const testimonials = tRaw.map((t, i) => ({
+      ...t,
+      hasImg: !!t.img,
+      noImg: !t.img,
+      onSelect: () => this._tgoto(i),
+      slideStyle: 'flex:0 0 min(640px,88vw);box-sizing:border-box;padding:0 24px;display:flex;flex-direction:column;align-items:center;text-align:center;cursor:' + (i===tAct?'default':'pointer') + ';opacity:' + (i===tAct?1:0.28) + ';transform:scale(' + (i===tAct?1:0.9) + ');transition:opacity 0.6s ease, transform 0.6s ease;filter:' + (i===tAct?'none':'blur(0.5px)'),
+      initials: t.name.split(' ').map(s => s[0]).join('').slice(0, 2),
+      avatarStyle: `display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:${avatarHue[i % avatarHue.length]};color:#e8e8e3;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:12px;flex:0 0 auto`,
+    }));
+
+    return {
+      projects,
+      rail,
+      railWrapStyle,
+      testimonials,
+      tTrackStyle,
+      reveal: {
+        ctaHeadline: this._revealStyle('ctaHeadline'),
+        ctaCard0: this._revealStyle('ctaCard0'),
+        ctaCard1: this._revealStyle('ctaCard1'),
+        ctaCard2: this._revealStyle('ctaCard2'),
+        ctaTools: this._revealStyle('ctaTools'),
+        testimonialsWrap: this._revealStyle('testimonialsWrap'),
+        pricingHeader: this._revealStyle('pricingHeader'),
+        pricingRow1: this._revealStyle('pricingRow1'),
+        pricingRow2Card0: this._revealStyle('pricingRow2Card0'),
+        pricingRow2Card1: this._revealStyle('pricingRow2Card1'),
+        finalSection: this._fadeStyle('finalSection'),
+        footerBrand: this._revealStyle('footerBrand'),
+        footerCol0: this._revealStyle('footerCol0'),
+        footerCol1: this._revealStyle('footerCol1'),
+        footerCol2: this._revealStyle('footerCol2'),
+      },
+      counter: `${String(activeClamped + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`,
+      setGrainEl: (el) => {
+        this._grainEl = el;
+        // set imperatively in JS (not as an inline template attribute) so the raw SVG attribute
+        // names (baseFrequency, numOctaves, stitchTiles) can't be rewritten by the template layer
+        if (el && !el.dataset.grainSet) {
+          el.dataset.grainSet = '1';
+          const svg = "<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'>"
+            + "<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' result='t'/>"
+            + "<feColorMatrix in='t' type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/>"
+            + "<feComponentTransfer><feFuncA type='linear' slope='2.2' intercept='-0.55'/></feComponentTransfer>"
+            + "</filter><rect width='100%' height='100%' filter='url(#n)'/></svg>";
+          const uri = 'data:image/svg+xml,' + encodeURIComponent(svg).replace(/'/g, '%27');
+          el.style.backgroundImage = `url("${uri}")`;
+        }
+      },
+      setHeroBg: (el) => { this._heroBg = el; },
+      setPinInner: (el) => { this._pinInner = el; },
+      setCtaSection: (el) => { this._ctaSection = el; },
+      setCtaBtn: (el) => { this._ctaBtn = el; if (el) this._applyThemeDom(); },
+      setCtaText: (el) => { this._ctaText = el; },
+      setChatMenu: (el) => { this._chatMenu = el; },
+      openChat: () => {
+        const m = this._chatMenu; if (!m) return;
+        m.style.opacity = '1'; m.style.visibility = 'visible';
+        m.style.pointerEvents = 'auto'; m.style.transform = 'translateY(0)';
+      },
+      closeChat: () => {
+        const m = this._chatMenu; if (!m) return;
+        m.style.opacity = '0'; m.style.visibility = 'hidden';
+        m.style.pointerEvents = 'none'; m.style.transform = 'translateY(8px)';
+      },
+      setFooterChatMenu: (el) => { this._footerChatMenu = el; },
+      openFooterChat: () => {
+        const m = this._footerChatMenu; if (!m) return;
+        m.style.opacity = '1'; m.style.visibility = 'visible';
+        m.style.pointerEvents = 'auto'; m.style.transform = 'translate(-50%, 0)';
+      },
+      closeFooterChat: () => {
+        const m = this._footerChatMenu; if (!m) return;
+        m.style.opacity = '0'; m.style.visibility = 'hidden';
+        m.style.pointerEvents = 'none'; m.style.transform = 'translate(-50%, 8px)';
+      },
+      setGLHost: (el) => { this._glHost = el; if (el && this._mounted) this._initGL(); },
+      setLogoOnDark: (el) => { this._logoOnDark = el; },
+      setLogoOnLight: (el) => { this._logoOnLight = el; },
+      setNavLinks: (el) => { this._navLinks = el; },
+      setNavBar: (el) => { this._navBar = el; },
+
+      setBuildMenu: (el) => { this._buildMenu = el; },
+      openBuild: () => {
+        const m = this._buildMenu; if (!m) return;
+        m.style.opacity = '1'; m.style.visibility = 'visible';
+        m.style.pointerEvents = 'auto'; m.style.transform = 'translate(-50%, 0)';
+      },
+      closeBuild: () => {
+        const m = this._buildMenu; if (!m) return;
+        m.style.opacity = '0'; m.style.visibility = 'hidden';
+        m.style.pointerEvents = 'none'; m.style.transform = 'translate(-50%, 8px)';
+      },
+      setResourcesMenu: (el) => { this._resourcesMenu = el; },
+      openResources: () => {
+        const m = this._resourcesMenu; if (!m) return;
+        m.style.opacity = '1'; m.style.visibility = 'visible';
+        m.style.pointerEvents = 'auto'; m.style.transform = 'translate(-50%, 0)';
+      },
+      closeResources: () => {
+        const m = this._resourcesMenu; if (!m) return;
+        m.style.opacity = '0'; m.style.visibility = 'hidden';
+        m.style.pointerEvents = 'none'; m.style.transform = 'translate(-50%, 8px)';
+      },
+      gotoWork: () => { const el = document.getElementById('work'); if (el) window.scrollTo({ top: el.offsetTop, behavior: 'smooth' }); },
+      gotoPricing: () => { const el = document.getElementById('pricing'); if (el) window.scrollTo({ top: el.offsetTop, behavior: 'smooth' }); },
+      setPin: (el) => { this._pin = el; },
+      setTrack: (el) => { this._track = el; },
+      gotoFirst: () => this._goto(0),
+      onTrial: () => { window.open('https://cal.com/paistudio', '_blank'); },
+    };
+  }
+}
+</script>
+</body>
+</html>
