@@ -3,10 +3,11 @@
 **File:** `src/components/FinalCtaFooter.tsx`
 **Type:** Client component (`"use client"`) — uses `useScrollDriver`,
 `useReduceMotion`
-**Renders inside:** `app/page.tsx` (last section, no `theme` passed —
-defaults to `'dark'`), `app/work/page.tsx`, `app/work/[slug]/page.tsx`,
-`app/blog/page.tsx`, `app/blog/[slug]/page.tsx`, and `app/faq/page.tsx`
-(last section, `theme="light"`)
+**Renders inside:** `app/page.tsx`, `app/work/page.tsx`,
+`app/work/[slug]/page.tsx`, `app/blog/page.tsx`, `app/blog/[slug]/page.tsx`,
+and `app/faq/page.tsx` — last section on every one, all passing
+`theme="light"` now (see the note below for why the homepage does too,
+despite being otherwise a dark page)
 
 ## Purpose
 Combined final CTA block + full site footer: closing headline, a
@@ -16,7 +17,7 @@ social links, 3 footer nav columns, and a copyright bar.
 ## Props
 | Prop | Type | Required | Default | Description |
 |---|---|---|---|---|
-| `theme` | `'light' \| 'dark'` | no | `'dark'` | Backdrop color behind the section's rounded top corners only — `bg-ink` (dark) or `bg-paper` (light). The `rounded-t-[56px]` section (see Visual Specs) doesn't fill the full rectangle, so this wrapper's background shows through the corner cutouts; it must match whatever the page's own background is, or the corners render as visible wedges of the wrong color. Has no effect on the section's own dark green gradient, text, or any other content — those stay identical regardless of `theme`. |
+| `theme` | `'light' \| 'dark'` | no | `'dark'` | Backdrop color behind the section's rounded top corners only — `bg-ink` (dark) or `bg-paper` (light). The `rounded-t-[56px]` section (see Visual Specs) doesn't fill the full rectangle, so this wrapper's background shows through the corner cutouts; it must match whatever's *immediately above the footer*, not the page's theme in general — or the corners render as a visible dark/light band of the wrong color. Has no effect on the section's own dark green gradient, text, or any other content — those stay identical regardless of `theme`. **The homepage passes `theme="light"` despite being an otherwise-dark page**: once `Testimonials`/`Pricing` (the two sections directly above the footer there) went light-mode, the footer's own wrapper had to follow suit, or the exact "wrong color band" bug this prop exists to prevent came right back — theme match is about the *adjacent* section, not the page as a whole. |
 
 ## Dependencies
 - `FOOTER_COLUMNS`, `SOCIAL_LINKS` — `src/lib/data/nav.ts`

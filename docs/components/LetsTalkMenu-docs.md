@@ -3,8 +3,9 @@
 **File:** `src/components/nav/LetsTalkMenu.tsx`
 **Type:** Client component (`"use client"`), local state only
 **Used by:** `Nav` (`variant="nav"`, `align="right"`, receives `Nav`'s
-dynamic `navOnLight`) and `FinalCtaFooter` (`variant="footer"`,
-`align="center"`, no props needed — footer is always dark)
+raw dynamic `navOnLight` and its `chromeVariant`) and `FinalCtaFooter`
+(`variant="footer"`, `align="center"`, no props needed — footer is
+always dark)
 
 ## Purpose
 Avatar + "Let's Talk" trigger button that opens a small dropdown with 3
@@ -19,7 +20,8 @@ real links).
 |---|---|---|---|
 | `variant` | `'nav' \| 'footer'` | yes | Controls trigger button styling (nav: subtler `bg-white/8`; footer: brighter `bg-white/12`, larger label) and whether the label collapses on mobile (nav variant only). |
 | `align` | `'right' \| 'center'` | yes | Panel horizontal anchor: `'right'` anchors the panel's right edge to the trigger's right edge (nav); `'center'` centers the panel under the trigger (footer). |
-| `navOnLight` | `boolean` | no | Default `false`. Controls **both chrome** (trigger + panel background/border/shadow) **and label text color** — **only affects `variant="nav"`**, computed as `isLightNav = variant === 'nav' && navOnLight`. The `footer` variant always keeps its dark chrome + white text regardless of this prop, since `FinalCtaFooter`'s dark green CTA panel is a fixed brand accent, not themed per page. This is `Nav`'s dynamic "what's currently behind the nav" value (see `Nav`'s docs) passed straight through — chrome and label used to be split (chrome via a static `theme` prop, label via `navOnLight`), which meant a page's fixed chrome could go nearly invisible against whatever was actually scrolled behind the nav; both are driven by the same `navOnLight` value now so they always flip together (see `Nav-docs.md`'s Behavior section for the full story). |
+| `navOnLight` | `boolean` | no | Default `false`. Controls **both chrome** (trigger + panel background/border/shadow) **and label text color** — **only affects `variant="nav"`**, computed as `isLightNav = variant === 'nav' && chromeVariant === 'v1' && navOnLight` (see `chromeVariant` below). The `footer` variant always keeps its dark chrome + white text regardless of this prop, since `FinalCtaFooter`'s dark green CTA panel is a fixed brand accent, not themed per page. This is `Nav`'s dynamic "what's currently behind the nav" value (see `Nav`'s docs) passed straight through — chrome and label used to be split (chrome via a static `theme` prop, label via `navOnLight`), which meant a page's fixed chrome could go nearly invisible against whatever was actually scrolled behind the nav; both are driven by the same `navOnLight` value now so they always flip together (see `Nav-docs.md`'s Behavior section for the full story). |
+| `chromeVariant` | `'v1' \| 'v2'` | no | Default `'v1'`. Mirrors `Nav`'s own `chromeVariant` (see `Nav-v2-docs.md`) — only matters together with `navOnLight={true}` and `variant="nav"`. `'v1'`: unchanged (`isLightNav` branch). `'v2'`: a **third** trigger-chrome branch, `isDarkOnLight = variant === 'nav' && chromeVariant === 'v2' && navOnLight` — opaque `bg-ink/90`, not a reuse of the existing `!isLightNav` branch. That branch is `bg-white/8` (translucent white, tuned for a *dark* page behind it); collapsing straight into it via a passed-in `false` — which is what `Nav` originally did here, and still does for `MegaMenu` — produced an invisible trigger over `v2`'s actually-white page. Fixed by giving this component its own explicit dark-on-light value instead of reusing `!isLightNav`'s. |
 
 ## Local State
 - `open: boolean`
@@ -50,20 +52,27 @@ real links).
   `mailto:` link (no `target`).
 
 ## Visual Specs
-- Trigger (`nav` variant, `!isLightNav`, default chrome): `flex
-  items-center gap-3`, `rounded-full`, `border-white/16`, `bg-white/8`,
-  `py-2 pr-4 pl-2`,
+- Trigger (`nav` variant, `!isLightNav && !isDarkOnLight`, default
+  chrome): `flex items-center gap-3`, `rounded-full`, `border-white/16`,
+  `bg-white/8`, `py-2 pr-4 pl-2`,
   `shadow-[0_6px_24px_rgba(255,255,255,0.14),inset_0_1px_0_rgba(255,255,255,0.18)]`,
   `backdrop-blur-lg backdrop-saturate-150`, hover → `bg-white/16`.
 - Trigger (`nav` variant, `isLightNav`): `border-ink/12`,
   `bg-ink/5`, `shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)]`,
   hover → `bg-ink/10`.
+- Trigger (`nav` variant, `isDarkOnLight` — `chromeVariant="v2"` +
+  `navOnLight`): `border-white/12`, `bg-ink/90`,
+  `shadow-[0_6px_24px_rgba(255,255,255,0.1),inset_0_1px_0_rgba(255,255,255,0.14)]`,
+  hover → `bg-white/16` (same hover value as the default dark trigger —
+  just a white-tint overlay, works fine on any dark base).
 - Trigger (`footer` variant): same shape as the dark nav trigger but
   brighter surface (`border-white/30`, `bg-white/12`), `pr-5`, hover →
-  `bg-white/20`, label is `font-medium` — **unaffected by `navOnLight`**.
-- Label color, `nav` variant: `text-text` when `navOnLight`, `text-white`
-  otherwise — same condition as chrome above, so both always flip
-  together. Label color, `footer` variant: always `text-white`.
+  `bg-white/20`, label is `font-medium` — **unaffected by `navOnLight`/
+  `chromeVariant`**.
+- Label color, `nav` variant: `text-text` when `isLightNav`, `text-white`
+  otherwise (covers both the default dark case and `isDarkOnLight` — both
+  want white label text, so no third branch needed here, only for
+  chrome). Label color, `footer` variant: always `text-white`.
 - Avatar: 32×32px circle, `object-cover` (same for all variants/states).
 - Panel: `w-[212px]`, `rounded-[32px]`, `p-3.5`, same blur treatment as
   `MegaMenu`. Each link: `flex items-center gap-[11px]`, `rounded-full

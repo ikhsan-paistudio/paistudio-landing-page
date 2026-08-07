@@ -15,7 +15,11 @@ const ALL_CATEGORY = "All";
 
 type BlogPageBodyProps = {
   categories: string[];
-  featuredPost: BlogPost;
+  /** Nullable now that this comes from a database query (getFeaturedPost())
+   * instead of a guaranteed static constant — an empty blog_posts table, or
+   * one with no row marked is_featured, is a real possibility a DB-backed
+   * page has to handle, unlike the old static data. */
+  featuredPost: BlogPost | null;
   posts: BlogPost[];
 };
 
@@ -30,7 +34,8 @@ export function BlogPageBody({ categories, featuredPost, posts }: BlogPageBodyPr
   const [revealed, setRevealed] = useState(false);
   const [activeCategory, setActiveCategory] = useState(ALL_CATEGORY);
 
-  const showFeatured = activeCategory === ALL_CATEGORY || featuredPost.tag === activeCategory;
+  const showFeatured =
+    featuredPost !== null && (activeCategory === ALL_CATEGORY || featuredPost.tag === activeCategory);
   const filteredPosts =
     activeCategory === ALL_CATEGORY ? posts : posts.filter((post) => post.tag === activeCategory);
 
@@ -58,7 +63,7 @@ export function BlogPageBody({ categories, featuredPost, posts }: BlogPageBodyPr
         </div>
       </section>
 
-      {showFeatured && (
+      {showFeatured && featuredPost && (
         <section className="pai-container mx-auto w-full max-w-[1240px] px-10 pb-[100px] max-[900px]:px-7 max-[560px]:px-5">
           <div className={playClass}>
             <FeaturedPostCard post={featuredPost} />

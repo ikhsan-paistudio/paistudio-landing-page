@@ -8,15 +8,21 @@ import { RelatedPosts } from "@/components/blog/detail/RelatedPosts";
 import { FinalCtaFooter } from "@/components/FinalCtaFooter";
 import { FooterUncover } from "@/components/FooterUncover";
 import { Nav } from "@/components/nav/Nav";
-import { BLOG_POST_DETAILS } from "@/lib/data/blog-post-details";
+import { getAllBlogSlugs, getBlogPostDetail } from "@/lib/data/blog-post-details";
 import { getRelatedPosts } from "@/lib/data/blog-posts";
 import { ScrollDriverProvider } from "@/lib/scroll/useScrollDriver";
 
 type PageParams = { slug: string };
 
-export function generateStaticParams() {
-  return Object.keys(BLOG_POST_DETAILS).map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getAllBlogSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
+
+// Posts now come from Postgres instead of a static file — revalidate
+// periodically so edits made directly in the database show up without a
+// redeploy.
+export const revalidate = 300;
 
 export async function generateMetadata({
   params,
@@ -24,7 +30,7 @@ export async function generateMetadata({
   params: Promise<PageParams>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = BLOG_POST_DETAILS[slug];
+  const post = await getBlogPostDetail(slug);
   if (!post) return {};
   return {
     title: `${post.title} — Paistudio Blog`,
@@ -45,15 +51,15 @@ export async function generateMetadata({
 // once here too, doing both jobs, matching every other page in this app.
 export default async function BlogPostPage({ params }: { params: Promise<PageParams> }) {
   const { slug } = await params;
-  const post = BLOG_POST_DETAILS[slug];
+  const post = await getBlogPostDetail(slug);
   if (!post) notFound();
 
-  const related = getRelatedPosts(slug);
+  const related = await getRelatedPosts(slug);
 
   return (
     <ScrollDriverProvider>
       <div className="relative w-full bg-paper text-text">
-        <Nav theme="light" />
+        <Nav theme="light" chromeVariant="v2" />
         <main data-nav-bg="light" className="min-h-screen bg-paper">
           <section className="pai-container mx-auto w-full max-w-[1240px] px-10 pt-[130px] pb-12 max-[900px]:px-7 max-[560px]:px-5">
             <ArticleHeader tags={post.tags} title={post.title} date={post.date} readTime={post.readTime} />
@@ -64,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<PagePar
           </section>
 
           <section className="pai-container mx-auto grid w-full max-w-[1240px] grid-cols-[340px_1fr] gap-16 px-10 pb-[100px] max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[900px]:px-7 max-[560px]:px-5">
-            <ArticleSidebar author={post.author} toc={post.toc} />
+            <ArticleSidebar author={post.author} toc={post.toc} title={post.title} />
             <ArticleBody blocks={post.body} />
           </section>
 

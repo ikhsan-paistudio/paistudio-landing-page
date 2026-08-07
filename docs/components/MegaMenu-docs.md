@@ -3,7 +3,8 @@
 **File:** `src/components/nav/MegaMenu.tsx`
 **Type:** Client component (`"use client"`), local state only
 **Used by:** `Nav` — two instances, "Build" (2 columns) and "Resources"
-(1 column), receiving `Nav`'s own dynamic `navOnLight` value on every page
+(1 column), receiving `Nav`'s own raw dynamic `navOnLight` value and its
+`chromeVariant` on every page
 
 ## Purpose
 Reusable hover-or-focus-opened dropdown panel for desktop nav items with
@@ -15,7 +16,8 @@ sub-links, grouped into 1 or more labeled columns.
 | `label` | `string` | yes | Trigger button text (e.g. "Build", "Resources"). |
 | `columns` | `{ title?: string; links: NavLink[] }[]` | yes | One or more columns of links. `title` is optional — omit for a single untitled list (used by "Resources"). |
 | `panelWidthClassName` | `string` | yes | Tailwind width class applied to the dropdown panel (e.g. `"w-[420px]"` for Build's 2-column layout, `"w-[230px]"` for Resources' 1-column layout). |
-| `navOnLight` | `boolean` | no | Default `false`. Passed through from `Nav`'s own dynamic `navOnLight` (what's currently scrolled behind the nav — see `Nav`'s docs), **not** from `Nav`'s `theme` prop, which no longer affects this component. See Visual Specs below for what changes. |
+| `navOnLight` | `boolean` | no | Default `false`. Passed through *raw* from `Nav`'s own dynamic `navOnLight` (what's currently scrolled behind the nav — see `Nav`'s docs), **not** from `Nav`'s `theme` prop, which no longer affects this component. Combined with `chromeVariant` to compute `isLightChrome` (panel/title/link colors) and `isDarkOnLight` (trigger hover only) internally — see Visual Specs and `Nav-v2-docs.md`. |
+| `chromeVariant` | `'v1' \| 'v2'` | no | Default `'v1'`. Mirrors `Nav`'s own `chromeVariant` — full story in `Nav-v2-docs.md`. `'v2'` only changes the trigger's *hover* tint (`hover:bg-ink/75` instead of `hover:bg-white/14`) while `navOnLight` is `true`; panel/title/link colors are unaffected by this prop (they only care about `isLightChrome`, and are already safe to reuse as-is — see Behavior). |
 
 `NavLink = { label: string; href: string }` (from `src/types/content.ts`).
 
@@ -29,12 +31,19 @@ sub-links, grouped into 1 or more labeled columns.
 ## Behavior
 - Trigger text color is **not** passed as a separate prop — the trigger's
   `text-current` inherits whatever color `Nav`'s pill wrapper currently
-  has, which is driven by the same `navOnLight` value this component
-  receives directly for its own chrome. `navOnLight` also drives this
-  component's own panel chrome and the chevron/link hover tint (see
-  Visual Specs) — previously a static per-page `theme` choice, now flips
-  together with the pill it drops down from (see `Nav-docs.md`'s
-  Behavior section for why that changed).
+  has. `navOnLight` + `chromeVariant` drive this component's own panel
+  chrome and the chevron/link hover tint (see Visual Specs) — previously
+  a static per-page `theme` choice, now flips together with the pill it
+  drops down from (see `Nav-docs.md`'s Behavior section for why that
+  changed).
+- The trigger has no background of its own at rest — only `text-current`
+  and a hover tint — so it composites over whatever `Nav`'s pill is
+  currently showing rather than directly over the page. That's why its
+  hover value only needed a same-family swap (`hover:bg-white/14` →
+  `hover:bg-ink/75` in `v2`) rather than the more involved rest-state fix
+  `LetsTalkMenu`'s trigger needed (it has its own rest-state background,
+  which does sit directly against the page) — see `Nav-v2-docs.md`'s
+  Implementation section for the full comparison.
 - Opens on `onMouseEnter` (closes on `onMouseLeave`) **and** on
   `onFocus` of the trigger button (keyboard users tabbing to the trigger
   open it too, not just mouse hover) — this is the accessibility fix vs.
@@ -61,23 +70,28 @@ sub-links, grouped into 1 or more labeled columns.
 ## Visual Specs
 - Trigger: `inline-flex items-center gap-1.5`, `rounded-full px-[18px]
   py-2`; chevron SVG (9×9, `opacity-60`) that does not currently rotate
-  on open (static icon). Hover: `bg-white/14` (`!navOnLight`) /
-  `bg-ink/10` (`navOnLight`).
+  on open (static icon). Hover: `bg-white/14` (`!isLightChrome &&
+  !isDarkOnLight`) / `bg-ink/10` (`isLightChrome`) / `bg-ink/75`
+  (`isDarkOnLight` — `chromeVariant="v2"` + `navOnLight`).
 - Panel: `absolute left-1/2 top-full`, offset via `translate(-50%, 0 | 8px)`,
   `pt-3.5` gap from trigger, 200ms opacity/transform transition.
 - Panel surface: `rounded-[32px]`, `backdrop-blur-2xl backdrop-saturate-150`,
   `flex gap-7` between columns, `px-4 py-[22px]`.
-  - `!navOnLight`: `border-white/14`, `bg-[#121210f2]`,
+  - `!isLightChrome` (covers both the default dark case and
+    `isDarkOnLight` — the panel itself doesn't need a third branch, only
+    the trigger's hover does): `border-white/14`, `bg-[#121210f2]`,
     `shadow-[0_18px_48px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.12)]`.
-  - `navOnLight`: `border-ink/10`, `bg-white/95`,
+  - `isLightChrome`: `border-ink/10`, `bg-white/95`,
     `shadow-[0_18px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.6)]`
     (softer shadow, brighter inset highlight).
 - Column title (if present): 12px uppercase, `tracking-[0.1em]`,
-  `mb-2 px-2.5`. `text-white/66` (`!navOnLight`) / `text-text/66`
-  (`navOnLight`).
+  `mb-2 px-2.5`. `text-white/66` (`!isLightChrome`) / `text-text/66`
+  (`isLightChrome`).
 - Links: `rounded-full px-2.5 py-[7px]`, 14px.
-  `text-white/90`, hover → `bg-white/10 text-white` (`!navOnLight`) /
-  `text-text/90`, hover → `bg-ink/8 text-text` (`navOnLight`).
+  `text-white/90`, hover → `bg-white/10 text-white` (`!isLightChrome`) /
+  `text-text/90`, hover → `bg-ink/8 text-text` (`isLightChrome`) — these
+  link hovers are safe to leave as-is in `v2` too, since they composite
+  over the panel's own opaque background, not directly over the page.
 
 ## Responsive Behavior
 None — this component is only ever rendered inside `Nav`'s desktop pill

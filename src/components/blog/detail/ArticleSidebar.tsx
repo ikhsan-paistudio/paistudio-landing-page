@@ -3,11 +3,13 @@
 import { fadeStyle, useReduceMotion, useScrollDriver } from "@/lib/scroll/useScrollDriver";
 import type { ArticleTocEntry, BlogPostAuthor } from "@/types/blog";
 import { AuthorCard } from "./AuthorCard";
+import { ShareButtons } from "./ShareButtons";
 import { TableOfContents } from "./TableOfContents";
 
 type ArticleSidebarProps = {
   author: BlogPostAuthor;
   toc: ArticleTocEntry[];
+  title: string;
 };
 
 /** Narrower sticky sidebar column: author row + "Sections" TOC (the
@@ -19,7 +21,7 @@ type ArticleSidebarProps = {
  * itself is only used elsewhere for the homepage's pinned work-gallery
  * mechanic, a functionally different use — flagged per the brief's own
  * example. */
-export function ArticleSidebar({ author, toc }: ArticleSidebarProps) {
+export function ArticleSidebar({ author, toc, title }: ArticleSidebarProps) {
   const { revealed } = useScrollDriver();
   const reduceMotion = useReduceMotion();
 
@@ -32,6 +34,7 @@ export function ArticleSidebar({ author, toc }: ArticleSidebarProps) {
     >
       <AuthorCard author={author} />
       <TableOfContents entries={toc} />
+      <ShareButtons title={title} />
     </div>
   );
 }

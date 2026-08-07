@@ -38,7 +38,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
   return (
     <ScrollDriverProvider>
       <div className="relative w-full bg-paper text-text">
-        <Nav theme="light" />
+        <Nav theme="light" chromeVariant="v2" />
         <main data-nav-bg="light" className="min-h-screen bg-paper">
           <DetailHero title={project.title} headline={project.headline} />
 

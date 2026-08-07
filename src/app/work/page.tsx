@@ -15,7 +15,7 @@ export default function WorkPage() {
   return (
     <ScrollDriverProvider>
       <div className="relative w-full bg-paper text-text">
-        <Nav theme="light" />
+        <Nav theme="light" chromeVariant="v2" />
         <main data-nav-bg="light" className="min-h-screen bg-paper">
           <section className="pai-container mx-auto w-full max-w-[1240px] px-10 pt-[130px] pb-20 max-[900px]:px-7 max-[560px]:px-5">
             {/* Same staggered text-reveal used by the homepage's "Our Work" gallery

@@ -45,3 +45,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code skills (installed via uipro, local dev tooling)
+.claude/skills/

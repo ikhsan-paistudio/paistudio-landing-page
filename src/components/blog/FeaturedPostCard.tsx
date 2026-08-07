@@ -19,7 +19,7 @@ export function FeaturedPostCard({ post }: FeaturedPostCardProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="grid w-full grid-cols-2 items-center gap-14 rounded-[32px] bg-cream p-12 no-underline max-[900px]:grid-cols-1 max-[900px]:gap-8 max-[900px]:p-8"
+      className="grid w-full grid-cols-2 items-stretch gap-14 rounded-[32px] bg-cream p-12 no-underline max-[900px]:grid-cols-1 max-[900px]:gap-8 max-[900px]:p-8"
     >
       <div className="flex flex-col items-start gap-5">
         <div className="flex items-center gap-3">
@@ -29,7 +29,10 @@ export function FeaturedPostCard({ post }: FeaturedPostCardProps) {
         <h2 className="m-0 text-[26px] leading-[1.2] font-medium tracking-[-0.01em] text-text text-balance">
           {post.title}
         </h2>
-        <p className="m-0 text-[18px] leading-[1.6] text-muted">{post.description}</p>
+        {/* flex-1 fills the leftover height between title and author so the
+            author row sits pinned to the card's bottom edge (matching the
+            image column's height) instead of floating mid-height. */}
+        <p className="m-0 flex-1 text-[18px] leading-[1.6] text-muted">{post.description}</p>
         <BlogAuthorRow author={post.author} meta={post.readTime} />
       </div>
 

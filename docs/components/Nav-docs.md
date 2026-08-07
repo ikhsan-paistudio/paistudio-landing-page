@@ -4,14 +4,17 @@
 **Type:** Client component (`"use client"`) — uses `useScrollDriver`,
 local state
 **Renders inside:** `app/page.tsx` (the homepage/index — second child,
-after `FixedBackground`, `theme="dark"`), and `app/work/page.tsx`,
-`app/work/[slug]/page.tsx`, `app/blog/page.tsx`, `app/blog/[slug]/page.tsx`,
-`app/faq/page.tsx` (all `theme="light"`)
+after `FixedBackground`, `theme="dark"`, `chromeVariant="v2"`), and
+`app/work/page.tsx`, `app/work/[slug]/page.tsx`, `app/blog/page.tsx`,
+`app/blog/[slug]/page.tsx`, `app/faq/page.tsx` (all `theme="light"`,
+default `chromeVariant`)
 **Reference spec:** the homepage's usage (`theme="dark"`, no other props)
 is the canonical behavior. Everything below is written from that
 baseline; `theme="light"` is documented as a diff against it, not as a
 separate parallel spec. Note `theme` now only affects `MobileNav`'s
-drawer — see Props.
+drawer — see Props. `chromeVariant` is documented separately in
+`Nav-v2-docs.md`, since it's substantial enough a diff to warrant its own
+file rather than a Props-table line.
 
 ## Purpose
 Fixed top navigation bar: logo (swaps instantly between light/dark
@@ -24,6 +27,7 @@ a centered glass-pill link menu with two mega-menus (desktop only), a
 | Prop | Type | Required | Default | Description |
 |---|---|---|---|---|
 | `theme` | `'light' \| 'dark'` | no | `'dark'` | Controls **only `MobileNav`'s drawer chrome** (background, border, shadow) — a per-page fallback for that one full-screen-ish overlay, which doesn't sit as translucent glass directly over scrolling content the way the pill/`MegaMenu`/`LetsTalkMenu` do. Everything else (pill/hamburger/`MegaMenu`/`LetsTalkMenu` chrome, logo, text color) is driven dynamically by `navOnLight` instead — see Behavior. |
+| `chromeVariant` | `'v1' \| 'v2'` | no | `'v1'` | Selects which color pair the pill/hamburger/`MegaMenu`/`LetsTalkMenu` chrome resolves to while `navOnLight` is `true`. `'v1'` is the light-glass pill described throughout this doc. `'v2'` swaps that one case for a solid dark pill instead — full spec in `Nav-v2-docs.md`. Currently only the homepage passes `'v2'`. |
 
 ## Local State
 - `mobileOpen: boolean` — controls whether `MobileNav` is open.
@@ -36,13 +40,15 @@ a centered glass-pill link menu with two mega-menus (desktop only), a
   section doesn't exist on the current page — see `useScrollDriver.tsx`'s
   `gotoId`)
 - `MegaMenu` (`./MegaMenu.tsx`) — "Build" and "Resources" dropdowns,
-  receives `navOnLight` for its trigger hover tint + panel chrome; its
-  trigger's text color is **not** passed explicitly — it inherits the
-  pill's dynamic text color via `text-current` (see Behavior)
+  receives `navOnLight` (raw) + `chromeVariant` for its trigger hover
+  tint + panel chrome; its trigger's text color is **not** passed
+  explicitly — it inherits the pill's dynamic text color via
+  `text-current` (see Behavior)
 - `LetsTalkMenu` (`./LetsTalkMenu.tsx`), `variant="nav"`, `align="right"`,
-  receives `navOnLight` for both its chrome (trigger/panel) and its label
-  text color — it's rendered outside the main pill, so it can't inherit
-  either via `text-current` and needs the value passed explicitly
+  receives `navOnLight` (raw) + `chromeVariant` for both its chrome
+  (trigger/panel) and its label text color — it's rendered outside the
+  main pill, so it can't inherit either via `text-current` and needs the
+  value passed explicitly
 - `MobileNav` (`./MobileNav.tsx`), receives `theme` — the drawer is an
   opaque-ish overlay with its own dedicated background, so it does not
   need `navOnLight`

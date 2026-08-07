@@ -2,21 +2,40 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Project } from "@/types/work";
 
 const CYCLE_MS = 1300;
 
-// A small fixed set of aspect ratios, picked deterministically per card (by
-// slug) so cards vary in height for the masonry layout — without adding
-// extra fields to the given Project data shape.
-const ASPECT_RATIOS = ["4 / 5", "1 / 1", "3 / 4", "5 / 4"];
+const noopSubscribe = () => () => {};
 
-function aspectRatioFor(slug: string) {
-  let hash = 0;
-  for (const char of slug) hash = (hash * 31 + char.charCodeAt(0)) % 997;
-  return ASPECT_RATIOS[hash % ASPECT_RATIOS.length];
+/** Not-hovered default image, randomized among `[coverImage, ...showcaseImages]`
+ * instead of always `coverImage` — via `useSyncExternalStore` (same pattern
+ * `useReduceMotion` uses in useScrollDriver.tsx) rather than `useState` +
+ * `useEffect`, since a `Math.random()` pick needs to differ safely between
+ * server and client without a hydration mismatch: `getServerSnapshot`
+ * always returns `coverImage` (what the server rendered), `getSnapshot`
+ * picks once per mount and caches it in a ref so it stays stable across
+ * re-renders. */
+function useRandomDefaultImage(coverImage: string, showcaseImages: string[]) {
+  const pickedRef = useRef<string | null>(null);
+  return useSyncExternalStore(
+    noopSubscribe,
+    () => {
+      if (pickedRef.current === null) {
+        const pool = [coverImage, ...showcaseImages];
+        pickedRef.current = pool[Math.floor(Math.random() * pool.length)];
+      }
+      return pickedRef.current;
+    },
+    () => coverImage
+  );
 }
+
+// One fixed aspect ratio for every card (previously varied per-slug for a
+// masonry layout — see ProjectGrid.tsx's switch from `columns` to a real
+// `grid`) so every card in a row is the same height and rows line up.
+const THUMB_ASPECT_RATIO = "4 / 5";
 
 type ProjectCardProps = {
   project: Project;
@@ -27,6 +46,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project, revealed }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
+  const defaultImage = useRandomDefaultImage(project.coverImage, project.showcaseImages);
 
   useEffect(() => {
     if (!hovered || project.showcaseImages.length === 0) return;
@@ -46,14 +66,14 @@ export function ProjectCard({ project, revealed }: ProjectCardProps) {
   };
 
   const displayedImage =
-    hovered && project.showcaseImages.length > 0 ? project.showcaseImages[imageIndex] : project.coverImage;
+    hovered && project.showcaseImages.length > 0 ? project.showcaseImages[imageIndex] : defaultImage;
 
   return (
     <Link
-      href={`/work/${project.slug}`}
+      href={`/work/v2/${project.slug}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group mb-6 block break-inside-avoid"
+      className="group block"
     >
       {/* Same reveal used by the hero and the homepage's "Our Work" gallery
           (pai-work-copy/pai-armed/pai-play, see globals.css) — thumbnail and
@@ -61,11 +81,14 @@ export function ProjectCard({ project, revealed }: ProjectCardProps) {
           first (nth-child(1), 0.04s delay) and the text follows right after
           (nth-child(2), 0.13s delay). */}
       <div className={`pai-work-copy pai-armed${revealed ? " pai-play" : ""}`}>
-        <div
-          className="pai-hover-card w-full rounded-[32px]"
-          style={{ aspectRatio: aspectRatioFor(project.slug) }}
-        >
-          <Image src={displayedImage} alt={project.title} fill className="object-cover" />
+        {/* Container + max-width treatment, same idiom as the v2 detail
+            page's images (ContainedImage/SplitImageRow/CurvedRevealImage):
+            #E0E0E0 container, image capped at max-width and centered
+            inside it via object-contain, instead of filling the frame. */}
+        <div className="pai-hover-card w-full rounded-[32px] bg-[#E0E0E0]" style={{ aspectRatio: THUMB_ASPECT_RATIO }}>
+          <div className="relative mx-auto h-full w-full max-w-[100%]">
+            <Image src={displayedImage} alt={project.title} fill className="object-contain" />
+          </div>
           {project.badge && (
             <span className="absolute top-4 left-4 rounded-full bg-brand px-3 py-1 text-[12px] font-medium tracking-[0.1em] text-white uppercase">
               {project.badge}

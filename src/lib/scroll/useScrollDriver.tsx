@@ -291,7 +291,15 @@ export function ScrollDriverProvider({ children }: { children: ReactNode }) {
   const gotoId = useCallback((id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      window.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+      // `offsetTop` is relative to the nearest *positioned* ancestor, not
+      // the document — several sections (e.g. FinalCtaFooter's own
+      // `position: relative` wrapper around `#contact`) sit inside one, so
+      // offsetTop alone under-reports how far down the page they actually
+      // are. getBoundingClientRect() + the current scroll offset gives the
+      // real document-relative position regardless of what's positioned in
+      // between.
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top, behavior: "smooth" });
     } else {
       // Nav is shared across routes; on a page that doesn't have this
       // section (e.g. /work), fall back to the homepage anchor instead of

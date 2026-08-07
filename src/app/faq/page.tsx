@@ -17,7 +17,7 @@ export default function FaqPage() {
   return (
     <ScrollDriverProvider>
       <div className="relative w-full bg-paper text-text">
-        <Nav theme="light" />
+        <Nav theme="light" chromeVariant="v2" />
         <main data-nav-bg="light" className="min-h-screen bg-paper">
           <section className="pai-container mx-auto w-full max-w-[1240px] px-10 pt-[130px] pb-20 max-[900px]:px-7 max-[560px]:px-5">
             <div className="pai-work-copy pai-armed pai-play flex flex-col gap-14">

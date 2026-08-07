@@ -25,7 +25,13 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
           <span>View</span>
         </div>
       </div>
-      <h3 className="m-0 text-[18px] leading-[1.3] font-medium text-text text-balance">{post.title}</h3>
+      {/* Clamped to 2 lines AND given a matching min-height (2 lines *
+          leading-[1.3]) — line-clamp alone only caps long titles, it
+          doesn't reserve space for short ones, so 1-line titles would still
+          leave the author row sitting higher than 2-line titles' row. */}
+      <h3 className="m-0 line-clamp-2 min-h-[2.6em] text-[18px] leading-[1.3] font-medium text-text text-balance">
+        {post.title}
+      </h3>
       <BlogAuthorRow author={post.author} meta={post.readTime} />
     </Link>
   );

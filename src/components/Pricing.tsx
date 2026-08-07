@@ -15,12 +15,17 @@ const MVP_TAGS = ["Product strategy", "UX/UI design", "Full development", "AI & 
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-lg bg-ink/5 px-4 py-2 text-[14px] text-text/75">{children}</span>
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-ink/5 px-4 py-2 text-[14px] text-text/80">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="shrink-0 text-brand">
+        <path d="M2.5 6.2 5 8.7 9.5 3.3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      {children}
+    </span>
   );
 }
 
 export function Pricing() {
-  const { revealed } = useScrollDriver();
+  const { revealed, gotoId } = useScrollDriver();
   const reduceMotion = useReduceMotion();
 
   return (
@@ -50,15 +55,20 @@ export function Pricing() {
           <div
             data-reveal="1"
             data-reveal-id="pricingRow1"
-            className="pai-pricing-row1 mb-6 grid grid-cols-[1.2fr_1fr] gap-14 overflow-hidden rounded-[32px] bg-cream p-12 max-[900px]:grid-cols-1"
+            className="pai-pricing-row1 relative mb-6 grid grid-cols-[1.2fr_1fr] gap-14 overflow-hidden rounded-[32px] border-2 border-brand/30 bg-cream p-12 max-[900px]:grid-cols-1"
             style={revealStyle(revealed, "pricingRow1", reduceMotion)}
           >
             <div className="flex flex-col justify-center">
-              <h3 className="m-0 mb-4 text-[26px] leading-[1.1] font-medium tracking-[-0.01em] text-text">
-                Biweekly Sprint
-              </h3>
+              <div className="mb-4 flex flex-wrap items-center gap-3">
+                <h3 className="m-0 text-[26px] leading-[1.1] font-bold tracking-[-0.01em] text-text">
+                  Biweekly Sprint
+                </h3>
+                <span className="inline-flex items-center rounded-full bg-brand px-3 py-1 text-[11px] font-semibold tracking-[0.04em] text-white uppercase">
+                  Most popular
+                </span>
+              </div>
               <div className="mb-[18px] flex items-baseline gap-2">
-                <span className="text-[28px] leading-[1.1] font-medium tracking-[-0.01em] text-text">$1,950</span>
+                <span className="text-[40px] leading-[1] font-bold tracking-[-0.02em] text-text">$1,950</span>
                 <span className="text-[14px] tracking-[0.06em] text-muted">/sprint</span>
               </div>
               <p className="m-0 mb-6 max-w-[480px] text-[14px] leading-[1.6] font-normal text-muted">
@@ -91,13 +101,13 @@ export function Pricing() {
             <div
               data-reveal="1"
               data-reveal-id="pricingRow2Card0"
-              className="relative flex flex-col overflow-hidden rounded-3xl bg-cream p-12"
+              className="relative flex flex-col overflow-hidden rounded-[32px] bg-cream p-12"
               style={revealStyle(revealed, "pricingRow2Card0", reduceMotion)}
             >
-              <h3 className="m-0 mb-3 text-[26px] font-normal tracking-[-0.01em] text-text">Rocket Launch MVP</h3>
-              <span className="mb-4 block text-[28px] font-normal tracking-[-0.01em] text-text">
+              <h3 className="m-0 mb-3 text-[26px] font-bold tracking-[-0.01em] text-text">Rocket Launch MVP</h3>
+              <span className="mb-4 flex items-baseline gap-2 text-[40px] leading-[1] font-bold tracking-[-0.02em] text-text">
                 $3,950
-                <span className="ml-2 text-[12px] tracking-[0.06em] text-muted">/one-time</span>
+                <span className="text-[14px] font-normal tracking-[0.06em] text-muted">/one-time</span>
               </span>
               <p className="m-0 mb-6 text-[14px] leading-[1.6] text-muted">
                 From zero to launched — strategy, design, development, and launch, live in as little as 2 weeks.
@@ -112,18 +122,23 @@ export function Pricing() {
             <div
               data-reveal="1"
               data-reveal-id="pricingRow2Card1"
-              className="flex flex-col rounded-3xl border border-ink/10 p-12"
+              className="flex flex-col rounded-[32px] border border-ink/10 p-12"
               style={revealStyle(revealed, "pricingRow2Card1", reduceMotion)}
             >
-              <h3 className="m-0 mb-3 text-[26px] font-normal tracking-[-0.01em] text-text">Custom scope &amp; pricing</h3>
+              <h3 className="m-0 mb-3 text-[26px] font-bold tracking-[-0.01em] text-text">Custom scope &amp; pricing</h3>
               <p className="m-0 mb-7 text-[14px] leading-[1.6] text-muted">
                 Tell us what you&apos;re building — fixed-price proposal, honest timeline, no fluff.
               </p>
-              {/* No destination defined yet in the source design — placeholder until a real flow (e.g. contact form or Cal.com link) is decided. */}
+              {/* No dedicated intake flow for custom scope yet — routes to the
+                  footer's Let's Talk section (WhatsApp/email/call links)
+                  instead of dead-ending on a disabled button. */}
               <button
                 type="button"
-                disabled
-                className="mt-auto inline-flex w-fit cursor-not-allowed items-center gap-2.5 rounded-full border border-ink/12 bg-ink/5 px-6 py-[13px] text-[14px] text-text opacity-70 shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-lg backdrop-saturate-150"
+                onClick={(e) => {
+                  e.preventDefault();
+                  gotoId("contact");
+                }}
+                className="mt-auto inline-flex w-fit cursor-pointer items-center gap-2.5 rounded-full border border-ink/12 bg-ink/5 px-6 py-[13px] text-[14px] text-text shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-lg backdrop-saturate-150 transition-colors hover:bg-ink/10"
               >
                 Let&apos;s Talk
               </button>

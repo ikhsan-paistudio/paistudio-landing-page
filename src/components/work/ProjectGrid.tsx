@@ -20,7 +20,12 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
   }, []);
 
   return (
-    <div className="columns-1 gap-6 md:columns-3">
+    // Real grid (was CSS multi-column masonry) — masonry's per-column
+    // vertical flow, combined with each card having a different aspect
+    // ratio, meant row 1's cards never actually lined up with each other.
+    // A grid + one fixed thumbnail aspect ratio (ProjectCard.tsx) makes
+    // every row level.
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
       {projects.map((project) => (
         <ProjectCard key={project.slug} project={project} revealed={revealed} />
       ))}

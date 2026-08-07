@@ -49,23 +49,36 @@ type LetsTalkMenuProps = {
    * variant always sits on the dark green CTA panel, so it ignores this
    * and keeps its own fixed dark chrome + white text. */
   navOnLight?: boolean;
+  /** Mirrors `Nav`'s own `chromeVariant` (see Nav-v2-docs.md) — only
+   * matters together with `navOnLight={true}` and `variant="nav"`. 'v1'
+   * (default): unchanged. 'v2': the trigger can't reuse its normal "dark"
+   * chrome branch here, because that branch is `bg-white/8` at rest and
+   * `hover:bg-white/16` on hover — both translucent white, meant to pick
+   * up a dark page behind them, both go invisible on the white page
+   * `chromeVariant="v2"` implies. Gets its own opaque `bg-ink/90` (rest)
+   * / `hover:bg-ink/75` (hover, a lighter shade of the same dark family,
+   * not a swap to white) instead, matching `Nav`'s own pill in v2. */
+  chromeVariant?: "v1" | "v2";
 };
 
-export function LetsTalkMenu({ variant, align, navOnLight = false }: LetsTalkMenuProps) {
+export function LetsTalkMenu({ variant, align, navOnLight = false, chromeVariant = "v1" }: LetsTalkMenuProps) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const close = () => setOpen(false);
 
   const positionClass = align === "right" ? "right-0" : "left-1/2 -translate-x-1/2";
-  const isLightNav = variant === "nav" && navOnLight;
+  const isLightNav = variant === "nav" && chromeVariant === "v1" && navOnLight;
+  const isDarkOnLight = variant === "nav" && chromeVariant === "v2" && navOnLight;
 
   const triggerClass =
     variant === "nav"
-      ? isLightNav
-        ? "border-ink/12 bg-ink/5 shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] hover:bg-ink/10"
-        : "border-white/16 bg-white/8 shadow-[0_6px_24px_rgba(255,255,255,0.14),inset_0_1px_0_rgba(255,255,255,0.18)] hover:bg-white/16"
+      ? isDarkOnLight
+        ? "border-white/12 bg-ink/90 shadow-[0_6px_24px_rgba(255,255,255,0.1),inset_0_1px_0_rgba(255,255,255,0.14)] hover:bg-ink/75"
+        : isLightNav
+          ? "border-ink/12 bg-ink/5 shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] hover:bg-ink/10"
+          : "border-white/16 bg-white/8 shadow-[0_6px_24px_rgba(255,255,255,0.14),inset_0_1px_0_rgba(255,255,255,0.18)] hover:bg-white/16"
       : "border-white/30 bg-white/12 shadow-[0_6px_24px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(255,255,255,0.22)] hover:bg-white/20";
-  const labelClass = variant === "nav" ? (navOnLight ? "text-text" : "text-white") : "text-white";
+  const labelClass = variant === "nav" ? (isLightNav ? "text-text" : "text-white") : "text-white";
   const panelClass = isLightNav
     ? "border-ink/10 bg-white/95 shadow-[0_18px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.6)]"
     : "border-white/14 bg-[#121210f2] shadow-[0_18px_48px_rgba(0,0,0,0.34),inset_0_1px_0_rgba(255,255,255,0.12)]";

@@ -17,7 +17,7 @@ export default function Home() {
     <ScrollDriverProvider>
       <div className="relative w-full bg-ink text-text">
         <FixedBackground />
-        <Nav />
+        <Nav chromeVariant="v2" />
         <ProgressRail />
         <Hero />
         <WorkGallery />
@@ -25,7 +25,7 @@ export default function Home() {
         <Testimonials />
         <Pricing />
         <FooterUncover>
-          <FinalCtaFooter />
+          <FinalCtaFooter theme="light" />
         </FooterUncover>
       </div>
     </ScrollDriverProvider>
