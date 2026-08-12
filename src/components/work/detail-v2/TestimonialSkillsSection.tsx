@@ -8,10 +8,19 @@ type TestimonialSkillsSectionProps = {
   image: ProjectImageRef;
   /** Optional — most projects don't have a real client testimonial on
    * file (see ProjectDetailV2.testimonial's own comment). When absent,
-   * the quote/stars/attribution block is skipped entirely and the skills
-   * list alone fills the column, top-aligned instead of centered against
-   * an empty upper half. */
+   * `overview` (if provided) fills the upper slot instead — see that
+   * prop's own comment — otherwise the skills list alone fills the
+   * column, top-aligned instead of centered against an empty upper half. */
   testimonial?: ProjectTestimonialV2;
+  /** Optional short project-overview paragraph, shown above "Skills &
+   * deliverables" ONLY when `testimonial` is absent — added on request
+   * ("untuk project yang tidak punya testimonial, berikan project
+   * overview di atas skills and deliverables") so a project without a
+   * real quote doesn't just show a lone skills list with a large empty
+   * upper half. Ignored when `testimonial` is present (the quote already
+   * fills that slot). Call sites pass the project's own real description
+   * (the same text `HeroV2`'s intro already uses), not fabricated copy. */
+  overview?: string;
   skills: string[];
   revealId: string;
 };
@@ -40,9 +49,10 @@ function Stars({ rating }: { rating: number }) {
  * (quote + star rating + attribution) above, "Skills & deliverables"
  * pills below — same pill idiom Pricing.tsx uses for its feature tags
  * (`rounded-full bg-ink/5`), reused here for skills instead of features. */
-export function TestimonialSkillsSection({ image, testimonial, skills, revealId }: TestimonialSkillsSectionProps) {
+export function TestimonialSkillsSection({ image, testimonial, overview, skills, revealId }: TestimonialSkillsSectionProps) {
   const { revealed } = useScrollDriver();
   const reduceMotion = useReduceMotion();
+  const hasUpperContent = Boolean(testimonial) || Boolean(overview);
 
   return (
     <div
@@ -56,7 +66,7 @@ export function TestimonialSkillsSection({ image, testimonial, skills, revealId 
       </div>
 
       <div className={`flex flex-col gap-10 ${testimonial ? "justify-center" : "justify-start"}`}>
-        {testimonial && (
+        {testimonial ? (
           <div className="flex flex-col gap-4">
             <Stars rating={testimonial.rating} />
             <p className="m-0 text-[22px] leading-[1.5] font-medium tracking-[-0.01em] text-text text-balance">
@@ -66,9 +76,16 @@ export function TestimonialSkillsSection({ image, testimonial, skills, revealId 
               <span className="text-text">{testimonial.author}</span> — {testimonial.role}
             </span>
           </div>
+        ) : (
+          overview && (
+            <div className="flex flex-col gap-3">
+              <span className="text-[12px] font-medium tracking-[0.1em] text-muted uppercase">Project Overview</span>
+              <p className="m-0 text-[16px] leading-[1.6] text-muted">{overview}</p>
+            </div>
+          )
         )}
 
-        <div className={`flex flex-col gap-3 ${testimonial ? "border-t border-ink/10 pt-8" : ""}`}>
+        <div className={`flex flex-col gap-3 ${hasUpperContent ? "border-t border-ink/10 pt-8" : ""}`}>
           <span className="text-[12px] font-medium tracking-[0.1em] text-muted uppercase">Skills &amp; deliverables</span>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (

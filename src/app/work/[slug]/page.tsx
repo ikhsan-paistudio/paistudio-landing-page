@@ -51,7 +51,9 @@ export async function generateMetadata({
 // that didn't have a real client testimonial (ProjectDetailV2.testimonial is
 // optional now — see that type's own comment — so lacking one doesn't
 // block a project from living here, it just means
-// TestimonialSkillsSection renders without the quote block).
+// TestimonialSkillsSection renders the project's own description as a
+// "Project Overview" block instead of the quote (on request — see that
+// component's `overview` prop) rather than leaving the upper half empty.
 export default async function ProjectDetailPage({ params }: { params: Promise<PageParams> }) {
   const { slug } = await params;
   const project = await getWorkProjectDetailV2(slug);
@@ -69,6 +71,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
           <TestimonialSkillsSection
             image={project.testimonialImage}
             testimonial={project.testimonial}
+            overview={project.description}
             skills={project.skills}
             revealId="v2-testimonial"
           />

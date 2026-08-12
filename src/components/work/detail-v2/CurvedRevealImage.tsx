@@ -9,16 +9,18 @@ type CurvedRevealImageProps = {
   revealId: string;
 };
 
-const CLIP_ID = "pai-curve-clip";
-
-/** Image "layer" whose top edge is masked into a shallow concave "scoop"
- * (SVG clip-path, `objectBoundingBox` units so the curve stays
- * proportional at any width) — the frame's `#E0E0E0` container color reads
- * as peeling down into the image instead of a hard rectangular cut. Same
- * container+max-width treatment as ContainedImage/SplitImageRow: the
- * container fills the curved frame, the image itself is capped at
- * `max-w-[90%]` and centered inside it, so the container color also shows
- * on the sides wherever the image doesn't reach full width.
+/** Cover-image layer for the /work/[slug] template. Used to mask its top
+ * edge into a shallow concave "scoop" via an SVG `clip-path` (hence the
+ * name) — removed entirely on request ("remove semacam rounded things
+ * yang menimpa cover"), since it visually overlapped/cut into the cover
+ * image rather than just framing it. Now a plain rectangular frame; the
+ * component keeps its original name since it's still referenced from
+ * /work/[slug]/page.tsx as the "reveal" image layer and renaming it isn't
+ * what was asked. Same container+max-width treatment as
+ * ContainedImage/SplitImageRow: the `#E0E0E0` container fills the frame,
+ * the image itself is capped at `max-w-[90%]` and centered inside it, so
+ * the container color still shows on the sides wherever the image doesn't
+ * reach full width.
  *
  * Two-tier animation, deliberately split across two elements to avoid a
  * transform collision: the OUTER div owns the one-time enter fade+slide
@@ -33,7 +35,7 @@ const CLIP_ID = "pai-curve-clip";
  * as the page scrolls past the top" one.
  *
  * `object-contain` (not `object-cover`) so the image is never cropped to
- * fill the frame — it now has a visible container behind it, so letterbox
+ * fill the frame — it has a visible container behind it, so letterbox
  * gaps read as intentional framing rather than a bug to hide (unlike the
  * component's earlier full-bleed version, which had to overscan the image
  * to avoid revealing gaps during parallax).
@@ -49,17 +51,8 @@ export function CurvedRevealImage({ src, alt, revealId }: CurvedRevealImageProps
       className="relative w-full overflow-hidden bg-[#E0E0E0]"
       style={{ aspectRatio: "16 / 7.5", ...fadeStyle(revealed, revealId, reduceMotion) }}
     >
-      <svg width="0" height="0" aria-hidden="true" className="absolute">
-        <defs>
-          <clipPath id={CLIP_ID} clipPathUnits="objectBoundingBox">
-            <path d="M0,0 C0.3,0.16 0.7,0.16 1,0 L1,1 L0,1 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-      <div className="absolute inset-0" style={{ clipPath: `url(#${CLIP_ID})` }}>
-        <div data-para="0.05" className="absolute inset-0 mx-auto h-full w-full max-w-[90%]">
-          <Image src={src} alt={alt} fill className="object-contain" />
-        </div>
+      <div data-para="0.05" className="absolute inset-0 mx-auto h-full w-full max-w-[90%]">
+        <Image src={src} alt={alt} fill className="object-contain" />
       </div>
     </div>
   );

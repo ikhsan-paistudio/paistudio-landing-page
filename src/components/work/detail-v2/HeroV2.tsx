@@ -19,7 +19,16 @@ export function HeroV2({ title, description }: HeroV2Props) {
     <section className="pai-container mx-auto w-full max-w-[1240px] px-10 pt-[130px] pb-14 max-[900px]:px-7 max-[560px]:px-5">
       <div className="grid grid-cols-[1.4fr_1fr] items-stretch gap-16 max-[900px]:grid-cols-1 max-[900px]:gap-8">
         <div className="flex h-full flex-col justify-end">
-          <h1 className="m-0 text-[clamp(56px,9vw,168px)] leading-[0.94] font-extrabold tracking-[-0.02em] text-text text-balance">
+          {/* Font size/weight/tracking now matches HeroSection (SEC-01)'s
+              H1 exactly — was a much larger clamp(56px,9vw,168px)/extrabold
+              treatment, brought down on request ("buat font ... lebih
+              kecil. sesuai font yg ada di hero section"). `max-w-[720px]`
+              added alongside `text-balance` so a long project title wraps
+              onto multiple lines rather than growing unbounded — the
+              1.4fr grid column already implies a soft cap (~720px within
+              this section's 1240px container), but this makes that
+              explicit rather than relying on the grid math alone. */}
+          <h1 className="m-0 max-w-[720px] text-[64px] leading-[1.08] font-bold tracking-[-0.02em] text-text text-balance max-[900px]:text-[44px] max-[560px]:text-[32px]">
             {title}
           </h1>
         </div>
