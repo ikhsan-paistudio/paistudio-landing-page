@@ -6,7 +6,12 @@ import type { ProjectImageRef, ProjectTestimonialV2 } from "@/types/work";
 
 type TestimonialSkillsSectionProps = {
   image: ProjectImageRef;
-  testimonial: ProjectTestimonialV2;
+  /** Optional — most projects don't have a real client testimonial on
+   * file (see ProjectDetailV2.testimonial's own comment). When absent,
+   * the quote/stars/attribution block is skipped entirely and the skills
+   * list alone fills the column, top-aligned instead of centered against
+   * an empty upper half. */
+  testimonial?: ProjectTestimonialV2;
   skills: string[];
   revealId: string;
 };
@@ -50,18 +55,20 @@ export function TestimonialSkillsSection({ image, testimonial, skills, revealId 
         <Image src={image.src} alt={image.alt} fill className="object-cover" />
       </div>
 
-      <div className="flex flex-col justify-center gap-10">
-        <div className="flex flex-col gap-4">
-          <Stars rating={testimonial.rating} />
-          <p className="m-0 text-[22px] leading-[1.5] font-medium tracking-[-0.01em] text-text text-balance">
-            &ldquo;{testimonial.quote}&rdquo;
-          </p>
-          <span className="text-[14px] text-muted">
-            <span className="text-text">{testimonial.author}</span> — {testimonial.role}
-          </span>
-        </div>
+      <div className={`flex flex-col gap-10 ${testimonial ? "justify-center" : "justify-start"}`}>
+        {testimonial && (
+          <div className="flex flex-col gap-4">
+            <Stars rating={testimonial.rating} />
+            <p className="m-0 text-[22px] leading-[1.5] font-medium tracking-[-0.01em] text-text text-balance">
+              &ldquo;{testimonial.quote}&rdquo;
+            </p>
+            <span className="text-[14px] text-muted">
+              <span className="text-text">{testimonial.author}</span> — {testimonial.role}
+            </span>
+          </div>
+        )}
 
-        <div className="flex flex-col gap-3 border-t border-ink/10 pt-8">
+        <div className={`flex flex-col gap-3 ${testimonial ? "border-t border-ink/10 pt-8" : ""}`}>
           <span className="text-[12px] font-medium tracking-[0.1em] text-muted uppercase">Skills &amp; deliverables</span>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (

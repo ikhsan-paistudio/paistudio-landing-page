@@ -55,9 +55,11 @@ type LetsTalkMenuProps = {
    * chrome branch here, because that branch is `bg-white/8` at rest and
    * `hover:bg-white/16` on hover — both translucent white, meant to pick
    * up a dark page behind them, both go invisible on the white page
-   * `chromeVariant="v2"` implies. Gets its own opaque `bg-ink/90` (rest)
-   * / `hover:bg-ink/75` (hover, a lighter shade of the same dark family,
-   * not a swap to white) instead, matching `Nav`'s own pill in v2. */
+   * `chromeVariant="v2"` implies. Gets its own opaque `bg-[#767676]` (rest
+   * — the lightest solid grey that still clears WCAG AA 4.5:1 against
+   * white text; see Nav.tsx's `chromeClass` comment for the exact numbers)
+   * / `hover:bg-muted` (hover, darker — no headroom to lighten further)
+   * instead, matching `Nav`'s own pill in v2. */
   chromeVariant?: "v1" | "v2";
 };
 
@@ -73,7 +75,7 @@ export function LetsTalkMenu({ variant, align, navOnLight = false, chromeVariant
   const triggerClass =
     variant === "nav"
       ? isDarkOnLight
-        ? "border-white/12 bg-ink/90 shadow-[0_6px_24px_rgba(255,255,255,0.1),inset_0_1px_0_rgba(255,255,255,0.14)] hover:bg-ink/75"
+        ? "border-white/12 bg-[#767676] shadow-[0_6px_24px_rgba(255,255,255,0.1),inset_0_1px_0_rgba(255,255,255,0.14)] hover:bg-muted"
         : isLightNav
           ? "border-ink/12 bg-ink/5 shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] hover:bg-ink/10"
           : "border-white/16 bg-white/8 shadow-[0_6px_24px_rgba(255,255,255,0.14),inset_0_1px_0_rgba(255,255,255,0.18)] hover:bg-white/16"

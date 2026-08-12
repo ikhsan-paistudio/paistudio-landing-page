@@ -34,7 +34,9 @@ export function MegaMenu({ label, columns, panelWidthClassName, navOnLight = fal
   // case for visual consistency with the pill/LetsTalkMenu trigger hovers
   // right next to it, rather than a white highlight standing out alone.
   const isDarkOnLight = chromeVariant === "v2" && navOnLight;
-  const triggerHoverClass = isDarkOnLight ? "hover:bg-ink/75" : isLightChrome ? "hover:bg-ink/10" : "hover:bg-white/14";
+  // Matches Nav's own pill hover (hover:bg-muted, solid) now that the v2
+  // pill itself is grey (bg-muted/90) instead of near-black.
+  const triggerHoverClass = isDarkOnLight ? "hover:bg-muted" : isLightChrome ? "hover:bg-ink/10" : "hover:bg-white/14";
   const panelClass = isLightChrome
     ? "border-ink/10 bg-white/95 shadow-[0_18px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.6)]"
     : "border-white/14 bg-[#121210f2] shadow-[0_18px_48px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.12)]";

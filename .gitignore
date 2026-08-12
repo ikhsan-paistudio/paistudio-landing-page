@@ -48,3 +48,4 @@ next-env.d.ts
 
 # Claude Code skills (installed via uipro, local dev tooling)
 .claude/skills/
+.claude/settings.local.json

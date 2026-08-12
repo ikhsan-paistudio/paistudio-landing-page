@@ -2,20 +2,20 @@ import type { NavLink } from "@/types/content";
 
 export const BUILD_MENU: { whatWeBuild: NavLink[]; howWeBuildIt: NavLink[] } = {
   whatWeBuild: [
-    { label: "SaaS & Web Apps", href: "#work" },
-    { label: "Marketplace", href: "#work" },
-    { label: "AI Products", href: "#work" },
-    { label: "Automations", href: "#work" },
-    { label: "Internal Tools", href: "#work" },
-    { label: "MVP", href: "#work" },
+    { label: "SaaS & Web Apps", href: "/saas-web-app-development" },
+    { label: "Marketplace", href: "/marketplace-development" },
+    { label: "AI Products", href: "/ai-products" },
+    { label: "Automations", href: "/automation-tools" },
+    { label: "Internal Tools", href: "/internal-tools-development" },
+    { label: "MVP", href: "/mvp-development" },
   ],
   howWeBuildIt: [
-    { label: "Bubble", href: "#" },
-    { label: "n8n", href: "#" },
-    { label: "Softr", href: "#" },
-    { label: "Airtable", href: "#" },
-    { label: "Lovable", href: "#" },
-    { label: "Claude AI", href: "#" },
+    { label: "Bubble", href: "/bubble" },
+    { label: "n8n", href: "/n8n" },
+    { label: "Softr", href: "/softr" },
+    { label: "Airtable", href: "/airtable" },
+    { label: "Lovable", href: "/lovable" },
+    { label: "Claude AI", href: "/claude-ai" },
   ],
 };
 
@@ -37,23 +37,23 @@ export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [
   {
     title: "What we build",
     links: [
-      { label: "SaaS & Web App Development", href: "#" },
-      { label: "Marketplace Development", href: "#" },
-      { label: "AI Products", href: "#" },
-      { label: "MVP Development", href: "#" },
-      { label: "Automation Tools", href: "#" },
-      { label: "Internal Tools Development", href: "#" },
+      { label: "SaaS & Web App Development", href: "/saas-web-app-development" },
+      { label: "Marketplace Development", href: "/marketplace-development" },
+      { label: "AI Products", href: "/ai-products" },
+      { label: "MVP Development", href: "/mvp-development" },
+      { label: "Automation Tools", href: "/automation-tools" },
+      { label: "Internal Tools Development", href: "/internal-tools-development" },
     ],
   },
   {
     title: "Technologies",
     links: [
-      { label: "Bubble", href: "#" },
-      { label: "n8n", href: "#" },
-      { label: "Softr", href: "#" },
-      { label: "Airtable", href: "#" },
-      { label: "Lovable", href: "#" },
-      { label: "Claude AI", href: "#" },
+      { label: "Bubble", href: "/bubble" },
+      { label: "n8n", href: "/n8n" },
+      { label: "Softr", href: "/softr" },
+      { label: "Airtable", href: "/airtable" },
+      { label: "Lovable", href: "/lovable" },
+      { label: "Claude AI", href: "/claude-ai" },
     ],
   },
   {
@@ -70,5 +70,5 @@ export const FOOTER_COLUMNS: { title: string; links: NavLink[] }[] = [
 export const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://instagram.com/appai" },
   { label: "LinkedIn", href: "https://linkedin.com/company/paistudio" },
-  { label: "Bubble", href: "https://bubble.io" },
+  { label: "Bubble", href: "https://bubble.io/expert/paistudio" },
 ];

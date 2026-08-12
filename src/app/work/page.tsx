@@ -3,7 +3,7 @@ import { FooterUncover } from "@/components/FooterUncover";
 import { FinalCtaFooter } from "@/components/FinalCtaFooter";
 import { Nav } from "@/components/nav/Nav";
 import { ProjectGrid } from "@/components/work/ProjectGrid";
-import { WORK_PROJECTS } from "@/lib/data/work-projects";
+import { getWorkProjects } from "@/lib/data/work-projects";
 import { ScrollDriverProvider } from "@/lib/scroll/useScrollDriver";
 
 export const metadata: Metadata = {
@@ -11,7 +11,13 @@ export const metadata: Metadata = {
   description: "Selected SaaS platforms, marketplaces, and AI products designed and shipped by Paistudio.",
 };
 
-export default function WorkPage() {
+// Projects now come from Postgres instead of a static file — revalidate
+// periodically so edits made directly in the database show up without a
+// redeploy. Same pattern the blog pages already use.
+export const revalidate = 300;
+
+export default async function WorkPage() {
+  const projects = await getWorkProjects();
   return (
     <ScrollDriverProvider>
       <div className="relative w-full bg-paper text-text">
@@ -35,11 +41,11 @@ export default function WorkPage() {
           </section>
 
           <section className="pai-container mx-auto w-full max-w-[1240px] px-10 pb-[140px] max-[900px]:px-7 max-[560px]:px-5">
-            <ProjectGrid projects={WORK_PROJECTS} />
+            <ProjectGrid projects={projects} />
           </section>
         </main>
         <FooterUncover>
-          <FinalCtaFooter theme="light" />
+          <FinalCtaFooter />
         </FooterUncover>
       </div>
     </ScrollDriverProvider>

@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: { params: Promise<PagePar
           </section>
         </main>
         <FooterUncover>
-          <FinalCtaFooter theme="light" />
+          <FinalCtaFooter />
         </FooterUncover>
       </div>
     </ScrollDriverProvider>

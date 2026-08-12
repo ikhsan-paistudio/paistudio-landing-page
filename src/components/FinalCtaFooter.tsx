@@ -26,30 +26,48 @@ const SOCIAL_ICONS: Record<string, React.ReactNode> = {
       />
     </svg>
   ),
+  // Bubble.io's actual icon mark (fetched from the real favicon at
+  // bubble.io — a lowercase "b" letterform + a small accent dot at its
+  // bottom-left), redrawn as simple stroke/circle primitives in
+  // `currentColor` to match this row's existing monochrome-outline
+  // treatment (Instagram/LinkedIn above don't use brand colors either).
+  // The previous version here (two plain concentric-ish circles) wasn't
+  // a Bubble mark at all — an abstract placeholder that read as broken/
+  // unrecognizable, per report.
   Bubble: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6" />
-      <circle cx="12" cy="9" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M7.5 4v11.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="12.5" cy="14" r="5" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="5.7" cy="18.3" r="1.6" fill="currentColor" />
     </svg>
   ),
 };
 
-type FinalCtaFooterProps = {
-  /** Backdrop color behind the section's rounded top corners — must match
-   * whatever the page background is, since the `rounded-t-[56px]` section
-   * doesn't fill the full rectangle and this wrapper shows through the
-   * cutouts. 'dark' (default) is the homepage's `bg-ink`; 'light' is
-   * `bg-paper` for permanently light pages (e.g. /work). Purely a backdrop
-   * fill — has no effect on the section's own gradient/content. */
-  theme?: "light" | "dark";
-};
-
-export function FinalCtaFooter({ theme = "dark" }: FinalCtaFooterProps) {
-  const { revealed } = useScrollDriver();
+/** No props — see the backdrop color history below for why. */
+export function FinalCtaFooter() {
+  const { revealed, gotoId } = useScrollDriver();
   const reduceMotion = useReduceMotion();
 
   return (
-    <div className={`relative overflow-hidden ${theme === "light" ? "bg-paper" : "bg-ink"}`}>
+    // Backdrop behind the section's rounded top corners: the
+    // `rounded-t-[56px]` section below doesn't fill this wrapper's full
+    // rectangle, so this color shows through the corner cutouts. Went
+    // through a few iterations: a `theme` prop toggling `bg-ink`/`bg-paper`
+    // per call site (removed — getting it wrong or forgetting it on a new
+    // page silently showed a mismatched color band, fixed reactively more
+    // than once); then a single hardcoded `bg-ink` (right for every
+    // dark/gradient page, wrong for the blog article page's `bg-paper`
+    // background, so that one page briefly got a defaulted
+    // `backdropClassName` override); now a single hardcoded `bg-white`
+    // across every page instead, on explicit direction to make every
+    // footer's corners consistent site-wide rather than page-background-
+    // matched. (An earlier pass hardcoded this to `#0d2a1c`, the
+    // gradient's own topmost color, so the corners would blend
+    // seamlessly — but that made the rounded corners themselves visually
+    // disappear entirely, since there was no longer any contrast to
+    // reveal the curve. `bg-white` reveals the curve clearly against the
+    // section's own dark gradient on every page.)
+    <div className="relative overflow-hidden bg-white">
       <div
         className="pointer-events-none absolute top-[-6%] left-1/2 z-0 h-[62%] w-[95%] -translate-x-1/2 blur-[26px]"
         style={{ background: "radial-gradient(50% 50% at 50% 28%, rgba(74,215,140,0.18), transparent 70%)" }}
@@ -136,6 +154,31 @@ export function FinalCtaFooter({ theme = "dark" }: FinalCtaFooterProps) {
                 >
                   <h3 className="m-0 text-[14px] font-medium text-white">{col.title}</h3>
                   {col.links.map((link) => {
+                    const linkClass = "text-[14px] text-white/85 no-underline transition-colors hover:text-white";
+                    // "Our Work" (#work) only has a real target on the
+                    // homepage (WorkGallery is the only place that ever
+                    // renders `id="work"`) — this footer renders on all 19
+                    // pages. A plain `<Link href="#work">` would silently
+                    // no-op on every other page (the browser just looks
+                    // for that id on the *current* page, finds nothing).
+                    // `gotoId` already solves exactly this for Nav's own
+                    // "Our Work" link — same fix here: scroll if the
+                    // section exists on this page, else navigate to `/#work`.
+                    if (link.href.startsWith("#")) {
+                      return (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            gotoId(link.href.slice(1));
+                          }}
+                          className={linkClass}
+                        >
+                          {link.label}
+                        </a>
+                      );
+                    }
                     const isExternal = link.href.startsWith("http");
                     return (
                       <Link
@@ -143,7 +186,7 @@ export function FinalCtaFooter({ theme = "dark" }: FinalCtaFooterProps) {
                         href={link.href}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener" : undefined}
-                        className="text-[14px] text-white/85 no-underline transition-colors hover:text-white"
+                        className={linkClass}
                       >
                         {link.label}
                       </Link>

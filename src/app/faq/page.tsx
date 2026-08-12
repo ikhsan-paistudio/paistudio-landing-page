@@ -44,7 +44,7 @@ export default function FaqPage() {
           </section>
         </main>
         <FooterUncover>
-          <FinalCtaFooter theme="light" />
+          <FinalCtaFooter />
         </FooterUncover>
       </div>
     </ScrollDriverProvider>

@@ -22,7 +22,7 @@ type NavProps = {
    * hamburger/`LetsTalkMenu`-trigger/`MegaMenu`-panel surfaces — the logo
    * is unaffected either way (see Nav-v2-docs.md). 'v1' (default) is the
    * shipped light-glass pill (`bg-ink/5`, dark text) over light sections.
-   * 'v2' swaps that specific case for a solid dark pill (`bg-ink/90`,
+   * 'v2' swaps that specific case for a solid grey pill (`bg-[#767676]`,
    * white text) instead; the dark-section case is identical in both. */
   chromeVariant?: "v1" | "v2";
 };
@@ -50,27 +50,44 @@ export function Nav({ theme = "dark", chromeVariant = "v1" }: NavProps) {
   // `false` over v2's actually-white page — bit this project once already
   // (see Nav-v2-docs.md's Implementation section for the full story).
   const isLightChrome = chromeVariant === "v1" && navOnLight;
-  // The v2 "solid dark pill on a white section" case — kept as its own
+  // The v2 "solid grey pill on a white section" case — kept as its own
   // named condition (not just inlined at each call site) because its
   // *hover* value needed a real fix too: `hover:bg-white/14` (correct for
   // the `!isLightChrome` dark-on-dark case) replaces the base
   // `background-color` outright on hover rather than layering on top of
   // it, so reusing it here silently recreated the exact "invisible over
   // a white section" bug, just on :hover instead of at rest. `isDarkOnLight`
-  // gets its own `hover:bg-ink/75` — a lighter shade of the same dark
-  // family, not a swap to a translucent-white value tuned for dark pages.
+  // gets its own `hover:bg-muted` (solid, darkening rather than
+  // lightening on hover — see pillLinkHoverClass below for why) instead of
+  // a swap to a translucent-white value tuned for dark pages.
   const isDarkOnLight = chromeVariant === "v2" && navOnLight;
-  const textColorClass = isLightChrome ? "text-text/82" : "text-white/82";
+  // Solid `text-white` (not `/82`) for the v2 grey-pill-on-light case —
+  // this pill's `#767676` background was picked specifically because
+  // *solid* white text clears WCAG AA against it (4.54:1; see
+  // `chromeClass`'s comment below). Falling through to the same `/82`
+  // translucency used for the dark-page case quietly drops that to
+  // ~3.64:1 (translucent white blends toward the grey it sits on) and
+  // fails AA — text needs its own branch here, it can't just mirror
+  // `hamburgerTextClass`'s two-way split.
+  const textColorClass = isLightChrome ? "text-text/82" : isDarkOnLight ? "text-white" : "text-white/82";
   const hamburgerTextClass = isLightChrome ? "text-text" : "text-white";
 
   const chromeClass = isDarkOnLight
-    ? "border-white/12 bg-ink/90 shadow-[0_6px_24px_rgba(255,255,255,0.1),inset_0_1px_0_rgba(255,255,255,0.14)]"
+    ? "border-white/12 bg-[#767676] shadow-[0_6px_24px_rgba(255,255,255,0.1),inset_0_1px_0_rgba(255,255,255,0.14)]"
     : isLightChrome
       ? "border-ink/12 bg-ink/5 shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)]"
       : "border-white/16 bg-white/8 shadow-[0_6px_24px_rgba(255,255,255,0.14),inset_0_1px_0_rgba(255,255,255,0.18)]";
-  const pillLinkHoverClass = isDarkOnLight ? "hover:bg-ink/75" : isLightChrome ? "hover:bg-ink/10" : "hover:bg-white/14";
+  // `#767676` (not the `--color-muted` token, `#6b645c`) — the lightest
+  // *solid* grey that still clears WCAG AA (4.5:1) against white text;
+  // checked precisely: #767676 = 4.54:1, one step lighter (#787878) drops
+  // to 4.42:1 and fails. Solid rather than an opacity blend so the
+  // contrast guarantee is exact regardless of what's behind the nav.
+  // Darkens to bg-muted on hover (5.83:1) rather than lightening further —
+  // there's no headroom left to lighten on hover without failing AA, and
+  // darkening still reads as clear, intentional hover feedback.
+  const pillLinkHoverClass = isDarkOnLight ? "hover:bg-muted" : isLightChrome ? "hover:bg-ink/10" : "hover:bg-white/14";
   const hamburgerChromeClass = isDarkOnLight
-    ? "border-white/12 bg-ink/90"
+    ? "border-white/12 bg-[#767676]"
     : isLightChrome
       ? "border-ink/12 bg-ink/5"
       : "border-white/16 bg-white/8";
@@ -98,16 +115,9 @@ export function Nav({ theme = "dark", chromeVariant = "v1" }: NavProps) {
       <div
         className={`absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border p-[5px] text-[14px] tracking-[0.02em] backdrop-blur-lg backdrop-saturate-150 max-[900px]:hidden ${chromeClass} ${textColorClass}`}
       >
-        <a
-          href="#work"
-          onClick={(e) => {
-            e.preventDefault();
-            gotoId("work");
-          }}
-          className={`cursor-pointer rounded-full px-[18px] py-2 transition-colors ${pillLinkHoverClass}`}
-        >
+        <Link href="/work" className={`rounded-full px-[18px] py-2 no-underline transition-colors ${pillLinkHoverClass}`}>
           Our Work
-        </a>
+        </Link>
         <MegaMenu
           label="Build"
           navOnLight={navOnLight}

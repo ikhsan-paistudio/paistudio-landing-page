@@ -27,7 +27,7 @@ export default async function BlogPage() {
           <BlogPageBody categories={BLOG_CATEGORIES} featuredPost={featuredPost} posts={posts} />
         </main>
         <FooterUncover>
-          <FinalCtaFooter theme="light" />
+          <FinalCtaFooter />
         </FooterUncover>
       </div>
     </ScrollDriverProvider>

@@ -25,7 +25,7 @@ export default function Home() {
         <Testimonials />
         <Pricing />
         <FooterUncover>
-          <FinalCtaFooter theme="light" />
+          <FinalCtaFooter />
         </FooterUncover>
       </div>
     </ScrollDriverProvider>
