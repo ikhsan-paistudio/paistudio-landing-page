@@ -80,6 +80,7 @@ export default function MvpDevelopmentPage() {
               {
                 label: "Rapid Build",
                 description: "We build your MVP using the fastest appropriate stack for your validation goal.",
+                image: { src: "/services/full-stack-dev.png", alt: "Full-stack app editor — data, workflows, and pages in one interface" },
               },
               {
                 label: "Launch & Data Instrumentation",
@@ -88,6 +89,7 @@ export default function MvpDevelopmentPage() {
               {
                 label: "Post-Validation Roadmapping",
                 description: "We turn validated learnings into a real product roadmap.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />

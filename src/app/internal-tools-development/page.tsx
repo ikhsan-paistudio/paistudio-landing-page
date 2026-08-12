@@ -82,6 +82,7 @@ export default function InternalToolsDevelopmentPage() {
               {
                 label: "Tool Development",
                 description: "We build dashboards, admin panels, or ops tools tailored to your process.",
+                image: { src: "/services/full-stack-dev.png", alt: "Full-stack app editor — data, workflows, and pages in one interface" },
               },
               {
                 label: "Data & System Integration",
@@ -90,6 +91,7 @@ export default function InternalToolsDevelopmentPage() {
               {
                 label: "Iteration & Expansion",
                 description: "We extend your tool as your internal processes evolve.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />

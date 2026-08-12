@@ -93,6 +93,7 @@ export default function AutomationToolsPage() {
               {
                 label: "Monitoring & Refinement",
                 description: "We monitor for failures and refine your workflows as your processes change.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />

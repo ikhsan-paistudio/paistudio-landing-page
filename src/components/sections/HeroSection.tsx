@@ -5,7 +5,7 @@ type TrustBadge = {
   sourceUrl?: string;
 };
 
-/** One real image for the 65/35 placeholder row (see `images` below). */
+/** One real image for the 50/50 placeholder row (see `images` below). */
 type HeroImage = { src: string; alt: string };
 
 /** One step in a `HeroCard` timeline — e.g. `{ label: "Received", time: "2:14 PM" }`. */
@@ -43,12 +43,12 @@ type HeroSectionProps = {
    * component is unaffected. See `HeroCard` above for content rules.
    * Takes priority over `images` if both are somehow passed. */
   cards?: HeroCard[];
-  /** Optional real images for the same 65/35 placeholder row — `primary`
-   * fills the 65% box, `secondary` fills the 35% box, both still at the
-   * row's `16 / 10` aspect ratio via `object-cover` (so a source image
-   * that isn't exactly 16:10 gets center-cropped rather than stretched).
-   * Omit (the default) to keep the plain placeholder boxes — every other
-   * page is unaffected. Ignored if `cards` is also passed. */
+  /** Optional real images for the same 50/50 placeholder row — `primary`
+   * fills the left box, `secondary` fills the right box, both still at
+   * the row's `16 / 10` aspect ratio via `object-cover` (so a source
+   * image that isn't exactly 16:10 gets center-cropped rather than
+   * stretched). Omit (the default) to keep the plain placeholder boxes —
+   * every other page is unaffected. Ignored if `cards` is also passed. */
   images?: { primary: HeroImage; secondary: HeroImage };
 };
 
@@ -154,10 +154,11 @@ const HERO_CARD_POSITION_CLASSES = [
  * (no image props yet) — matching this project's own placeholder
  * convention (`WorkGallery.tsx`'s `GalleryTile`: a labeled `bg-[#d9d7d0]`
  * box, muted uppercase caption) rather than wiring up `next/image`
- * against fabricated file paths that don't exist yet. Split 65/35 via
- * `flex-[65]`/`flex-[35]` (not raw `w-[65%]`/`w-[35%]`) so the ratio holds
+ * against fabricated file paths that don't exist yet. Split 50/50 via
+ * `flex-[50]`/`flex-[50]` (not raw `w-[50%]`/`w-[50%]`) so the ratio holds
  * against the *remaining* width after the gap is subtracted, rather than
- * the gap pushing the total past 100%. Corners are `rounded-[32px]`, the
+ * the gap pushing the total past 100% — was 65/35 originally, evened out
+ * to 50/50 on request. Corners are `rounded-[32px]`, the
  * same radius already used for every large image/card treatment
  * elsewhere in this project (ProjectCard, FeaturedPostCard,
  * ContainedImage, ...). Gap between the two images is `gap-4` (16px) —
@@ -177,7 +178,7 @@ const HERO_CARD_POSITION_CLASSES = [
  * the content rules it was written against — no fabricated Paistudio
  * claims live inside a card.
  *
- * Optional `images` prop: real images in the same two-box 65/35 row
+ * Optional `images` prop: real images in the same two-box 50/50 row
  * (`fill` + `object-cover`, so non-16:10 sources center-crop rather than
  * stretch) instead of the placeholder text. Used by
  * /saas-web-app-development (`public/hero/saas-web-app-development-{a,b}.png`).
@@ -206,7 +207,7 @@ const HERO_CARD_POSITION_CLASSES = [
  * `aspectRatio: "16 / 10"` inline style is unconditional — never
  * overridden at `max-[900px]`/`max-[560px]` — so the 16:10 shape itself
  * never changes between desktop and mobile, only the box's absolute pixel
- * size does. On mobile the row switches from `flex-[65]`/`flex-[35]` to a
+ * size does. On mobile the row switches from `flex-[50]`/`flex-[50]` to a
  * stacked column (`max-[900px]:flex-col`); each box also gets an explicit
  * `max-[900px]:w-full` there rather than relying on flex's cross-axis
  * `stretch` default to imply full width — belt-and-suspenders against the
@@ -283,13 +284,13 @@ export function HeroSection({ eyebrow, headline, subhead, trustBadges, cta, card
           ) : images ? (
             <div className="mt-16 flex w-full gap-4 max-[900px]:flex-col">
               <div
-                className="relative flex flex-[65] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
+                className="relative flex flex-[50] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
                 style={{ aspectRatio: "16 / 10" }}
               >
                 <Image src={images.primary.src} alt={images.primary.alt} fill className="object-cover" />
               </div>
               <div
-                className="relative flex flex-[35] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
+                className="relative flex flex-[50] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
                 style={{ aspectRatio: "16 / 10" }}
               >
                 <Image src={images.secondary.src} alt={images.secondary.alt} fill className="object-cover" />
@@ -298,16 +299,16 @@ export function HeroSection({ eyebrow, headline, subhead, trustBadges, cta, card
           ) : (
             <div className="mt-16 flex w-full gap-4 max-[900px]:flex-col">
               <div
-                className="flex flex-[65] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
+                className="flex flex-[50] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
                 style={{ aspectRatio: "16 / 10" }}
               >
-                <span className="text-[12px] tracking-[0.1em] text-muted uppercase">Image placeholder — 65%</span>
+                <span className="text-[12px] tracking-[0.1em] text-muted uppercase">Image placeholder — 50%</span>
               </div>
               <div
-                className="flex flex-[35] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
+                className="flex flex-[50] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
                 style={{ aspectRatio: "16 / 10" }}
               >
-                <span className="text-[12px] tracking-[0.1em] text-muted uppercase">Image placeholder — 35%</span>
+                <span className="text-[12px] tracking-[0.1em] text-muted uppercase">Image placeholder — 50%</span>
               </div>
             </div>
           )}

@@ -47,6 +47,10 @@ export default function MarketplaceDevelopmentPage() {
               { label: "50+ projects completed" },
             ]}
             cta={{ label: "Start Your Project", href: "#contact" }}
+            images={{
+              primary: { src: "/hero/marketplace-hero-a.png", alt: "Furniture marketplace — product search and listings" },
+              secondary: { src: "/hero/marketplace-hero-b.png", alt: "Freelance job marketplace — listings and filters" },
+            }}
           />
 
           <ValuePillarsSection
@@ -97,6 +101,7 @@ export default function MarketplaceDevelopmentPage() {
                 label: "Growth & Liquidity Optimization",
                 description:
                   "As your business grows, we continuously refine matching and discovery to keep both sides transacting.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />

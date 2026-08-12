@@ -57,9 +57,10 @@ doc, not the spec file, as current):
   a centered no-divider layout → finally collapsed to one plain-text line
   joined with `·` separators, sitting below the CTA. No logos ship.
 - **Image h-stack**: added at the very end, not in the original spec — a
-  2-image row, `flex-[65]`/`flex-[35] basis-0` (not raw `w-[65%]`/`w-[35%]`,
+  2-image row, `flex-[50]`/`flex-[50] basis-0` (not raw `w-[50%]`/`w-[50%]`,
   so the ratio holds against the *remaining* width after the `gap-4` is
-  subtracted). `rounded-[32px]` (this project's standard large-image
+  subtracted — was `flex-[65]`/`flex-[35]`, evened out to 50/50 on
+  request). `rounded-[32px]` (this project's standard large-image
   radius). Placeholder by default: `bg-[#d9d7d0]` boxes with a muted
   uppercase caption, matching `WorkGallery.tsx`'s `GalleryTile` convention.
   A page can opt into either real images (`images` prop) or floating
@@ -82,11 +83,11 @@ doc, not the spec file, as current):
   h-stack of images").
 
 ### Optional `images` prop
-Real images in the same 65/35 two-box row, in place of the placeholder
+Real images in the same 50/50 two-box row, in place of the placeholder
 caption text — used by `/saas-web-app-development`
 (`public/hero/saas-web-app-development-{a,b}.png`, two real SaaS dashboard
-screenshots). `primary` fills the 65% box, `secondary` fills the 35% box.
-Rendered via `next/image` with `fill` + `object-cover`, so a source image
+screenshots). `primary` fills the left box, `secondary` fills the right
+box. Rendered via `next/image` with `fill` + `object-cover`, so a source image
 that isn't exactly 16:10 gets center-cropped rather than stretched or
 letterboxed (`SaaS B.png` is a near-square 1552×1540 source with empty
 color padding above/below its actual dashboard cards — the crop lands on
@@ -125,7 +126,7 @@ the scattered/rotated desktop layout.
 
 ## Responsive Behavior
 - **≤900px:** section padding drops to `py-20`; H1 → 44px; image/images
-  h-stack switches from `flex-[65]/flex-[35]` row to a stacked column
+  h-stack switches from `flex-[50]/flex-[50]` row to a stacked column
   (`max-[900px]:flex-col`, each box also forced `max-[900px]:w-full` on
   top of `flex-none` — not relying on flex's `stretch` default alone —
   belt-and-suspenders against `aspect-ratio` + `flex-basis: auto` sizing

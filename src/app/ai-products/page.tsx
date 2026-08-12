@@ -90,6 +90,7 @@ export default function AiProductsPage() {
               {
                 label: "Monitoring & Iteration",
                 description: "We track real-world performance and refine your AI product after launch.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />
