@@ -9,6 +9,7 @@ import { ProcessSection } from "@/components/sections/ProcessSection";
 import { QualificationSection } from "@/components/sections/QualificationSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ValuePillarsSection } from "@/components/sections/ValuePillarsSection";
+import { getGalleryImages } from "@/lib/data/projects";
 import { ScrollDriverProvider } from "@/lib/scroll/useScrollDriver";
 
 export const metadata: Metadata = {
@@ -47,10 +48,11 @@ export default function MarketplaceDevelopmentPage() {
               { label: "50+ projects completed" },
             ]}
             cta={{ label: "Start Your Project", href: "#contact" }}
-            images={{
-              primary: { src: "/hero/marketplace-hero-a.png", alt: "Furniture marketplace — product search and listings" },
-              secondary: { src: "/hero/marketplace-hero-b.png", alt: "Freelance job marketplace — listings and filters" },
-            }}
+            // Same real images as the homepage's "Marketplace" WorkGallery
+            // card, on request ("gunakan gambar yg dipake sesuai di work
+            // gallery") — was 2 dedicated /hero/marketplace-hero-{a,b}.png
+            // stills, now the full 6-image gallery reused 1:1.
+            images={getGalleryImages("marketplace")}
           />
 
           <ValuePillarsSection

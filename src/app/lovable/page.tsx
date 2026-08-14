@@ -49,6 +49,10 @@ export default function LovablePage() {
               { label: "50+ projects completed" },
             ]}
             cta={{ label: "Start Your Project", href: "#contact" }}
+            // No matching real WorkGallery gallery for this tool page, and
+            // no real screenshot lined up yet — hide the image row rather
+            // than show an empty placeholder, on request.
+            hideImages
           />
 
           <ValuePillarsSection

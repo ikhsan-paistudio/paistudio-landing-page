@@ -9,6 +9,7 @@ import { ProcessSection } from "@/components/sections/ProcessSection";
 import { QualificationSection } from "@/components/sections/QualificationSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ValuePillarsSection } from "@/components/sections/ValuePillarsSection";
+import { getGalleryImages } from "@/lib/data/projects";
 import { ScrollDriverProvider } from "@/lib/scroll/useScrollDriver";
 
 export const metadata: Metadata = {
@@ -50,6 +51,10 @@ export default function AutomationToolsPage() {
               { label: "50+ projects completed" },
             ]}
             cta={{ label: "Start Your Project", href: "#contact" }}
+            // Same real images as the homepage's "Automations" WorkGallery
+            // card, on request ("gunakan gambar yg dipake sesuai di work
+            // gallery").
+            images={getGalleryImages("automations")}
           />
 
           <ValuePillarsSection

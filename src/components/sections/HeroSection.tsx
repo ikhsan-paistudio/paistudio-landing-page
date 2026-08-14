@@ -1,11 +1,13 @@
 import Image from "next/image";
+import { Marquee } from "@/components/Marquee";
 
 type TrustBadge = {
   label: string;
   sourceUrl?: string;
 };
 
-/** One real image for the 50/50 placeholder row (see `images` below). */
+/** One real image in the Hero's horizontal image marquee (see `images`
+ * below). */
 type HeroImage = { src: string; alt: string };
 
 /** One step in a `HeroCard` timeline — e.g. `{ label: "Received", time: "2:14 PM" }`. */
@@ -43,13 +45,30 @@ type HeroSectionProps = {
    * component is unaffected. See `HeroCard` above for content rules.
    * Takes priority over `images` if both are somehow passed. */
   cards?: HeroCard[];
-  /** Optional real images for the same 50/50 placeholder row — `primary`
-   * fills the left box, `secondary` fills the right box, both still at
-   * the row's `16 / 10` aspect ratio via `object-cover` (so a source
-   * image that isn't exactly 16:10 gets center-cropped rather than
-   * stretched). Omit (the default) to keep the plain placeholder boxes —
-   * every other page is unaffected. Ignored if `cards` is also passed. */
-  images?: { primary: HeroImage; secondary: HeroImage };
+  /** Optional real images, replacing the two plain placeholder boxes with a
+   * continuously auto-scrolling horizontal marquee (same technique as the
+   * homepage's `WorkGallery`, but moving horizontally instead of
+   * vertically, on request — see `HeroMarqueeTile` below for the
+   * width/height reasoning). Was a fixed `{ primary, secondary }` pair;
+   * widened to an arbitrary-length array on request ("gunakan gambar yg
+   * dipake sesuai di work gallery") so a page can reuse its matching
+   * `WorkGallery` project's full real gallery (e.g.
+   * `PROJECTS.find(p => p.id === "saas-web-apps").gallery`) 1:1 instead of
+   * being capped at 2 images. Omit (the default) to keep the plain
+   * placeholder boxes — every other page is unaffected. Ignored if `cards`
+   * is also passed. */
+  images?: HeroImage[];
+  /** Set true to skip the image row entirely (no cards, no marquee, no
+   * placeholder boxes) — for pages with no matching real gallery to show,
+   * on request ("hide the marque in n8n, softr, airtable, claude ai,
+   * lovable"): those 5 tool pages have no direct 1:1 `WorkGallery`
+   * category, so their placeholder boxes are just empty gray filler with
+   * no real content coming later, unlike every other page's placeholder
+   * which is a "not wired up yet" state. Omit (the default, `false`) to
+   * keep the existing `cards` → `images` → placeholder fallback chain —
+   * every other page is unaffected. Takes priority over both `cards` and
+   * `images` if somehow combined. */
+  hideImages?: boolean;
 };
 
 /** Small pill-shaped footer badge shared by all three `HeroCard` types. */
@@ -118,6 +137,23 @@ function HeroCardContent({ card }: { card: HeroCard }) {
   );
 }
 
+/** One real image tile inside the Hero's horizontal image marquee (see
+ * `images` below) — the mirror image of `WorkGallery.tsx`'s vertical
+ * `GalleryTile`: that one fixes each tile's *width* to the row and lets
+ * `aspect-ratio` drive its height; this fixes the row's *height* (the
+ * marquee track is stretched to the wrapper's `h-full` via flex's default
+ * cross-axis `stretch`) and lets `aspect-ratio` drive each tile's width,
+ * since a horizontally-scrolling row needs a fixed height, not a fixed
+ * width. Same `rounded-[32px]` + `object-cover` treatment as every other
+ * image box in this project. */
+function HeroMarqueeTile({ src, alt }: HeroImage) {
+  return (
+    <div className="relative h-full shrink-0 overflow-hidden rounded-[32px] bg-[#d9d7d0]" style={{ aspectRatio: "16 / 10" }}>
+      <Image src={src} alt={alt} fill className="object-cover" />
+    </div>
+  );
+}
+
 /** Desktop scatter position for each of the (up to 3) cards — top-left,
  * lower-center (layered above the first, `z-10`), bottom-right (`z-20`).
  * Every position resets to a plain stacked flow on mobile
@@ -178,12 +214,30 @@ const HERO_CARD_POSITION_CLASSES = [
  * the content rules it was written against — no fabricated Paistudio
  * claims live inside a card.
  *
- * Optional `images` prop: real images in the same two-box 50/50 row
- * (`fill` + `object-cover`, so non-16:10 sources center-crop rather than
- * stretch) instead of the placeholder text. Used by
- * /saas-web-app-development (`public/hero/saas-web-app-development-{a,b}.png`).
- * Ignored if `cards` is also passed; omitted entirely on every other page,
- * which keeps the plain placeholder boxes.
+ * Optional `images` prop: real images instead of the placeholder text,
+ * originally the same two-box 50/50 row (`fill` + `object-cover`, static)
+ * — now a continuously auto-scrolling horizontal marquee of the same two
+ * images instead, on request ("masukin animasi kaya di workgallery... tapi
+ * gambar bergerak horizontally"): reuses the exact `Marquee` primitive and
+ * `.pai-hmarquee` CSS animation `WorkGallery.tsx` uses for its own
+ * vertical marquee (including the same `prefers-reduced-motion` handling,
+ * defined once in `globals.css` and shared by both), just with
+ * `direction="horizontal"` instead of `"vertical"`. See `HeroMarqueeTile`
+ * for why the row is now height-fixed with aspect-ratio-driven width
+ * (the mirror of `GalleryTile`'s width-fixed/height-driven tiles) rather
+ * than the old flex-[50]/flex-[50] split. Rendered as a sibling of the
+ * `pai-container` div rather than nested inside it, so the marquee spans
+ * the full viewport edge-to-edge instead of being capped at 1240px —
+ * on request ("buat full-width sekarang masih kena max width"); every
+ * other row in this component (text stack, `cards` canvas, placeholder
+ * boxes) stays inside `pai-container` as before, this is the one
+ * full-bleed exception. Each page now reuses its matching `WorkGallery`
+ * project's real gallery via `getGalleryImages()`
+ * (`src/lib/data/projects.ts`) rather than dedicated hero-only stills, on
+ * request ("gunakan gambar yg dipake sesuai di work gallery") — see that
+ * function's own doc comment for the id → page mapping. Ignored if
+ * `cards` is also passed; omitted entirely on every other page, which
+ * keeps the plain static placeholder boxes.
  *
  * Dark theme, now a green gradient rather than flat `bg-ink` — not in the
  * original spec, added on direct request to match "the index page's hero
@@ -203,7 +257,7 @@ const HERO_CARD_POSITION_CLASSES = [
  * max-width/padding wrapper is a separate inner `<div>` so the gradient
  * spans edge-to-edge instead of being boxed in at 1240px.
  *
- * Mobile aspect ratio (both the `images` and placeholder rows): each box's
+ * Mobile aspect ratio (placeholder row only): each box's
  * `aspectRatio: "16 / 10"` inline style is unconditional — never
  * overridden at `max-[900px]`/`max-[560px]` — so the 16:10 shape itself
  * never changes between desktop and mobile, only the box's absolute pixel
@@ -214,8 +268,12 @@ const HERO_CARD_POSITION_CLASSES = [
  * `aspect-ratio` + `flex-basis: auto` sizing interaction being a known
  * cross-browser rough edge, so the 16:10 ratio holds reliably everywhere
  * rather than depending on stretch resolving before aspect-ratio applies.
+ * The `images` marquee row instead fixes the row's *height* per breakpoint
+ * (`h-[360px]`/`max-[900px]:h-[240px]`/`max-[560px]:h-[180px]`) and lets
+ * each tile's own `aspectRatio: "16 / 10"` drive its width — see
+ * `HeroMarqueeTile`.
  */
-export function HeroSection({ eyebrow, headline, subhead, trustBadges, cta, cards, images }: HeroSectionProps) {
+export function HeroSection({ eyebrow, headline, subhead, trustBadges, cta, cards, images, hideImages }: HeroSectionProps) {
   return (
     <section
       className="py-32 max-[900px]:py-20"
@@ -270,7 +328,7 @@ export function HeroSection({ eyebrow, headline, subhead, trustBadges, cta, card
             </div>
           )}
 
-          {cards && cards.length > 0 ? (
+          {hideImages ? null : cards && cards.length > 0 ? (
             <div
               className="relative mt-16 w-full rounded-[32px] border border-white/10 bg-white/[0.04] max-[900px]:flex max-[900px]:flex-col max-[900px]:gap-4 max-[900px]:rounded-none max-[900px]:border-0 max-[900px]:bg-transparent max-[900px]:p-0"
               style={{ aspectRatio: "16 / 9" }}
@@ -281,22 +339,7 @@ export function HeroSection({ eyebrow, headline, subhead, trustBadges, cta, card
                 </div>
               ))}
             </div>
-          ) : images ? (
-            <div className="mt-16 flex w-full gap-4 max-[900px]:flex-col">
-              <div
-                className="relative flex flex-[50] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
-                style={{ aspectRatio: "16 / 10" }}
-              >
-                <Image src={images.primary.src} alt={images.primary.alt} fill className="object-cover" />
-              </div>
-              <div
-                className="relative flex flex-[50] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
-                style={{ aspectRatio: "16 / 10" }}
-              >
-                <Image src={images.secondary.src} alt={images.secondary.alt} fill className="object-cover" />
-              </div>
-            </div>
-          ) : (
+          ) : !images?.length ? (
             <div className="mt-16 flex w-full gap-4 max-[900px]:flex-col">
               <div
                 className="flex flex-[50] basis-0 items-center justify-center overflow-hidden rounded-[32px] bg-[#d9d7d0] max-[900px]:w-full max-[900px]:flex-none"
@@ -311,9 +354,33 @@ export function HeroSection({ eyebrow, headline, subhead, trustBadges, cta, card
                 <span className="text-[12px] tracking-[0.1em] text-muted uppercase">Image placeholder — 50%</span>
               </div>
             </div>
-          )}
+          ) : null}
         </div>
       </div>
+
+      {/* Rendered as a sibling of `pai-container` (outside its `max-w-[1240px]`
+          cap), not nested inside it, so the marquee spans the full viewport
+          edge-to-edge — on request ("buat full-width sekarang masih kena max
+          width"), since `<section>` itself carries no horizontal max-width
+          or padding of its own (those only live on the `pai-container` div
+          above), placing it here is enough to get true full-bleed without a
+          negative-margin/breakout hack. */}
+      {!hideImages && !cards?.length && images && images.length > 0 && (
+        <div className="mt-16 h-[360px] w-full overflow-hidden max-[900px]:h-[240px] max-[560px]:h-[180px]">
+          {/* `.pai-hmarquee`'s 26s default (globals.css) is shared with
+              `CtaSection`'s tools-logo strip — slowed down for this
+              instance only via an `animationDuration` override (an inline
+              longhand always wins over the class's `animation` shorthand,
+              same specificity rule either way) rather than touching the
+              shared class, so the logo strip's own speed is untouched. On
+              request ("its too fast"). */}
+          <Marquee direction="horizontal" pauseOnHover style={{ height: "100%", gap: "16px", animationDuration: "70s" }}>
+            {images.map((img, i) => (
+              <HeroMarqueeTile key={i} src={img.src} alt={img.alt} />
+            ))}
+          </Marquee>
+        </div>
+      )}
     </section>
   );
 }

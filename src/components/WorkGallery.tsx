@@ -26,13 +26,17 @@ const FALLBACK_ASPECT_RATIO = 16 / 10;
  * `aspect-ratio` is set from the loaded `<img>`'s own
  * `naturalWidth`/`naturalHeight` rather than a fixed ratio, so the tile's
  * height matches the actual screenshot instead of cropping it to fit a
- * box shape that doesn't match. */
+ * box shape that doesn't match. `rounded-[32px]` + `overflow-hidden`
+ * (added on follow-up request, "put rounded corner in all images in
+ * workgallery section") — same radius the placeholder tiles already use,
+ * so real and placeholder tiles read as one consistent set again even
+ * without the rest of the old container (border/background/padding). */
 function GalleryTile({ label, src, alt }: { label: string; src?: string; alt?: string }) {
   const [aspectRatio, setAspectRatio] = useState(FALLBACK_ASPECT_RATIO);
 
   if (src) {
     return (
-      <div className="relative mb-[18px] w-full" style={{ aspectRatio }}>
+      <div className="relative mb-[18px] w-full overflow-hidden rounded-[32px]" style={{ aspectRatio }}>
         <Image
           src={src}
           alt={alt ?? ""}

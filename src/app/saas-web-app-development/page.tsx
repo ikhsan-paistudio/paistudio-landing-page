@@ -9,6 +9,7 @@ import { ProcessSection } from "@/components/sections/ProcessSection";
 import { QualificationSection } from "@/components/sections/QualificationSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ValuePillarsSection } from "@/components/sections/ValuePillarsSection";
+import { getGalleryImages } from "@/lib/data/projects";
 import { ScrollDriverProvider } from "@/lib/scroll/useScrollDriver";
 
 export const metadata: Metadata = {
@@ -76,10 +77,12 @@ export default function SaasWebAppDevelopmentPage() {
               { label: "50+ projects completed" },
             ]}
             cta={{ label: "Start Your Project", href: "#contact" }}
-            images={{
-              primary: { src: "/hero/saas-web-app-development-a.png", alt: "SaaS product dashboard — campaign overview" },
-              secondary: { src: "/hero/saas-web-app-development-b.png", alt: "SaaS product dashboard — financial reporting" },
-            }}
+            // Same real images as the homepage's "SaaS & Web Apps"
+            // WorkGallery card, on request ("gunakan gambar yg dipake
+            // sesuai di work gallery") — was 2 dedicated
+            // /hero/saas-web-app-development-{a,b}.png stills, now the
+            // full 6-image gallery reused 1:1.
+            images={getGalleryImages("saas-web-apps")}
           />
 
           <ValuePillarsSection
