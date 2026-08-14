@@ -47,9 +47,12 @@ export function MobileNav({ open, onClose, theme = "dark" }: MobileNavProps) {
     ? "text-text/78 hover:bg-ink/8 hover:text-text"
     : "text-white/78 hover:bg-white/8 hover:text-white";
   const resourcesLabelClass = isLight ? "text-text/50" : "text-white/50";
+  // No `border-*` color — the CTA's border was removed on request ("hapus
+  // border di navbar dan cta di navbar"), matching the desktop pill's own
+  // borderless CTA in Nav.tsx/LetsTalkMenu.tsx.
   const ctaClass = isLight
-    ? "border-ink/12 bg-ink/5 text-text shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)]"
-    : "border-white/16 bg-white/8 text-white shadow-[0_6px_24px_rgba(255,255,255,0.14),inset_0_1px_0_rgba(255,255,255,0.18)]";
+    ? "bg-ink/5 text-text shadow-[0_6px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)]"
+    : "bg-white/8 text-white shadow-[0_6px_24px_rgba(255,255,255,0.14),inset_0_1px_0_rgba(255,255,255,0.18)]";
 
   return (
     <div className="fixed inset-0 z-50" style={{ pointerEvents: open ? "auto" : "none" }} aria-hidden={!open}>
@@ -162,12 +165,16 @@ export function MobileNav({ open, onClose, theme = "dark" }: MobileNavProps) {
             );
           })}
         </div>
-
+        {/* This CTA link was briefly removed entirely (misread of "hapus
+            border di navbar dan cta di navbar" as "remove the CTA," not
+            "remove the border from the navbar and its CTA") — restored
+            ("cta di navbar hilang. kembalikan"), now borderless via
+            `ctaClass` instead of gone. */}
         <a
           href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ05uOSQ6yl1esZXIC4E1tTxaHjO4J_gYaSvvfilV3L0884qFAars-E8LLeaXy5bkSBkVvXmpnAu?gv=true"
           target="_blank"
           rel="noopener"
-          className={`mt-4 flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-[15px] no-underline backdrop-blur-lg ${ctaClass}`}
+          className={`mt-4 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[15px] no-underline backdrop-blur-lg ${ctaClass}`}
         >
           Let&apos;s Talk
         </a>

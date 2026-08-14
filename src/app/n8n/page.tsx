@@ -84,20 +84,24 @@ export default function N8nPage() {
               {
                 label: "Strategy & Workflow Design",
                 description: "We map your operations and identify high-impact automation opportunities before building any workflow.",
+                image: { src: "/services/mp-mapping.png", alt: "Process flow map — ordered steps in a current operation" },
               },
               {
                 label: "Custom Workflow Development",
                 description: "We build advanced n8n automation workflows using modular logic, API integrations, and structured error handling.",
+                image: { src: "/services/custom-workflow.png", alt: "n8n workflow canvas — trigger, data, and AI transform steps" },
               },
               {
                 label: "AI & System Integration",
                 description:
                   "From AI-powered routing to automated content processing, we integrate intelligent systems directly into your automation environment.",
+                image: { src: "/services/integrations.png", alt: "Integrations panel connecting AI services to your automation environment" },
               },
               {
                 label: "Optimization & Expansion",
                 description:
                   "As your business grows, we continuously refine and expand your n8n automation infrastructure to maintain stability and scalability.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />

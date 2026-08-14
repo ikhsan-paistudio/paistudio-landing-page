@@ -76,6 +76,7 @@ export default function MvpDevelopmentPage() {
               {
                 label: "Scope & Validation Strategy",
                 description: "We define the smallest build that answers your real question.",
+                image: { src: "/services/strategy.png", alt: "Key architectural decisions — data structure, access control, automation, API-first approach" },
               },
               {
                 label: "Rapid Build",
@@ -85,6 +86,7 @@ export default function MvpDevelopmentPage() {
               {
                 label: "Launch & Data Instrumentation",
                 description: "We ship with analytics in place so you actually learn from real usage.",
+                image: { src: "/services/integrations.png", alt: "Integrations panel — analytics wired into your product" },
               },
               {
                 label: "Post-Validation Roadmapping",

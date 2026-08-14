@@ -79,18 +79,22 @@ export default function SoftrPage() {
               {
                 label: "Data Source & Access Planning",
                 description: "We structure your Airtable or Sheets data and define user permission levels.",
+                image: { src: "/services/strategy.png", alt: "Key architectural decisions — data structure, access control, automation, API-first approach" },
               },
               {
                 label: "Portal & Interface Build",
                 description: "We build your client portal, directory, or dashboard interface.",
+                image: { src: "/services/softr-automation.png", alt: "Softr site editor — portal layout and pages" },
               },
               {
                 label: "Integration & Automation",
                 description: "We connect Softr to your other tools and automate data flow.",
+                image: { src: "/services/integrations.png", alt: "Integrations panel connecting Softr to your other tools" },
               },
               {
                 label: "Refinement & Expansion",
                 description: "We extend your portal as user needs grow.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />

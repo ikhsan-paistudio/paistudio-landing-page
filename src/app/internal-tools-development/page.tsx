@@ -78,6 +78,7 @@ export default function InternalToolsDevelopmentPage() {
               {
                 label: "Workflow & Requirements Mapping",
                 description: "We understand how your team actually works before designing anything.",
+                image: { src: "/services/mp-mapping.png", alt: "Process flow map — ordered steps in a real team workflow" },
               },
               {
                 label: "Tool Development",
@@ -87,6 +88,7 @@ export default function InternalToolsDevelopmentPage() {
               {
                 label: "Data & System Integration",
                 description: "We connect your tool directly to existing databases and services.",
+                image: { src: "/services/integrations.png", alt: "Integrations panel connecting your tool to existing databases and services" },
               },
               {
                 label: "Iteration & Expansion",

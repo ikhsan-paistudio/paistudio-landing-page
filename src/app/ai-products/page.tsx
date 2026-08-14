@@ -78,14 +78,17 @@ export default function AiProductsPage() {
               {
                 label: "AI Feasibility & Scoping",
                 description: "We assess what's realistically achievable with current models for your specific use case.",
+                image: { src: "/services/strategy.png", alt: "Key architectural decisions — data structure, access control, automation, API-first approach" },
               },
               {
                 label: "Model & Pipeline Development",
                 description: "We build prompting, retrieval, and orchestration pipelines around your chosen model.",
+                image: { src: "/services/full-stack-dev.png", alt: "App editor — pipeline logic, data, and workflows in one interface" },
               },
               {
                 label: "Evaluation & Guardrails",
                 description: "We build evaluation harnesses and safety guardrails before anything ships.",
+                image: { src: "/services/mp-mapping.png", alt: "Structured evaluation flow — ordered checks from step to step" },
               },
               {
                 label: "Monitoring & Iteration",

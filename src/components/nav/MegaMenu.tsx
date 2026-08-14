@@ -13,10 +13,11 @@ type MegaMenuProps = {
   navOnLight?: boolean;
   /** Mirrors `Nav`'s own `chromeVariant` (see `Nav-v2-docs.md`). Combined
    * with `navOnLight` to compute `isLightChrome` (drives panel/title/link
-   * colors, same as before) and `isDarkOnLight` (drives *only* the
-   * trigger's hover tint — see that variable's own comment for why it
-   * needs to be separate from `isLightChrome` instead of just inverting
-   * it). */
+   * colors, same as before) — `isGreyChrome` (drives *only* the trigger's
+   * hover tint, matching `Nav`'s own always-grey v2 pill) is `chromeVariant
+   * === "v2"` alone, no `navOnLight` involved; see that variable's own
+   * comment for why it needs to be separate from `isLightChrome` instead
+   * of just inverting it. */
   chromeVariant?: "v1" | "v2";
 };
 
@@ -30,13 +31,18 @@ export function MegaMenu({ label, columns, panelWidthClassName, navOnLight = fal
   // The trigger has no background of its own at rest (`text-current`,
   // inheriting Nav's pill) — `hover:bg-white/14` is fine there since it
   // composites over the pill's own opaque background, not directly over
-  // the page. Still gets its own dark-family hover in the v2-on-white
-  // case for visual consistency with the pill/LetsTalkMenu trigger hovers
-  // right next to it, rather than a white highlight standing out alone.
-  const isDarkOnLight = chromeVariant === "v2" && navOnLight;
+  // the page. Gets its own grey-family hover for v2 (regardless of
+  // `navOnLight` — was `chromeVariant === "v2" && navOnLight` before "buat
+  // navigasi jadi tetap grey..." made Nav's own v2 pill unconditionally
+  // grey; this needed the matching change so the trigger's hover doesn't
+  // fall back to a translucent-white tint that no longer matches the pill
+  // it's sitting inside) for visual consistency with the pill/LetsTalkMenu
+  // trigger hovers right next to it, rather than a white highlight
+  // standing out alone.
+  const isGreyChrome = chromeVariant === "v2";
   // Matches Nav's own pill hover (hover:bg-muted, solid) now that the v2
   // pill itself is grey (bg-muted/90) instead of near-black.
-  const triggerHoverClass = isDarkOnLight ? "hover:bg-muted" : isLightChrome ? "hover:bg-ink/10" : "hover:bg-white/14";
+  const triggerHoverClass = isGreyChrome ? "hover:bg-muted" : isLightChrome ? "hover:bg-ink/10" : "hover:bg-white/14";
   const panelClass = isLightChrome
     ? "border-ink/10 bg-white/95 shadow-[0_18px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.6)]"
     : "border-white/14 bg-[#121210f2] shadow-[0_18px_48px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.12)]";

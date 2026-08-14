@@ -80,18 +80,22 @@ export default function LovablePage() {
               {
                 label: "Prompt & Scope Strategy",
                 description: "We define what to generate and what to build manually for the best result.",
+                image: { src: "/services/strategy.png", alt: "Key architectural decisions — data structure, access control, automation, API-first approach" },
               },
               {
                 label: "AI-Assisted Scaffolding",
                 description: "We generate your initial application structure using Lovable.",
+                image: { src: "/services/lovable.png", alt: "Lovable app editor — generated layout and components" },
               },
               {
                 label: "Human Review & Hardening",
                 description: "We review, refactor, and harden the generated code for real use.",
+                image: { src: "/services/mp-mapping.png", alt: "Structured review flow — ordered checks from step to step" },
               },
               {
                 label: "Extension & Production Readiness",
                 description: "We extend features and prepare your app for real users.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />
@@ -109,6 +113,12 @@ export default function LovablePage() {
                 title: "Generate & Review",
                 description:
                   "We generate the initial application and review the output critically, not just accept it as-is.",
+                // Overrides ProcessSection's default step-2 image
+                // (process-2.png) with process-6.png — a generated-page
+                // template with a placeholder image block, a closer match
+                // for "reviewing generated output" than the generic
+                // design/dev/AI pipeline default — on request.
+                image: { src: "/process/process-6.png", alt: "Generated page template — heading, subheading, and image block" },
               },
               {
                 title: "Refine, Extend & Launch",

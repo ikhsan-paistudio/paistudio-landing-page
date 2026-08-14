@@ -81,18 +81,22 @@ export default function ClaudeAiPage() {
               {
                 label: "Feasibility & Model Scoping",
                 description: "We assess whether Claude fits your use case and which model variant to use.",
+                image: { src: "/services/strategy.png", alt: "Key architectural decisions — data structure, access control, automation, API-first approach" },
               },
               {
                 label: "Prompt & Pipeline Development",
                 description: "We design prompting, context management, and tool-use architecture.",
+                image: { src: "/services/full-stack-dev.png", alt: "App editor — pipeline logic, data, and workflows in one interface" },
               },
               {
                 label: "Evaluation & Guardrails",
                 description: "We build evaluation sets and safety guardrails before launch.",
+                image: { src: "/services/mp-mapping.png", alt: "Structured evaluation flow — ordered checks from step to step" },
               },
               {
                 label: "Monitoring & Iteration",
                 description: "We track real-world performance and refine after launch.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />
@@ -110,6 +114,12 @@ export default function ClaudeAiPage() {
                 title: "Pipeline Design & Build",
                 description:
                   "We design and implement prompting, context, and tool-use architecture, tested against a structured evaluation set.",
+                // Overrides ProcessSection's default step-2 image
+                // (process-2.png) with process-7.png — a connected
+                // pipeline-stages diagram, a closer match for "pipeline
+                // design" than the generic design/dev/AI default — on
+                // request.
+                image: { src: "/process/process-7.png", alt: "Connected pipeline stages — design, development, AI services, integration" },
               },
               {
                 title: "Launch & Monitor",

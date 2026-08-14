@@ -32,10 +32,15 @@ function useRandomDefaultImage(coverImage: string, showcaseImages: string[]) {
   );
 }
 
-// One fixed aspect ratio for every card (previously varied per-slug for a
-// masonry layout — see ProjectGrid.tsx's switch from `columns` to a real
-// `grid`) so every card in a row is the same height and rows line up.
-const THUMB_ASPECT_RATIO = "4 / 5";
+// Fallback aspect ratio only — used until the real image has loaded
+// client-side and reported its own natural size (see `aspectRatio` state
+// below). Close to this project's real cover-image ratios (~1.25–1.41,
+// i.e. landscape) so there's minimal layout shift once the real value
+// swaps in, unlike the old fixed "4 / 5" (portrait) every card used to
+// share regardless of its actual image shape — that mismatch is exactly
+// why this changed: a landscape screenshot inside a portrait box left
+// large empty gaps above/below it under `object-contain`.
+const FALLBACK_ASPECT_RATIO = 4 / 3;
 
 type ProjectCardProps = {
   project: Project;
@@ -47,6 +52,18 @@ export function ProjectCard({ project, revealed }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
   const defaultImage = useRandomDefaultImage(project.coverImage, project.showcaseImages);
+
+  // Each card fits its own resting/default image's real proportions
+  // instead of every card in the grid sharing one fixed shape — set once
+  // from the loaded `<img>`'s `naturalWidth`/`naturalHeight` (real
+  // per-image, per-card sizing; genuinely different projects can render at
+  // genuinely different heights now, on request: "tiap card bikin fit
+  // height to gambarnya"). Deliberately only updates from the *resting*
+  // image's load, not the hover-cycled showcase images — those still
+  // report through the same `onLoad` handler, but the `hovered` guard
+  // skips the `setAspectRatio` call for them, so the card's box stays put
+  // instead of resizing every ~1.3s as the hover cycle swaps images.
+  const [aspectRatio, setAspectRatio] = useState(FALLBACK_ASPECT_RATIO);
 
   useEffect(() => {
     if (!hovered || project.showcaseImages.length === 0) return;
@@ -90,9 +107,21 @@ export function ProjectCard({ project, revealed }: ProjectCardProps) {
             page's images (ContainedImage/SplitImageRow/CurvedRevealImage):
             #E0E0E0 container, image capped at max-width and centered
             inside it via object-contain, instead of filling the frame. */}
-        <div className="pai-hover-card w-full rounded-[32px] bg-[#E0E0E0]" style={{ aspectRatio: THUMB_ASPECT_RATIO }}>
+        <div className="pai-hover-card w-full rounded-[32px] bg-[#E0E0E0]" style={{ aspectRatio }}>
           <div className="relative mx-auto h-full w-full max-w-[100%]">
-            <Image src={displayedImage} alt={project.title} fill className="object-contain" />
+            <Image
+              src={displayedImage}
+              alt={project.title}
+              fill
+              className="object-contain"
+              onLoad={(e) => {
+                if (hovered) return;
+                const img = e.currentTarget;
+                if (img.naturalWidth && img.naturalHeight) {
+                  setAspectRatio(img.naturalWidth / img.naturalHeight);
+                }
+              }}
+            />
           </div>
           {project.badge && (
             <span className="absolute top-4 left-4 rounded-full bg-brand px-3 py-1 text-[12px] font-medium tracking-[0.1em] text-white uppercase">

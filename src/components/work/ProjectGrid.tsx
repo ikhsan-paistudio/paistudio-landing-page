@@ -24,8 +24,8 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
     // vertical flow, combined with each card having a different aspect
     // ratio, meant row 1's cards never actually lined up with each other.
     // A grid + one fixed thumbnail aspect ratio (ProjectCard.tsx) makes
-    // every row level.
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+    // every row level. 2 columns on desktop (was 3), on request.
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
       {projects.map((project) => (
         <ProjectCard key={project.slug} project={project} revealed={revealed} />
       ))}

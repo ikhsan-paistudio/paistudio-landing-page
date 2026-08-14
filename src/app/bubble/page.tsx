@@ -80,18 +80,22 @@ export default function BubblePage() {
               {
                 label: "App Architecture & Data Modeling",
                 description: "We design your database structure and workflow logic before building.",
+                image: { src: "/services/strategy.png", alt: "Key architectural decisions — data structure, access control, automation, API-first approach" },
               },
               {
                 label: "Application Build",
                 description: "We build your full application in Bubble, including custom workflows and UI.",
+                image: { src: "/services/full-stack-dev.png", alt: "Bubble app editor — pages, workflows, and data in one interface" },
               },
               {
                 label: "API & Plugin Integration",
                 description: "We connect external services and data sources to your app.",
+                image: { src: "/services/integrations.png", alt: "Integrations panel connecting your app to external services" },
               },
               {
                 label: "Performance & Scaling",
                 description: "We optimize workflows and data structure as your usage grows.",
+                image: { src: "/services/scale.png", alt: "System health dashboard — workflows, API calls, database size, and error rate" },
               },
             ]}
           />

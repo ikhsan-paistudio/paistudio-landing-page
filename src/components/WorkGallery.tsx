@@ -1,11 +1,54 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { PROJECTS } from "@/lib/data/projects";
 import { useScrollDriver } from "@/lib/scroll/useScrollDriver";
 import { Marquee } from "./Marquee";
 
-function GalleryTile({ label }: { label: string }) {
+// Fallback only, for the moment before a real image reports its own size
+// via `onLoad` below — this project's other fit-height treatment
+// (ProjectCard.tsx) uses the same "close, not exact" reasoning for its
+// own fallback constant.
+const FALLBACK_ASPECT_RATIO = 16 / 10;
+
+/** Real screenshot when `src` is set (real client work, e.g. "SaaS & Web
+ * Apps"'s gallery — on request), otherwise the original placeholder tile
+ * (rounded, bordered, `#d9d7d0` box + "IMAGE N" caption).
+ *
+ * The real-screenshot case briefly had its own rounded/bordered/tinted-
+ * background/padded container (a light wash of the image's own extracted
+ * `brandColor`) — removed on request ("jangan pake container. cukup
+ * gambarnya aja"): no wrapper box, no background, no padding, just the
+ * image itself. It then briefly stayed force-cropped into a fixed 16:10
+ * box via `object-cover` — now fit-height instead ("buat fit-height"),
+ * same technique as `ProjectCard.tsx`'s own fit-height fix: the tile's
+ * `aspect-ratio` is set from the loaded `<img>`'s own
+ * `naturalWidth`/`naturalHeight` rather than a fixed ratio, so the tile's
+ * height matches the actual screenshot instead of cropping it to fit a
+ * box shape that doesn't match. */
+function GalleryTile({ label, src, alt }: { label: string; src?: string; alt?: string }) {
+  const [aspectRatio, setAspectRatio] = useState(FALLBACK_ASPECT_RATIO);
+
+  if (src) {
+    return (
+      <div className="relative mb-[18px] w-full" style={{ aspectRatio }}>
+        <Image
+          src={src}
+          alt={alt ?? ""}
+          fill
+          className="object-cover"
+          onLoad={(e) => {
+            const img = e.currentTarget;
+            if (img.naturalWidth && img.naturalHeight) {
+              setAspectRatio(img.naturalWidth / img.naturalHeight);
+            }
+          }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="mb-[18px] overflow-hidden rounded-[32px] border border-black/8">
       <div
@@ -88,7 +131,7 @@ export function WorkGallery() {
                 >
                   <Marquee direction="vertical" pauseOnHover className="absolute top-0 right-0 left-0">
                     {project.gallery.map((slot, gi) => (
-                      <GalleryTile key={gi} label={`IMAGE ${slot}`} />
+                      <GalleryTile key={gi} label={`IMAGE ${slot.label}`} src={slot.src} alt={slot.alt} />
                     ))}
                   </Marquee>
                 </div>

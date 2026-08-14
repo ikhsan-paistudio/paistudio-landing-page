@@ -81,14 +81,17 @@ export default function AutomationToolsPage() {
               {
                 label: "Automation Audit",
                 description: "We identify which manual processes are actually worth automating.",
+                image: { src: "/services/mp-mapping.png", alt: "Process flow map — ordered steps in a current workflow" },
               },
               {
                 label: "Platform Selection & Architecture",
                 description: "We choose and design the right automation platform and structure for your needs.",
+                image: { src: "/services/strategy.png", alt: "Key architectural decisions — data structure, access control, automation, API-first approach" },
               },
               {
                 label: "Workflow Build & Integration",
                 description: "We build your automations and connect them to your existing systems.",
+                image: { src: "/services/custom-workflow.png", alt: "Automation workflow — trigger, data, and AI transform steps" },
               },
               {
                 label: "Monitoring & Refinement",
